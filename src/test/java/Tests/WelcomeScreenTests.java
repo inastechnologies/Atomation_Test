@@ -11,7 +11,7 @@ public class WelcomeScreenTests extends BaseTest {
     public void VerifyWelcomeScreenAppearsAfterEnteringURL() {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
-        String ExpectedLoginMessageText = "Welcome !";
+        String ExpectedLoginMessageText = "Welcome";
         String ActualLoginMessageText = Utils.GetTextFromAnElement(driver, homePage.LoginInWelcomeText);
         Assert.assertEquals(ActualLoginMessageText, ExpectedLoginMessageText);
     }
@@ -83,15 +83,15 @@ public class WelcomeScreenTests extends BaseTest {
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523563990", "fgsdsgf", "fggasfdf", "rtwqe", "5367", "ytredf", "tyetdtqyd");
 
 
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2010", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "6587999976", "2025", "01/02/2011");
+                "asfa", "6587999976", "2020", "01/02/2020");
 
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
 
-        verifyYourAccountPage.EnterPhoneEmailAndClickGetVerificationCode();
-        AdminPanelPage adminPanelPage = verifyYourAccountPage.EnterOTPAndClickSubmit();
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
+        AdminPanelPage adminPanelPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
         String ActualText = (Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage));
 

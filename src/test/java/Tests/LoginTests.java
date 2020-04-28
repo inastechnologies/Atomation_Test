@@ -36,9 +36,9 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerificationCodeText), "Verification Code");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationCodeText), "Verification Code");
     }
 
     @Test// working
@@ -49,8 +49,8 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verifyYourAccountPage.EnterOTPAndClickSubmitForResetPassword();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, resetPasswordPage.ResetPasswordMessage), "Reset Password");
     }
@@ -63,8 +63,8 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verifyYourAccountPage.EnterOTPAndClickSubmitForResetPassword();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
         resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
@@ -98,7 +98,7 @@ public class LoginTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
         Utils.WaitForAnElementToExist(driver, loginPage.LoginPageIcons.get(4));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(4)));
         Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(5)));
-        Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(6)));
-    }
+        }
 }

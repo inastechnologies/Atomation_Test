@@ -9,8 +9,7 @@ public class DemoTests extends BaseTest
 
 {
     @Test// working
-    public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout()
-    {
+    public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -34,22 +33,15 @@ public class DemoTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2021", "01/02/2017");
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2020");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
 
-        //practiceServiceDescriptionPage.SubmitButton.click();
-        VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
 
-        verifyYourAccountPage.EnterPhoneEmailAndClickGetVerificationCode();
-        AdminPanelPage adminPanelPage = verifyYourAccountPage.EnterOTPAndClickSubmit();
+        AdminPanelPage adminPanelPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
-       //Utils.WaitForAnElementToExist(driver, adminPanelPage. AdminPanelMessage);
-
-       //String ActualText = (Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage));
-       //Assert.assertEquals(ActualText, "Welcome to QNature");
-
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.AdminPanelMessage));
+        Thread.sleep(3000);
 
         LoginPage loginPage =  adminPanelPage.AfterSubmittingFormClickLogout();
 
@@ -62,7 +54,7 @@ public class DemoTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("9000000001", "Test@123");
+        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("9090909090", "Test@123");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
 
@@ -77,7 +69,7 @@ public class DemoTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("amrutha@gmail.com", "Test@123");
+        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("lolo@gmail.com", "Test@123");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
 
@@ -94,8 +86,8 @@ public class DemoTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verifyYourAccountPage.EnterOTPAndClickSubmitForResetPassword();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
         resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
@@ -119,8 +111,7 @@ public class DemoTests extends BaseTest
     }
 
     @Test// working
-    public void VerifyIfUserCanNavigateBackPagesToEditTheData()
-    {
+    public void VerifyIfUserCanNavigateBackPagesToEditTheData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -144,7 +135,7 @@ public class DemoTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-03-1990", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2021", "01/02/2017");
+                "Holistic Hospitals", "6587234996", "2020", "09/08/2020");
 
         practiceServiceDescriptionPage.DescribeYourselfInputField.sendKeys( "fggfgfgfhfh");
 
@@ -169,14 +160,11 @@ public class DemoTests extends BaseTest
 
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practisioner", "yttuytuuh", "uhyugu", "fyugyugsa");
 
-        verifyYourAccountPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
 
-        AdminPanelPage adminPanelPage = verifyYourAccountPage.EnterOTPAndClickSubmit();
+        AdminPanelPage adminPanelPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
-        //String ActualText = (Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage));
-        //Assert.assertEquals(ActualText, "Welcome to QNature");
-
-       // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.AdminPanelMessage));
+        Thread.sleep(3000);
 
         LoginPage loginPage =  adminPanelPage.AfterSubmittingFormClickLogout();
 

@@ -18,10 +18,10 @@ public class BusinessInfoPage extends BasePage
     @FindBy(xpath = "//div[text()='Business Information']")
     public WebElement BusinessInfoText;
 
-    @FindBy(xpath = "//div[text()=' Clinic/Institute/Organization Name (Opt) ']")
+    @FindBy(xpath = "//div[text()=' Clinic/Institute/Organization Name (Opt) : ']")
     public WebElement ClinicInstituteOrganizationName;
 
-    @FindBy(xpath = "//div[text()=' Australian Business Number(ABN) ']")
+    @FindBy(xpath = "//div[text()=' Australian Business Number(ABN) : ']")
     public WebElement AustralianBusinessNo;
 
     @FindBy(xpath = "//div[text()=' Address1 ']")

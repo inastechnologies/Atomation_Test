@@ -21,7 +21,7 @@ public class LandingPage extends BasePage
     @FindBy(xpath = "//div[text()=' SIGN UP ']")
     public WebElement SignUpTab;
 
-    @FindBy(css = "span.welcome-text")
+    @FindBy(css = "div.text-size-50.txt-align-center.welcome-text")
     public WebElement LoginInWelcomeText;
 
     public SignUpPage NavigateToSignUpPage()

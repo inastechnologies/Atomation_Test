@@ -71,7 +71,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test //working
-    public void VerifyUserCanNavigateToNextPageWithoutEnteringDataInEducationalInfoPage()
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInEducationalInfoPage()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -275,7 +275,7 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "7655", "");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "2018", "");
 
         Assert.assertFalse(Utils.IsElementDisplayed(driver, educationalInfoPage.YearOfRegError));
     }
@@ -333,7 +333,7 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "", "09-09-2020");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "", "2019", "09-09-2020");
 
         Assert.assertFalse(Utils.IsElementDisplayed(driver, educationalInfoPage.RegistrationRenewalDateError));
     }
@@ -362,9 +362,9 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "7687678655", "");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "7687678655", "03/08/8765");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegistrationRenewalDateError), "Registration Renewal Date is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegistrationRenewalDateError), "Registration Renewal Date is Invalid");
     }
 
     @Test // working

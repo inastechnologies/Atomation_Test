@@ -61,4 +61,13 @@ public class PracticeServiceDescriptionPage extends BasePage
        return new VerifyYourAccountPage(driver);
     }
 
+    public void CLickEveryFieldInPracticeServiceInfoPage()
+    {
+        Utils.WaitForAnElementToExist(driver, DescribeYourselfInputField);
+        DescribeYourselfInputField.click();
+        DescribeInterestsInputField.click();
+        DescribePracticeInputField.click();
+        AdditionalInfoInputField.click();
+    }
+
 }

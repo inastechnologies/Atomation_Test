@@ -71,7 +71,7 @@ public class EducationalInfoPage extends BasePage
     @FindBy(xpath = "//div[text()='Year Of Registration should be 4 digits']")
     public WebElement YearOfRegError;
 
-    @FindBy(xpath = "//div[text()='Registration Renewal Date is required']")
+    @FindBy(xpath = "//div[text()='Registration Renewal Date is Invalid']")
     public WebElement RegistrationRenewalDateError;
 
     @FindBy(xpath = "//div[text()='Flower.jpg']")

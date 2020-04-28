@@ -1,44 +1,15 @@
 package Tests;
 
-import Pages.BusinessInfoPage;
-import Pages.LandingPage;
-import Pages.PersonalInfoPage;
-import Pages.SignUpPage;
+import Pages.*;
 import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PersonalInfoTests extends BaseTest
+public class VerificationOfYourAccountTests extends BaseTest
 {
+
     @Test// working
-    public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage()
-    {
-        String Characters = Utils.printRandomString(6);
-        String FirstName = "Sailaja" + Characters;
-        String LastName = "Mamillapllai" + Characters;
-        String AlphaNumeric = Utils.getAlphaNumericString(6);
-        String Email = AlphaNumeric + "@gmail.com";
-        int PhoneNumber = Utils.RandomGenerator();
-        String PhoneNum = Integer.toString(PhoneNumber);
-        String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
-        String Password = AlphaNumeric + "@Jj5";
-        String ConfirmPassword = AlphaNumeric + "@Jj5";
-        LandingPage homePage = new LandingPage(driver);
-        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
-
-        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523856390", "fgsdsgf", "fggasfdf", "rtwqe", "5377", "ytredf", "tyetdtqyd");
-
-        String ExpectedProfilePictureText = "Upload Profile Picture";
-        String ActualProfilePictureText = Utils.GetTextFromAnElement(driver, personalInfoPage.UploadPictureText);
-        Assert.assertEquals(ActualProfilePictureText, ExpectedProfilePictureText);
-    }
-
-    @Test // working
-    public void VerifyIfPersonalInfoPageHasAllTheRequiredFields()
+    public void VerifyIfUserCanNavigateToVerifyYourAccountPageAfterCompletionOfPracticeServiceDescriptionPage()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -57,14 +28,20 @@ public class PersonalInfoTests extends BaseTest
         BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, personalInfoPage.UploadPictureText),"Upload Profile Picture");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, personalInfoPage.DOBFieldText),"Date Of Birth * :");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerifyYourAccountText), "Verify Your Account");
     }
 
-    @Test//  not working DOb entering wrong value
-    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInPersonalInfoPage() {
+    @Test // working
+    public void VerifyYourAccountPageHasTheRequiredField()
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -74,26 +51,30 @@ public class PersonalInfoTests extends BaseTest
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
         String Location = "Hyderabad";
-        String Password = AlphaNumeric + "@Jk5";
-        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        String Password = AlphaNumeric + "@J5";
+        String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
         BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("03/03/1995", personalInfoPage.DOBInputField);
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
 
-        personalInfoPage.DOBInputField.clear();
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("08/05/1993", personalInfoPage.DOBInputField);
+        Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField);
+        verifyYourAccountPage.PhoneEmailInputField.click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.PhoneEmailFieldText), "Phone Number or Email *");
     }
 
     @Test //working
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPersonalInfoPage()
-    {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationOfYourAccountPage() {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -113,40 +94,21 @@ public class PersonalInfoTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext(" ", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, personalInfoPage.DOBFieldError), "Date Of Birth is required");
-    }
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
 
-    @Test//Not working
-    public void VerifyDOBFieldIsAcceptingValidData()
-    {
-        String Characters = Utils.printRandomString(6);
-        String FirstName = "Sailaja" + Characters;
-        String LastName = "Mamillapllai" + Characters;
-        String AlphaNumeric = Utils.getAlphaNumericString(6);
-        String Email = AlphaNumeric + "@gmail.com";
-        int PhoneNumber = Utils.RandomGenerator();
-        String PhoneNum = Integer.toString(PhoneNumber);
-        String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
-        String Password = AlphaNumeric + "@Jk5";
-        String ConfirmPassword = AlphaNumeric + "@Jk5";
-        LandingPage homePage = new LandingPage(driver);
-        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
 
-        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
+        Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.GetVerificationCodeButton);
+        verifyYourAccountPage.GetVerificationCodeButton.click();
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-03-1995", personalInfoPage.DOBInputField);
-
-        Assert.assertFalse(Utils.IsElementDisplayed(driver, personalInfoPage.DOBFieldError));
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.PhoneEmailError), "Phone Number or Email is required");
     }
 
     @Test// not working
-    public void VerifyDOBFieldIsNotAcceptingInValidData()
+    public void VerifyPhoneNoOrEmailFieldIsAcceptingValidPhoneNo()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -167,13 +129,20 @@ public class PersonalInfoTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("06-09-2012", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, personalInfoPage.DOBFieldError), "Date Of Birth is Invalid");
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
+
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+
+        Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
+        verifyYourAccountPage.PhoneEmailInputField.sendKeys("9000000001");
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, verifyYourAccountPage.PhoneEmailError));
     }
 
-    @Test//working
-    public void VerifyIfPersonalInfoPageHasGenderRadioButtonsAndSelectedOneAtaTime()
+    @Test// working
+    public void VerifyPhoneNoOREmailFieldIsAcceptingValidEmail()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -194,12 +163,49 @@ public class PersonalInfoTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext(" ", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
-        personalInfoPage.GenderRadioButtons.get(0).click();
-        Assert.assertTrue(Utils.isElementSelected(driver, personalInfoPage.GenderRadioButtons.get(0)));
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
 
-        personalInfoPage.GenderRadioButtons.get(1).click();
-        Assert.assertFalse(Utils.isElementSelected(driver, personalInfoPage.GenderRadioButtons.get(0)));
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+
+        Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
+        verifyYourAccountPage.PhoneEmailInputField.sendKeys("lolo@gmail.com");
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, verifyYourAccountPage.PhoneEmailError));
+    }
+
+    @Test// not working
+    public void VerifyPhoneNoOREmailFieldIsNotAcceptingInValidData()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Jk5";
+        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2020");
+
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+
+        Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
+        verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("756576");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.PhoneEmailError), "Please enter a valid phone number or email");
     }
 }

@@ -29,12 +29,12 @@ public class ForgotPasswordPage extends BasePage
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement SubmitButton;
 
-    public VerifyYourAccountPage EnterPhoneEmailAndClickGetVerificationCode()
+    public VerificationCodePage EnterPhoneEmailAndClickGetVerificationCode()
     {
         Utils.WaitForAnElementToExist(driver, PhoneEmailInputField);
-        PhoneEmailInputField.sendKeys("9000000009");
+        PhoneEmailInputField.sendKeys("9000000001");
         GetVerificationCodeButton.click();
-        return new VerifyYourAccountPage(driver);
+        return new VerificationCodePage(driver);
     }
 
     public AdminPanelPage EnterOTPAndClickSubmit()

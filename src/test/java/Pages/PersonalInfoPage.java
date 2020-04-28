@@ -19,13 +19,13 @@ public class PersonalInfoPage extends BasePage {
     @FindBy(css = "div.text-field-name.text-field-name-click")
     public WebElement DOBFieldText;
 
-    @FindBy(css = "input.input-type-2.ng-pristine.ng-invalid.ng-touched")
+    @FindBy(xpath = "//input[@formcontrolname='dob']")
     public WebElement DOBInputField;
 
     @FindBy(css = "div.text-error")
     public WebElement DOBFieldError;
 
-    @FindBy(css = "input.next-btn.border-0")
+    @FindBy(css = "div.txt-align-center.next-btn-mrgn")
     public WebElement PInfoNextButton;
 
     @FindBy(id = "file")

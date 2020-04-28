@@ -2,6 +2,10 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -35,7 +39,7 @@ public class PracticeServiceDescriptionTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1990", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2022", "01/02/2011");
+                "asfa", "2658787656", "2020", "01/02/2020");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.DescribeUrSelfText), "Describe yourself * :");
     }
 
@@ -61,12 +65,11 @@ public class PracticeServiceDescriptionTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("03-02-1995 ", personalInfoPage.DOBInputField);
 
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2010", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2022", "01/02/2011");
+                "asfa", "2658787656", "2020", "01/02/2020");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.DescribeUrSelfText), "Describe yourself * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.DescribePracticeText), "Describe about practice * :");
@@ -75,7 +78,7 @@ public class PracticeServiceDescriptionTests extends BaseTest
     }
 
     @Test //working
-    public void VerifyUserCanNavigateToNextPageWithoutEnteringDataInPracticeServiceDescriptionInfoPage()
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPracticeServiceDescriptionInfoPage()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -96,16 +99,17 @@ public class PracticeServiceDescriptionTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
 
-        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
-
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2010", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2022", "01/02/2011");
+                "asfa", "2658787656", "2020", "01/02/2020");
+
+        practiceServiceDescriptionPage.CLickEveryFieldInPracticeServiceInfoPage();
 
         practiceServiceDescriptionPage.SubmitButton.click();
 
         List<String> ActualText = Utils.GetTextForAListOfElements(driver, practiceServiceDescriptionPage.ErrorMessages);
+
         Assert.assertEquals(ActualText.get(0), "Describe yourself is required");
         Assert.assertEquals(ActualText.get(1), "Describe about practice is required");
         Assert.assertEquals(ActualText.get(2), "Describe areas of special Interests & Services is required");

@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.BusinessInfoPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.SignUpPage;
+import Pages.*;
 import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -127,9 +124,9 @@ public class SignUpTests extends  BaseTest
         signUpPage.ClinicRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        //AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test // working
@@ -152,9 +149,9 @@ public class SignUpTests extends  BaseTest
         signUpPage.CustomerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        //AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test // working
@@ -177,9 +174,9 @@ public class SignUpTests extends  BaseTest
         signUpPage.HealthStoreOwnerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        //AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test // working
@@ -202,9 +199,9 @@ public class SignUpTests extends  BaseTest
         signUpPage.EventOrganizerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        //AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test // working
@@ -227,9 +224,9 @@ public class SignUpTests extends  BaseTest
         signUpPage.InstitutionRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        //AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test// working but has to Assert
@@ -303,10 +300,6 @@ public class SignUpTests extends  BaseTest
         String ActualMobileNumberText = Utils.GetTextFromAnElement(driver, signUpPage.MobileNumberFieldText);
         Assert.assertEquals(ActualMobileNumberText, ExpectedMobileNumberText);
 
-        String ExpectedLocationText = "Location *";
-        String ActualLocationText = Utils.GetTextFromAnElement(driver, signUpPage.LocationFieldText);
-        Assert.assertEquals(ActualLocationText, ExpectedLocationText);
-
         String ExpectedPasswordText = "Password *";
         String ActualPasswordText = Utils.GetTextFromAnElement(driver, signUpPage.PasswordFieldText);
         Assert.assertEquals(ActualPasswordText, ExpectedPasswordText);
@@ -348,14 +341,13 @@ public class SignUpTests extends  BaseTest
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.ValidNameErrorMessage));
-
     }
 
     @Test//working
     public void VerifyFirstNameFieldIsNotAcceptingInValidDataWithCombinationOfNumbersAndSpecialCharactersAndSpaces()
     {
         String Characters = Utils.printRandomString(6);
-        String FirstName = "hgj765#% #" + Characters;
+        String FirstName = "hgj765#!@#% ^&*()_+=?><|~{}|'|?" + Characters;
         String LastName = "Mamillapllai" + Characters;
         String AlphaNumeric = Utils.getAlphaNumericString(6);
         String Email = AlphaNumeric + "@gmail.com";
@@ -504,7 +496,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.validMobileErrorMessage), "Mobile Number should be 10 digits");
     }
 
-    @Test// working
+    @Test// Not working // Entering invalid data
     public void VerifyLocationFieldIsNotAcceptingInValidData()
     {
         String Characters = Utils.printRandomString(6);
@@ -515,7 +507,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "762386";
+        String Location = "@#%#%";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -679,6 +671,9 @@ public class SignUpTests extends  BaseTest
     {
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+
+        signUpPage.CLickEveryFieldBeforeEnteringTheData();
+
         signUpPage.ClickSignUpButtonWithEmptyFields();
 
         String ExpectedNameErrorText = "Name is required";
@@ -701,9 +696,9 @@ public class SignUpTests extends  BaseTest
         String ActualConfirmPasswordErrorText = Utils.GetTextFromAnElement(driver, signUpPage.ConfirmPasswordErrorMessage);
         Assert.assertEquals(ActualConfirmPasswordErrorText, ExpectedConfirmPasswordErrorText);
 
-        String ExpectedLocationErrorText = "Location is required";
+        /*String ExpectedLocationErrorText = "Location is required";
         String ActualLocationErrorText = Utils.GetTextFromAnElement(driver, signUpPage.LocationErrorMessage);
-        Assert.assertEquals(ActualLocationErrorText, ExpectedLocationErrorText);
+        Assert.assertEquals(ActualLocationErrorText, ExpectedLocationErrorText);*/
     }
 
     @Test// working
