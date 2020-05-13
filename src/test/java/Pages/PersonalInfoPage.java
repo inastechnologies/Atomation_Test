@@ -44,24 +44,4 @@ public class PersonalInfoPage extends BasePage {
         PInfoNextButton.click();
         return new EducationalInfoPage(driver);
     }
-
-    public void EnterDOB()
-    {
-        DOBInputField.click();
-
-       // driver.findElement(By.id("datepicker")).click();
-
-        List<WebElement> allDates=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//td"));
-
-        for(WebElement ele:allDates)
-        {
-            String date = ele.getText();
-
-            if(date.equalsIgnoreCase("28"))
-            {
-                ele.click();
-                break;
-            }
-        }
-    }
 }

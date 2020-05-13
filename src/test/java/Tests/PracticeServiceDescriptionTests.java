@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PracticeServiceDescriptionTests extends BaseTest
 {
-    @Test// working
+    @Test
     public void VerifyIfUserCanNavigateToPracticeServiceDescriptionPageAfterCompletionOfEducationalInfoPage()
     {
         String Characters = Utils.printRandomString(6);
@@ -30,10 +30,12 @@ public class PracticeServiceDescriptionTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523561390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523561390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf");
 
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1990", personalInfoPage.DOBInputField);
@@ -43,7 +45,7 @@ public class PracticeServiceDescriptionTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.DescribeUrSelfText), "Describe yourself * :");
     }
 
-    @Test // working
+    @Test
     public void VerifyPracticeServiceDescriptionPagePageHasAllTheRequiredFields()
     {
         String Characters = Utils.printRandomString(6);
@@ -60,10 +62,12 @@ public class PracticeServiceDescriptionTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf", "tyetdtqyd");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf");
 
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
@@ -77,7 +81,7 @@ public class PracticeServiceDescriptionTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.AdditionalInfoText), "Additional Information * :");
     }
 
-    @Test //working
+    @Test
     public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPracticeServiceDescriptionInfoPage()
     {
         String Characters = Utils.printRandomString(6);
@@ -94,10 +98,12 @@ public class PracticeServiceDescriptionTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 

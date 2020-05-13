@@ -17,6 +17,9 @@ public class LoginPage extends BasePage
     @FindBy(xpath = "//div[text()=' LOGIN '] ")
     public WebElement LoginTab;
 
+    @FindBy(xpath = "//span[text()='Sign Up']")
+    public WebElement SignUpLink;
+
     @FindBy(css = "div.text-login")
     public WebElement LoginText;
 

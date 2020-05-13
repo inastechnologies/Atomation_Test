@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import jdk.jshell.execution.Util;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class SignUpTests extends  BaseTest
 {
-    @Test // working
+    @Test
     public void VerifyIfSignUpPageHasAllTheRequiredFields()
     {
         LandingPage landingPage = new LandingPage(driver);
@@ -68,7 +69,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(ActualClinicText, ExpectedClinicText);
     }
 
-    @Test // working
+    @Test
     public void VerifyIfAllTheFieldsInTheSignUpPageAreClickable()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -83,7 +84,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertTrue(Utils.isClickable(driver, signUpPage.ConfirmPasswordInputBox));
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnThePractitionerCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -100,11 +101,13 @@ public class SignUpTests extends  BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.BusinessInfoText), "Business Information");
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnTheClinicCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -120,7 +123,7 @@ public class SignUpTests extends  BaseTest
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        LoginPage loginPage = signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.ClinicRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
@@ -129,7 +132,7 @@ public class SignUpTests extends  BaseTest
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnTheCustomerCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -145,7 +148,7 @@ public class SignUpTests extends  BaseTest
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        LoginPage loginPage = signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.CustomerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
@@ -154,7 +157,7 @@ public class SignUpTests extends  BaseTest
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnTheHealthStoreCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -170,7 +173,7 @@ public class SignUpTests extends  BaseTest
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        LoginPage loginPage = signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.HealthStoreOwnerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
@@ -179,7 +182,7 @@ public class SignUpTests extends  BaseTest
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnTheEventOrganizerCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -195,7 +198,7 @@ public class SignUpTests extends  BaseTest
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        LoginPage loginPage = signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.EventOrganizerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
@@ -204,7 +207,7 @@ public class SignUpTests extends  BaseTest
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test // working
+    @Test
     public void VerifyWhenWeClickOnTheInstitutionCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
@@ -220,7 +223,7 @@ public class SignUpTests extends  BaseTest
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        LoginPage loginPage = signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.InstitutionRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
@@ -229,8 +232,8 @@ public class SignUpTests extends  BaseTest
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test// working but has to Assert
-    public void VerifyIfAllTheFieldsInTheRegistrationPageIsClickableAndEditable()
+    @Test
+    public void VerifyIfAllTheFieldsInTheSignUpPageIsClickableAndEditable()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -249,36 +252,61 @@ public class SignUpTests extends  BaseTest
         Assert.assertTrue(Utils.isClickable(driver, signUpPage.SignUpButton));
 
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
-        signUpPage.EnterDataIntoAfield(FirstName, signUpPage.FirstNameInputBox);
-        signUpPage.EnterDataIntoAfield(LastName, signUpPage.LastNameInputBox);
-        signUpPage.EnterDataIntoAfield(Email, signUpPage.EmailInputBox);
-        String ActualText = signUpPage.FirstNameInputBox.getText();
+
+        Assert.assertEquals(signUpPage.FirstNameInputBox.getAttribute("value"), FirstName);
+        signUpPage.FirstNameInputBox.clear();
+
+        Assert.assertEquals(signUpPage.LastNameInputBox.getAttribute("value"), LastName);
+        signUpPage.LastNameInputBox.clear();
+
+        Assert.assertEquals(signUpPage.EmailInputBox.getAttribute("value"), Email);
+        signUpPage.EmailInputBox.clear();
+
+        Assert.assertEquals(signUpPage.MobileNumberInputBox.getAttribute("value"), PhoneNo);
+        signUpPage.MobileNumberInputBox.clear();
+
+        Assert.assertEquals(signUpPage.LocationInputBox.getAttribute("value"), Location);
+        signUpPage.LocationInputBox.clear();
+
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
+
+        Assert.assertEquals(signUpPage.FirstNameInputBox.getAttribute("value"), FirstName);
+        Assert.assertEquals(signUpPage.LastNameInputBox.getAttribute("value"), LastName);
+        Assert.assertEquals(signUpPage.EmailInputBox.getAttribute("value"), Email);
+        Assert.assertEquals(signUpPage.MobileNumberInputBox.getAttribute("value"), PhoneNo);
+        Assert.assertEquals(signUpPage.LocationInputBox.getAttribute("value"), Location);
     }
 
-    @Test//working
+    @Test
     public void VerifyIfPractitionerAndClinicHasRadioButtonsAndSelectedOneAtaTime()
     {
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+
+        Utils.WaitForAnElementToExist(driver, signUpPage.PractitionerRadioButton);
+
         signUpPage.PractitionerRadioButton.click();
         Assert.assertTrue(Utils.isElementSelected(driver, signUpPage.PractitionerRadioButton));
+
         signUpPage.ClinicRadioButton.click();
         Assert.assertFalse(Utils.isElementSelected(driver, signUpPage.PractitionerRadioButton));
     }
 
-    @Test //working
+    @Test
     public void VerifyIfTermsAndConditionsFieldHasCheckBoxAndCanBeTickedAndUnTicked()
     {
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
 
+        Utils.WaitForAnElementToExist(driver, signUpPage.AcceptTermsCheckBox);
         signUpPage.AcceptTermsCheckBox.click();
         Assert.assertTrue(Utils.isElementSelected(driver, signUpPage.AcceptTermsCheckBox));
+
         signUpPage.AcceptTermsCheckBox.click();
         Assert.assertFalse(Utils.isElementSelected(driver, signUpPage.AcceptTermsCheckBox));
     }
 
-    @Test//  working
+    @Test
     public void VerifyIfAllMandatoryFieldsHaveStarMark()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -309,7 +337,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(ActualConfirmPasswordText, ExpectedConfirmPasswordText);
     }
 
-    @Test// working
+    @Test
     public void VerifyUserCanNotRegisterWithoutClickingTermsAndConditionsCheckBox()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -322,7 +350,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.TermsAndConditionsErrorMessage), "Please agree");
     }
 
-    @Test//working
+    @Test
     public void VerifyFirstNameFieldIsAcceptingValidDataWithCombinationOfUpperCaseAndLowercaseAlphabets()
     {
         String Characters = Utils.printRandomString(6);
@@ -343,7 +371,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.ValidNameErrorMessage));
     }
 
-    @Test//working
+    @Test
     public void VerifyFirstNameFieldIsNotAcceptingInValidDataWithCombinationOfNumbersAndSpecialCharactersAndSpaces()
     {
         String Characters = Utils.printRandomString(6);
@@ -365,8 +393,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(ActualText.get(0), "Special characters are not acceptable");
         Assert.assertEquals(ActualText.get(1), "Numbers are not acceptable");
     }
-
-    @Test//working
+    @Test
     public void VerifyLastNameFieldIsAcceptingValidDataWithCombinationOfUpperCaseAndLowercaseAlphabets()
     {
         String Characters = Utils.printRandomString(6);
@@ -390,7 +417,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.ValidNameErrorMessage));
     }
 
-    @Test//working
+    @Test
     public void VerifyLastNameFieldIsNotAcceptingInValidDataWithCombinationOfNumbersAndSpecialCharactersAndSpaces()
     {
         String Characters = Utils.printRandomString(6);
@@ -412,7 +439,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.LastNameErrorMessage2), "Numbers are not acceptable");
     }
 
-    @Test//working
+    @Test
     public void VerifyEmailFieldIsAcceptingValidDataWithEmailFormatAlphabetsAndNumaricals()
     {
         String Characters = Utils.printRandomString(6);
@@ -433,7 +460,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.EmailErrorMessage));
     }
 
-    @Test//working
+    @Test
     public void VerifyEmailFieldIsNotAcceptingInValidDataWithSpecialCharactersAndSpaces()
     {
         String Characters = Utils.printRandomString(6);
@@ -454,7 +481,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.ValidEmailErrorMessage), "Email must be a valid email address");
     }
 
-    @Test//working
+    @Test
     public void VerifyMobileNumberFieldIsAcceptingValidDataWithNumericalUpto10Digits()
     {
         String Characters = Utils.printRandomString(6);
@@ -475,7 +502,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.MobileErrorMessage));
     }
 
-    @Test//working
+    @Test
     public void VerifyMobileNumberFieldIsNotAcceptingInValidDataWithAlphabetsSpecialCharactersAndSpaces()
     {
         String Characters = Utils.printRandomString(6);
@@ -496,7 +523,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.validMobileErrorMessage), "Mobile Number should be 10 digits");
     }
 
-    @Test// Not working // Entering invalid data
+    @Test
     public void VerifyLocationFieldIsNotAcceptingInValidData()
     {
         String Characters = Utils.printRandomString(6);
@@ -517,7 +544,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidLocationErrorMessage), "Location must be in Alphabets");
     }
 
-    @Test// working
+    @Test
     public void VerifyPasswordFieldIsAcceptingValidDataWithAtLeast8CharactersIncludingOneNumberAndOneSplChar()
     {
         String Characters = Utils.printRandomString(6);
@@ -538,7 +565,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.PasswordErrorMessage));
     }
 
-    @Test// working
+    @Test
     public void VerifyPasswordFieldIsNotAcceptingInValidDataWithOutAlphabetsNumbersAndTwoSplChar()
     {
         String Characters = Utils.printRandomString(6);
@@ -565,45 +592,20 @@ public class SignUpTests extends  BaseTest
           Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidPasswordLowerCaseError), "It should contain one LowerCase");
     }
 
-    //@Test// working
-    public void VerifyPasswordFieldIsShouldNotStartWithSplChar()
-    {
-        String Characters = Utils.printRandomString(6);
-        String FirstName = "Sailaja" + Characters;
-        String LastName = "Mamillaplla" + Characters;
-        String AlphaNumeric = Utils.getAlphaNumericString(3);
-        String Email = AlphaNumeric + "@gmail.com";
-        int PhoneNumber = Utils.RandomGenerator();
-        String PhoneNum = Integer.toString(PhoneNumber);
-        String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
-        String Password = "@";
-        String ConfirmPassword = AlphaNumeric + "@@67";
-        LandingPage homePage = new LandingPage(driver);
-        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
-
-        signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidPasswordOneNumberError), "It should contain one Number");
-       // Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.PasswordStartingWithSplCharError), "Password should not start with Special Character");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidPasswordLengthError), "Password length must be atleast 8 letters");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidPasswordUpperCaseError), "It should contain one UpperCase");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.InvalidPasswordLowerCaseError), "It should contain one LowerCase");
-    }
-
-    @Test //working
+    @Test
     public void VerifyPasswordFieldInSignUpPageHasPasswordProtectedEyeAndCanBeTickedAndUnTicked()
     {
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
 
-        Assert.assertFalse(Utils.isElementSelected(driver, signUpPage.PasswordEye.get(0)));
+        Utils.WaitForElementsToExist(driver, signUpPage.PasswordEye);
 
-        Assert.assertFalse(Utils.isElementSelected(driver, signUpPage.PasswordEye.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.PasswordEye.get(0)));
+
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.PasswordEye.get(1)));
     }
 
-    @Test// working
+    @Test
     public void VerifyConfirmPasswordFieldIsAcceptingValidDataWithAtLeast8CharactersIncludingOneNumberAndOneSplChar()
     {
         String Characters = Utils.printRandomString(6);
@@ -624,7 +626,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, signUpPage.ConfirmPasswordErrorMessage));
     }
 
-    @Test// working
+    @Test
     public void VerifyConfirmPasswordFieldIsNotAcceptingInValidData()
     {
         String Characters = Utils.printRandomString(6);
@@ -646,7 +648,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.ValidConfirmPasswordErrorMessage), "Passwords must match");
     }
 
-    @Test//working
+    @Test
     public void VerifySignUpButtonIsWorkingAndUserCanSuccessfullyRegisterWithValidData()
     {
         String Characters = Utils.printRandomString(6);
@@ -666,7 +668,7 @@ public class SignUpTests extends  BaseTest
         signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
     }
 
-    @Test// working
+    @Test
     public void VerifyIfUserCanRegisterWithoutEnteringTheDataInSignUpPage()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -701,7 +703,7 @@ public class SignUpTests extends  BaseTest
         Assert.assertEquals(ActualLocationErrorText, ExpectedLocationErrorText);*/
     }
 
-    @Test// working
+    @Test
     public void VerifyLoginInButtonIsClickableAndUserCanNavigateToLoginPage()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -710,5 +712,4 @@ public class SignUpTests extends  BaseTest
         Assert.assertTrue(Utils.isClickable(driver, signUpPage.LoginButton));
         signUpPage.LoginButton.click();
     }
-
 }

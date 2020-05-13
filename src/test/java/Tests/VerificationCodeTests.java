@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class VerificationCodeTests extends BaseTest
 {
-    @Test// working
+    @Test
     public void VerifyIfUserCanNotNavigateToVerificationCodePageAfterCompletionOfVerifyYourAccountPage()
     {
         String Characters = Utils.printRandomString(6);
@@ -24,11 +24,13 @@ public class VerificationCodeTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "Opposite Metro", "Hyderabad", "5377", "Telangana", "India");
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
@@ -44,7 +46,7 @@ public class VerificationCodeTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationCodeText), "Verification Code");
     }
 
-    @Test // working
+    @Test
     public void VerificationCodePageHasTheRequiredField()
     {
         String Characters = Utils.printRandomString(6);
@@ -61,11 +63,13 @@ public class VerificationCodeTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "Opposite Metro", "Hyderabad", "5377", "Telangana", "India");
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
@@ -81,7 +85,7 @@ public class VerificationCodeTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationSubject), "Please enter the verification code sent to your Mobile number or Email");
     }
 
-    @Test //working
+    @Test
     public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationCodePage()
     {
         String Characters = Utils.printRandomString(6);
@@ -98,11 +102,13 @@ public class VerificationCodeTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "Opposite Metro", "Hyderabad", "5377", "Telangana", "India");
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
@@ -121,8 +127,9 @@ public class VerificationCodeTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationErrorText), "Please enter the verification code");
     }
 
-    @Test// working
-    public void VerifyCodeFieldIsAcceptingValidCode() {
+    @Test
+    public void VerifyCodeFieldIsAcceptingValidCode()
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -137,10 +144,13 @@ public class VerificationCodeTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
@@ -156,8 +166,9 @@ public class VerificationCodeTests extends BaseTest
         Assert.assertFalse(Utils.IsElementDisplayed(driver, verificationCodePage.VerificationErrorText));
     }
 
-    @Test// working
-    public void VerifyCodeFieldIsNotAcceptingInValidCode() {
+    @Test
+    public void VerifyCodeFieldIsNotAcceptingInValidCode()
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -172,10 +183,13 @@ public class VerificationCodeTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
-        BusinessInfoPage businessInfoPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd dhgdh", "87523563290", "fgsd hgfsgf", "fggafggf sfdf", "rtwqe", "3566", "ytredf", "tyetdtqyd");
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 

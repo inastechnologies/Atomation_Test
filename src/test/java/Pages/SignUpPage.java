@@ -18,6 +18,9 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//div[text()=' LOGIN ']")
     public WebElement LoginButton;
 
+    @FindBy(css = "div.text-signUp")
+    public WebElement SignUpText;
+
     @FindBy(xpath = "//div[text()=' First Name ']")
     public WebElement FirstNameFieldText;
 
@@ -179,7 +182,7 @@ public class SignUpPage extends BasePage
         element.sendKeys(Text);
     }
 
-    public LoginPage EnterDataIntoAllTheFieldsInSignUpPage(String FirstName, String LastName, String Email, String MobileNumber, String Location, String Password, String ConfirmPassword)
+    public SubscriptionPage EnterDataIntoAllTheFieldsInSignUpPage(String FirstName, String LastName, String Email, String MobileNumber, String Location, String Password, String ConfirmPassword)
     {
         EnterDataIntoAfield(FirstName, FirstNameInputBox);
         EnterDataIntoAfield(LastName, LastNameInputBox);
@@ -188,10 +191,10 @@ public class SignUpPage extends BasePage
         EnterDataIntoAfield(Location, LocationInputBox);
         EnterDataIntoAfield(Password, PasswordInputBox);
         EnterDataIntoAfield(ConfirmPassword, ConfirmPasswordInputBox);
-        return new LoginPage(driver);
+        return new SubscriptionPage(driver);
     }
 
-    public BusinessInfoPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp()
+    public SubscriptionPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp()
     {
         Utils.WaitForAnElementToExist(driver, PractitionerRadioButton);
         PractitionerRadioButton.click();
@@ -199,7 +202,7 @@ public class SignUpPage extends BasePage
         AcceptTermsCheckBox.click();
         Utils.WaitForAnElementToExist(driver, SignUpButton);
         SignUpButton.click();
-        return new BusinessInfoPage(driver);
+        return new SubscriptionPage(driver);
     }
 
     public void ClickSignUpButtonWithEmptyFields()
