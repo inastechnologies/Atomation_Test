@@ -14,6 +14,9 @@ public class ForgotPasswordPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(css = "div.text-forgot.text-center")
     public WebElement ForgetPasswordText;
 

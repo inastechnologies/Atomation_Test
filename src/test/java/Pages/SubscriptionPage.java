@@ -5,12 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class SubscriptionPage extends BasePage
 {
     public SubscriptionPage(WebDriver driver)
     {
         super(driver);
     }
+
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
 
     @FindBy(xpath = "//h2[text()='ESSENTIAL']")
     public WebElement EssentialSubscription;

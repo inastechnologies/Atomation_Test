@@ -7,6 +7,74 @@ import org.testng.annotations.Test;
 
 public class PersonalInfoTests extends BaseTest
 {
+
+    @Test
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInPersonalInfoPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage homePage = new LandingPage(driver);
+
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        Utils.WaitForElementsToExist(driver, personalInfoPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(3)));
+        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(4)));
+    }
+
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage landingPage = new LandingPage(driver);
+
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        Utils.WaitForElementsToExist(driver, personalInfoPage.HeaderIcons);
+
+        signUpPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
+    }
+
     @Test
     public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage()
     {
@@ -220,5 +288,33 @@ public class PersonalInfoTests extends BaseTest
 
         personalInfoPage.GenderRadioButtons.get(1).click();
         Assert.assertFalse(Utils.isElementSelected(driver, personalInfoPage.GenderRadioButtons.get(0)));
+    }
+
+    @Test
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Jk5";
+        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.HeadingText ), "Provide following details to list your practice/business as verified. These details will not appear in your listing.");
     }
 }

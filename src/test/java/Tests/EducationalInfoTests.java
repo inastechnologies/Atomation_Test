@@ -10,7 +10,79 @@ import java.util.List;
 public class EducationalInfoTests extends BaseTest
 {
     @Test
-    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage() {
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInEducationalInfoPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage homePage = new LandingPage(driver);
+
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+
+        Utils.WaitForElementsToExist(driver, educationalInfoPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(3)));
+        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(4)));
+    }
+
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage landingPage = new LandingPage(driver);
+
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+
+        Utils.WaitForElementsToExist(driver, educationalInfoPage.HeaderIcons);
+
+        signUpPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
+    }
+
+    @Test
+    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage()
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -366,7 +438,7 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "", "2019", "09-09-2020");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "", "2020", "12-12-2020");
 
         Assert.assertFalse(Utils.IsElementDisplayed(driver, educationalInfoPage.RegistrationRenewalDateError));
     }
@@ -436,5 +508,35 @@ public class EducationalInfoTests extends BaseTest
         educationalInfoPage.BrowseField.sendKeys("D:\\Rose.jpeg");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.DocDownloadFile), "Flower.jpg");
+    }
+
+    @Test
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Jk5";
+        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.HeadingText ), "Describe about yourself, your practice and areas of interest in as much detail as possible. These details will appear in your listing");
     }
 }

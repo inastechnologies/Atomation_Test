@@ -14,8 +14,14 @@ public class EducationalInfoPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()='Educational Information']")
     public WebElement EduInfoText;
+
+    @FindBy(css = "div.head-info")
+    public WebElement HeadingText;
 
     @FindBy(xpath = "//div[text()=' Education Details ']")
     public WebElement EduDetailsText;
@@ -53,8 +59,11 @@ public class EducationalInfoPage extends BasePage
     @FindBy(id = "file")
     public WebElement BrowseField;
 
-    @FindBy(css = "input.next-btn.border-0")
+    @FindBy(xpath = "//input[@value='Next']")
     public WebElement EduIfoNextButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
@@ -103,4 +112,12 @@ public class EducationalInfoPage extends BasePage
         RegYearInputField.click();
         RegRenewalInputField.click();
     }
+
+    public PracticeServiceDescriptionPage ClickSkipAndNavigateToNextPage()
+    {
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
+        return new PracticeServiceDescriptionPage(driver);
+    }
+
 }

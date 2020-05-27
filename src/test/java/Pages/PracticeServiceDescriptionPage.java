@@ -14,6 +14,15 @@ public class PracticeServiceDescriptionPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
+    @FindBy(css = "div.text-style")
+    public WebElement HeadingText;
+
+    @FindBy(xpath = "//select[@formcontrolname='service_type']")
+    public WebElement ServiceTypeInput;
+
     @FindBy(xpath = "//span[text()='Describe yourself '] ")
     public WebElement DescribeUrSelfText;
 
@@ -23,23 +32,41 @@ public class PracticeServiceDescriptionPage extends BasePage
     @FindBy(xpath = "//span[text()='Describe areas of special Interests & Services '] ")
     public WebElement DescribeSplInterestsText;
 
-    @FindBy(xpath = "//span[text()='Additional Information '] ")
+    @FindBy(xpath = "//span[text()='Describe Your Qualifications & Registrations '] ")
+    public WebElement DescribeQualificationsRegistrationsText;
+
+    @FindBy(xpath = "//span[text()='Upload Logo & Images :'] ")
+    public WebElement UploadLogoText;
+
+    @FindBy(xpath = "//span[text()='Additional Information :'] ")
     public WebElement AdditionalInfoText;
 
     @FindBy(xpath = "//textarea[@formcontrolname='describe_about_yourself']")
     public WebElement DescribeYourselfInputField;
 
-    @FindBy(xpath = "//textarea[@formcontrolname='about_your_practice']")
+    @FindBy(xpath = "//textarea[@formcontrolname='describe_about_practice']")
     public WebElement DescribePracticeInputField;
 
     @FindBy(xpath = "//textarea[@formcontrolname='about_your_area_of_special_interest_and_services']")
     public WebElement DescribeInterestsInputField;
 
-    @FindBy(xpath = "//textarea[@formcontrolname='practitioner_description']")
+    @FindBy(xpath = "//textarea[@formcontrolname='describe_your_qualifications_and_registrations']")
+    public WebElement DescribeQualificationAndRegistrationInputField;
+
+    @FindBy(xpath = "//textarea[@formcontrolname='info']")
     public WebElement AdditionalInfoInputField;
 
-    @FindBy(css = "input.signUp-btn.border-0")
+    @FindBy(id = "cfile")
+    public WebElement ChooseFile;
+
+    @FindBy(css = "button.next-btn.additional-add")
+    public WebElement AddButton;
+
+    @FindBy(xpath = "//input[@value='Submit']")
     public WebElement SubmitButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(css = "div.info-boxes")
     public List<WebElement> Breadcrumbs;
@@ -49,12 +76,17 @@ public class PracticeServiceDescriptionPage extends BasePage
 
 
 
-    public VerifyYourAccountPage EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext(String DescribeYourself, String DescribePractice, String DescribeInterests, String AdditionalInfo )
+    public VerifyYourAccountPage EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext(String VisibleText, String DescribeYourself, String DescribePractice, String DescribeInterests, String Qualification, String AdditionalInfo )
     {
-       Utils.WaitForAnElementToExist(driver, DescribeYourselfInputField);
+       Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
+       Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
        DescribeYourselfInputField.sendKeys(DescribeYourself);
        DescribePracticeInputField.sendKeys(DescribePractice);
        DescribeInterestsInputField.sendKeys(DescribeInterests);
+       DescribeQualificationAndRegistrationInputField.sendKeys(Qualification);
+       //Utils.WaitForAnElementToExist(driver, ChooseFile);
+       ChooseFile.sendKeys("D:\\Flower.jpg");
+       AddButton.click();
        AdditionalInfoInputField.sendKeys(AdditionalInfo);
        Utils.WaitForAnElementToExist(driver, SubmitButton);
        SubmitButton.click();
@@ -63,11 +95,18 @@ public class PracticeServiceDescriptionPage extends BasePage
 
     public void CLickEveryFieldInPracticeServiceInfoPage()
     {
-        Utils.WaitForAnElementToExist(driver, DescribeYourselfInputField);
+        Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
+        ServiceTypeInput.click();
         DescribeYourselfInputField.click();
-        DescribeInterestsInputField.click();
         DescribePracticeInputField.click();
-        AdditionalInfoInputField.click();
+        DescribeInterestsInputField.click();
+        DescribeQualificationAndRegistrationInputField.click();
     }
 
+    public VerifyYourAccountPage ClickSkipAndNavigateToNextPage()
+    {
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
+        return new VerifyYourAccountPage(driver);
+    }
 }

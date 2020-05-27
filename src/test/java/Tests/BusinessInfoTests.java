@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.BusinessInfoPage;
-import Pages.LandingPage;
-import Pages.SignUpPage;
-import Pages.SubscriptionPage;
+import Pages.*;
 import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,6 +9,64 @@ import java.util.List;
 
 public class BusinessInfoTests extends BaseTest
 {
+    @Test
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInBusinessInfoPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage homePage = new LandingPage(driver);
+
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        Utils.WaitForElementsToExist(driver, businessInfoPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(3)));
+        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(4)));
+    }
+
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage landingPage = new LandingPage(driver);
+
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        Utils.WaitForElementsToExist(driver, businessInfoPage.HeaderIcons);
+
+        signUpPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
+    }
 
     @Test
     public void VerifyUserIsAbleToNavigateToBusinessInfoPageIfUserRegistersAsPractitioner()
@@ -61,17 +116,18 @@ public class BusinessInfoTests extends BaseTest
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.ClinicInstituteOrganizationName),"Clinic/Institute/Organization Name (Opt) :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.AustralianBusinessNo),"Australian Business Number(ABN) :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.Address),"Address * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.Country),"Country * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.CitySuburbTown),"City / Suburb / Town * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.AreaCode),"Area Code * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.StateProvince),"State / Province * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.ClinicInstituteOrganizationName), "Clinic/Institute/Organization Name (Opt) :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.AustralianBusinessNo), "Australian Business Number(ABN) :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.Address), "Address * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.Country), "Country * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.CitySuburbTown), "City / Suburb / Town * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.AreaCode), "Area Code * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.StateProvince), "State / Province * :");
     }
 
     @Test
-    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInBusinessInfoPage() {
+    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInBusinessInfoPage()
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -93,27 +149,27 @@ public class BusinessInfoTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523596390", "fgsdsgf", "fggasfdf", "rtwqe", "jhjh", "ytredf");
 
-        String ActualClinicText= businessInfoPage.ClinicInputBox.getAttribute("value");
+        String ActualClinicText = businessInfoPage.ClinicInputBox.getAttribute("value");
         Assert.assertEquals(ActualClinicText, "tdfd");
         businessInfoPage.ClinicInputBox.clear();
 
-        String ActualABNText= businessInfoPage.AUSBusinessNoInputBox.getAttribute("value");
+        String ActualABNText = businessInfoPage.AUSBusinessNoInputBox.getAttribute("value");
         Assert.assertEquals(ActualABNText, "87523596390");
         businessInfoPage.AUSBusinessNoInputBox.clear();
 
-        String ActualAddress1Text= businessInfoPage.AddressInputBox.getAttribute("value");
+        String ActualAddress1Text = businessInfoPage.AddressInputBox.getAttribute("value");
         Assert.assertEquals(ActualAddress1Text, "fgsdsgf");
         businessInfoPage.AddressInputBox.clear();
 
         businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("jjjjjjjj", "81113561390", "dsgf", "fggasfdf", "rtwqe", "jhjh", "ytredf");
 
-        String ActualClinicText1= businessInfoPage.ClinicInputBox.getAttribute("value");
+        String ActualClinicText1 = businessInfoPage.ClinicInputBox.getAttribute("value");
         Assert.assertEquals(ActualClinicText1, "jjjjjjjj");
 
-        String ActualABNText1= businessInfoPage.AUSBusinessNoInputBox.getAttribute("value");
+        String ActualABNText1 = businessInfoPage.AUSBusinessNoInputBox.getAttribute("value");
         Assert.assertEquals(ActualABNText1, "81113561390");
 
-        String ActualAddressText1= businessInfoPage.AddressInputBox.getAttribute("value");
+        String ActualAddressText1 = businessInfoPage.AddressInputBox.getAttribute("value");
         Assert.assertEquals(ActualAddressText1, "dsgf");
     }
 
@@ -505,5 +561,31 @@ public class BusinessInfoTests extends BaseTest
         List<String> ActualText = Utils.GetTextForAListOfElements(driver, businessInfoPage.ErrorMessages);
         Assert.assertEquals(ActualText.get(0), "Numbers are not acceptable\n" +
                 "Special characters are not acceptable");
+    }
+
+    @Test
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Hyderabad";
+        String Password = AlphaNumeric + "@Jk5";
+        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, personalInfoPage.UploadPictureText), "Upload Profile Picture");
     }
 }

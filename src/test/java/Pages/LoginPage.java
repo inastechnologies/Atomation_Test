@@ -14,6 +14,9 @@ public class LoginPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()=' LOGIN '] ")
     public WebElement LoginTab;
 

@@ -35,13 +35,14 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd");
+                "asfa", "2658787656", "2020", "01/02/2021");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerifyYourAccountText), "Verify Your Account");
     }
 
-    @Test     public void VerifyYourAccountPageHasTheRequiredField()
+    @Test
+    public void VerifyYourAccountPageHasTheRequiredField()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -68,8 +69,8 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd");
+                "asfa", "2658787656", "2020", "01/02/2021");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField);
         verifyYourAccountPage.PhoneEmailInputField.click();
@@ -104,9 +105,9 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.GetVerificationCodeButton);
         verifyYourAccountPage.GetVerificationCodeButton.click();
@@ -142,16 +143,16 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.PhoneEmailInputField.sendKeys("9000000001");
         Assert.assertFalse(Utils.IsElementDisplayed(driver, verifyYourAccountPage.PhoneEmailError));
     }
 
-    @Test// working
+    @Test
     public void VerifyPhoneNoOREmailFieldIsAcceptingValidEmail()
     {
         String Characters = Utils.printRandomString(6);
@@ -179,9 +180,9 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.PhoneEmailInputField.sendKeys("lolo@gmail.com");
@@ -216,9 +217,9 @@ public class VerificationOfYourAccountTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("756576");

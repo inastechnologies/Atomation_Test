@@ -68,7 +68,7 @@ public class LandingPage extends BasePage
     @FindBy(xpath = "//img[@src='assets/images/icons8-forward-24.png']")
     public WebElement RightScroll;
 
-    @FindBy(xpath = "//img[@src='assets/images/icons8-back-24.png']")
+    @FindBy(xpath = "//img[@src='../assets/images/icons8-back-24.png']")
     public WebElement LeftScroll;
 
     @FindBy(css = "button.sec-7-list-business-button")

@@ -11,6 +11,32 @@ import java.util.List;
 public class SignUpTests extends  BaseTest
 {
     @Test
+    public void VerifyIfFindAskBookAndHomeIconsAreClickableInSignUpPage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
+
+        Utils.WaitForElementsToExist(driver, signUpPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, signUpPage.HeaderIcons.get(3)));
+    }
+
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
+
+        Utils.WaitForElementsToExist(driver, signUpPage.HeaderIcons);
+
+        signUpPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
+    }
+
+    @Test
     public void VerifyIfSignUpPageHasAllTheRequiredFields()
     {
         LandingPage landingPage = new LandingPage(driver);

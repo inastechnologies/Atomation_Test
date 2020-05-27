@@ -2,14 +2,15 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DemoTests extends BaseTest
-
 {
     @Test
-    public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException {
+    public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException
+    {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -39,9 +40,9 @@ public class DemoTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2020");
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
@@ -216,7 +217,7 @@ public class DemoTests extends BaseTest
         practiceServiceDescriptionPage.Breadcrumbs.get(2).click();
         practiceServiceDescriptionPage.Breadcrumbs.get(3).click();
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practisioner", "yttuytuuh", "uhyugu", "fyugyugsa");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("text","Practisioner", "yttuytuuh", "uhyugu", "fyugyugsa", "ikikiki");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
 

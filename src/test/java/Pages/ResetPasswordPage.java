@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ResetPasswordPage extends BasePage
 {
     public ResetPasswordPage(WebDriver driver)
@@ -12,6 +14,9 @@ public class ResetPasswordPage extends BasePage
     {
         super(driver);
     }
+
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
 
     @FindBy(xpath = "//div[text()='Reset Password']")
     public WebElement ResetPasswordMessage;

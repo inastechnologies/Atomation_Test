@@ -13,6 +13,9 @@ public class PersonalInfoPage extends BasePage {
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(css = "div.upload-mrg")
     public WebElement UploadPictureText;
 
@@ -25,8 +28,11 @@ public class PersonalInfoPage extends BasePage {
     @FindBy(css = "div.text-error")
     public WebElement DOBFieldError;
 
-    @FindBy(css = "div.txt-align-center.next-btn-mrgn")
+    @FindBy(xpath = "//input[@value='Next']")
     public WebElement PInfoNextButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(id = "file")
     public WebElement BrowseButton;
@@ -44,4 +50,12 @@ public class PersonalInfoPage extends BasePage {
         PInfoNextButton.click();
         return new EducationalInfoPage(driver);
     }
+
+    public EducationalInfoPage ClickSkipAndNavigateToNextPage()
+    {
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
+        return new EducationalInfoPage(driver);
+    }
+
 }

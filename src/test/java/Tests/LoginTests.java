@@ -7,6 +7,21 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest
 {
+
+    @Test
+    public void VerifyIfFindAskBookAndHomeIconsAreClickableInLoginPage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        LoginPage loginPage = landingPage.NavigateToLogInPage();
+
+        Utils.WaitForElementsToExist(driver, loginPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(3)));
+    }
+
     @Test
     public void VerifyIfAllTheFieldsInTheLoginPageAreClickable()
     {
@@ -16,6 +31,18 @@ public class LoginTests extends BaseTest
         Assert.assertTrue(Utils.isClickable(driver, loginPage.MobileEmailInputField));
         Assert.assertTrue(Utils.isClickable(driver, loginPage.PasswordInputField));
         Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginButton));
+    }
+
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        LoginPage loginPage = landingPage.NavigateToLogInPage();
+
+        Utils.WaitForElementsToExist(driver, loginPage.HeaderIcons);
+
+        loginPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
     }
 
     @Test

@@ -15,6 +15,9 @@ public class BusinessInfoPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()='Business Information']")
     public WebElement BusinessInfoText;
 
@@ -87,8 +90,11 @@ public class BusinessInfoPage extends BasePage
     @FindBy(xpath = "//label[text()='Country is required']")
     public WebElement CountryErrorMessage;
 
-    @FindBy(css = "input.next-btn.border-0")
+    @FindBy(xpath = "//input[@value='Next']")
     public WebElement NextButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
@@ -121,6 +127,13 @@ public class BusinessInfoPage extends BasePage
         CityInputBox.click();
         AreaCodeInputBox.click();
         StateInputBox.click();
+        return new PersonalInfoPage(driver);
+    }
+
+    public PersonalInfoPage ClickSkipAndNavigateToNextPage()
+    {
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
         return new PersonalInfoPage(driver);
     }
 

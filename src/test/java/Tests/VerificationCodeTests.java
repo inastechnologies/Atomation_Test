@@ -35,9 +35,9 @@ public class VerificationCodeTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2020");
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -74,9 +74,9 @@ public class VerificationCodeTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2020");
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -113,9 +113,9 @@ public class VerificationCodeTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2020");
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -155,9 +155,9 @@ public class VerificationCodeTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9000000001");
 
@@ -194,9 +194,9 @@ public class VerificationCodeTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1992", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
-                "asfa", "2658787656", "2020", "01/02/2020");
+                "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("hsdfbdsf", "zxzc", "zczx", "zvvz");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9000000001");
 

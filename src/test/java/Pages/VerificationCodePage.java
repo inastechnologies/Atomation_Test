@@ -14,6 +14,9 @@ public class VerificationCodePage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(css = "div.title")
     public WebElement VerificationCodeText;
 

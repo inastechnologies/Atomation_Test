@@ -15,6 +15,9 @@ public class SignUpPage extends BasePage
     }
 
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()=' LOGIN ']")
     public WebElement LoginButton;
 
@@ -174,7 +177,6 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//div[text()='Please agree']")
     public WebElement TermsAndConditionsErrorMessage;
 
-    //public By NamesErrorMessage = By.xpath("//label[text()='Name is required']");
 
     public void EnterDataIntoAfield(String Text, WebElement element)
     {

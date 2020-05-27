@@ -14,6 +14,8 @@ public class EssentialSubscriptionPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
 
     @FindBy(css = "div.head")
     public WebElement PaymentHeading;
