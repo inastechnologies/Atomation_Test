@@ -148,7 +148,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
-        verifyYourAccountPage.PhoneEmailInputField.sendKeys("9000000001");
+        verifyYourAccountPage.PhoneEmailInputField.sendKeys(PhoneNo);
         Assert.assertFalse(Utils.IsElementDisplayed(driver, verifyYourAccountPage.PhoneEmailError));
     }
 
@@ -185,7 +185,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
-        verifyYourAccountPage.PhoneEmailInputField.sendKeys("lolo@gmail.com");
+        verifyYourAccountPage.PhoneEmailInputField.sendKeys(Email);
         Assert.assertFalse(Utils.IsElementDisplayed(driver, verifyYourAccountPage.PhoneEmailError));
     }
 
@@ -222,7 +222,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
-        verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("756576");
+        verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("7653235890");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.PhoneEmailError), "Please enter a valid phone number or email");
     }
 }

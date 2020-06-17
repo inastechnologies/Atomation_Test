@@ -2,12 +2,12 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DemoTests extends BaseTest
 {
+
     @Test
     public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException
     {
@@ -48,22 +48,13 @@ public class DemoTests extends BaseTest
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
 
         Thread.sleep(2000);
-        AdminPanelPage adminPanelPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+        PractitionerPage practitionerPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
         Thread.sleep(5000);
-        LoginPage loginPage =  adminPanelPage.AfterSubmittingFormClickLogout();
+        LoginPage loginPage =  practitionerPage.ClickLogoutToGoOutOfThePage();
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
-    }
-
-    @Test
-    public void VerifyWhenClickedOnListYourBusinessButtonItNavigatesToSignUpPage()
-    {
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.NavigateToSignUpPage();
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.SignUpTab), "Signup");
     }
 
     @Test
@@ -99,49 +90,18 @@ public class DemoTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredMobileNoAndPasswordAndLogout() throws InterruptedException {
+    public void VerifyUserCanLoginWithRegisteredEmailAndPasswordAndCheckForTheAppointments() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("9090909090", "Test@123");
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
 
         Thread.sleep(3000);
-        adminPanelPage.AfterSubmittingFormClickLogout();
+        PractitionerPage practitionerPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Ayati@gmail.com", "Thannidi@270116");
 
+        practitionerPage.ClickOnDateToCheckTheAppointments("25");
         Thread.sleep(3000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
-    }
 
-    @Test
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredEmailAndPasswordAndLogOut() throws InterruptedException {
-        LandingPage homePage = new LandingPage(driver);
-        homePage.LoginTab.click();
-        LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("lolo@gmail.com", "Test@123");
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-
-        Thread.sleep(3000);
-        adminPanelPage.AfterSubmittingFormClickLogout();
-
-        Thread.sleep(3000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
-    }
-
-    @Test
-    public void VerifyIfUserCanNavigateToLoginPageAfterResettingPassword() throws InterruptedException {
-        LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
-        Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
-        Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
-        ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
-
-        Thread.sleep(3000);
-        resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
+        practitionerPage.ClickLogoutToGoOutOfThePage();
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
@@ -154,13 +114,13 @@ public class DemoTests extends BaseTest
 
         Assert.assertTrue(Utils.isClickable(driver, loginPage.GuestButton));
 
-        AdminPanelPage adminPanelPage = loginPage.ClickAndNavigateToGuestLoginPage();
+        WelcomeToQNaturePage welcomeToQNaturePage = loginPage.ClickAndNavigateToGuestLoginPage();
 
         Thread.sleep(3000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
 
         Thread.sleep(3000);
-        adminPanelPage.AfterSubmittingFormClickLogout();
+        welcomeToQNaturePage.AfterSubmittingFormClickLogout();
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
@@ -194,7 +154,9 @@ public class DemoTests extends BaseTest
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-03-1990", personalInfoPage.DOBInputField);
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "09/08/2020");
+                "Holistic Hospitals", "6587234996", "2020", "09/08/2021");
+
+        Thread.sleep(3000);
 
         practiceServiceDescriptionPage.DescribeYourselfInputField.sendKeys( "fggfgfgfhfh");
 
@@ -217,17 +179,17 @@ public class DemoTests extends BaseTest
         practiceServiceDescriptionPage.Breadcrumbs.get(2).click();
         practiceServiceDescriptionPage.Breadcrumbs.get(3).click();
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("text","Practisioner", "yttuytuuh", "uhyugu", "fyugyugsa", "ikikiki");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","Practisioner", "yttuytuuh", "uhyugu", "fyugyugsa", "ikikiki");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9090909090");
 
-        AdminPanelPage adminPanelPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+        verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
         Thread.sleep(3000);
 
-        LoginPage loginPage =  adminPanelPage.AfterSubmittingFormClickLogout();
+        //LoginPage loginPage =  adminPanelPage.AfterSubmittingFormClickLogout();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
     @Test
@@ -279,6 +241,84 @@ public class DemoTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.OfferDescription),
                 "Offer details and description will be displayed along with button to avail the offer and automatically user will be directed to the signup page and by signing up they can avail the offers");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.AvailNowButton), "Avail Now");
+    }
+
+    @Test
+    public void VerifyIfUserCanSubmitRegistration() throws InterruptedException
+    {
+
+        LandingPage homePage = new LandingPage(driver);
+
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("Ayati", "Thannidi", "Ayati@gmail.com", "9866176100", "Hyderabad", "Thannidi@270116", "Thannidi@270116");
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        Thread.sleep(3000);
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
+
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9866176100");
+
+        Thread.sleep(2000);
+        PractitionerPage practitionerPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(5000);
+        LoginPage loginPage =  practitionerPage.ClickLogoutToGoOutOfThePage();
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+    }
+
+    @Test
+    public void VerifyIfUserCanSubmitRegistrationForm() throws InterruptedException
+    {
+
+        LandingPage homePage = new LandingPage(driver);
+
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("Luckky", "Thannidi", "Luckky@gmail.com", "9000473959", "Hyderabad", "Luckky@270116", "Luckky@270116");
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        Thread.sleep(3000);
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
+                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
+
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9000473959");
+
+        Thread.sleep(2000);
+        PractitionerPage practitionerPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(5000);
+        LoginPage loginPage =  practitionerPage.ClickLogoutToGoOutOfThePage();
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 }
 

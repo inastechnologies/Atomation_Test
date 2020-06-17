@@ -45,7 +45,7 @@ public class PersonalInfoPage extends BasePage {
     {
         Utils.WaitForAnElementToExist(driver, element);
         element.sendKeys(text);
-        BrowseButton.sendKeys("D:\\Flower.jpg");
+        BrowseButton.sendKeys("D:\\Doctor Pic.jpg");
         Utils.WaitForAnElementToExist(driver, PInfoNextButton);
         PInfoNextButton.click();
         return new EducationalInfoPage(driver);

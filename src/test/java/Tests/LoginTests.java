@@ -75,7 +75,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationCodeText), "Verification Code");
     }
@@ -88,7 +88,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
         ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, resetPasswordPage.ResetPasswordMessage), "Reset Password");
@@ -102,7 +102,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
         ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
         resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
 
@@ -126,9 +126,9 @@ public class LoginTests extends BaseTest
 
         Assert.assertTrue(Utils.isClickable(driver, loginPage.GuestButton));
 
-        AdminPanelPage adminPanelPage = loginPage.ClickAndNavigateToGuestLoginPage();
+        WelcomeToQNaturePage welcomeToQNaturePage = loginPage.ClickAndNavigateToGuestLoginPage();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
     }
 
     @Test

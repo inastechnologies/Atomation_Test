@@ -56,13 +56,13 @@ public class LoginPage extends BasePage
     @FindBy(css = "span.image-circle")
     public List<WebElement> LoginPageIcons;
 
-    public AdminPanelPage EnterMobileNumberOrEmailEnterPasswordAndClickLogin(String MobileOrEmail, String Password)
+    public PractitionerPage EnterMobileNumberOrEmailEnterPasswordAndClickLogin(String MobileOrEmail, String Password)
     {
         Utils.WaitForAnElementToExist(driver, MobileEmailInputField);
         MobileEmailInputField.sendKeys(MobileOrEmail);
         PasswordInputField.sendKeys(Password);
         LoginButton.click();
-        return new AdminPanelPage(driver);
+        return new PractitionerPage(driver);
     }
 
     public ForgotPasswordPage ClickAndNavigateToForgetPasswordPage()
@@ -72,10 +72,10 @@ public class LoginPage extends BasePage
         return new ForgotPasswordPage(driver);
     }
 
-    public AdminPanelPage ClickAndNavigateToGuestLoginPage()
+    public WelcomeToQNaturePage ClickAndNavigateToGuestLoginPage()
     {
         Utils.WaitForAnElementToExist(driver, GuestButton);
         GuestButton.click();
-        return new AdminPanelPage(driver);
+        return new WelcomeToQNaturePage(driver);
     }
 }

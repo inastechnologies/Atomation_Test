@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class AdminPanelPage extends BasePage
+public class WelcomeToQNaturePage extends BasePage
 {
-    public AdminPanelPage(WebDriver driver)
+    public WelcomeToQNaturePage(WebDriver driver)
     {
         super(driver);
     }
@@ -18,7 +18,7 @@ public class AdminPanelPage extends BasePage
     public List<WebElement> HeaderIcons;
 
     @FindBy(xpath = "//h1[text()='Welcome to QNature']")
-    public WebElement AdminPanelMessage;
+    public WebElement WelcomeToQNature;
 
     @FindBy(css = "img.image-size-user")
     public WebElement ProfileIcon;
@@ -26,12 +26,12 @@ public class AdminPanelPage extends BasePage
     @FindBy(css = "div.options-pop")
     public WebElement LogoutButton;
 
-    public LoginPage AfterSubmittingFormClickLogout()
+    public PractitionerPage AfterSubmittingFormClickLogout()
     {
         Utils.WaitForAnElementToExist(driver, ProfileIcon);
         ProfileIcon.click();
         Utils.WaitForAnElementToExist(driver, LogoutButton);
         LogoutButton.click();
-        return new LoginPage(driver);
+        return new PractitionerPage(driver);
     }
 }

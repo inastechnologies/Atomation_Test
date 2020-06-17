@@ -2,7 +2,6 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
-import jdk.jshell.execution.Util;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -153,8 +152,8 @@ public class SignUpTests extends  BaseTest
         signUpPage.ClinicRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
@@ -178,8 +177,8 @@ public class SignUpTests extends  BaseTest
         signUpPage.CustomerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
@@ -203,8 +202,8 @@ public class SignUpTests extends  BaseTest
         signUpPage.HealthStoreOwnerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
@@ -228,8 +227,8 @@ public class SignUpTests extends  BaseTest
         signUpPage.EventOrganizerRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
@@ -253,8 +252,8 @@ public class SignUpTests extends  BaseTest
         signUpPage.InstitutionRadioButton.click();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
-        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 

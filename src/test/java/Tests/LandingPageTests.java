@@ -118,9 +118,9 @@ public class LandingPageTests extends BaseTest
     public void VerifyWhenClickedOnSignUpTabItNavigatesToSignUpPage()
     {
         LandingPage landingPage = new LandingPage(driver);
-        landingPage.NavigateToSignUpPage();
+        SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.SignUpTab), "SIGN UP");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.SignUpText),"SIGN UP");
     }
 
     @Test

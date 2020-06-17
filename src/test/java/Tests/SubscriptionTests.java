@@ -155,7 +155,7 @@ public class SubscriptionTests extends  BaseTest
 
         EssentialSubscriptionPage essentialSubscriptionPage = subscriptionPage.ClickOnBuyButtonAndNavigateToEssentialSubscriptionPage();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, essentialSubscriptionPage.AvailableAddOnsText), "Availabel Add Ons");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, essentialSubscriptionPage.AvailableAddOnsText), "Available Add Ons");
 
         essentialSubscriptionPage.CheckBox.get(0).click();
         Assert.assertTrue(Utils.isElementSelected(driver, essentialSubscriptionPage.CheckBox.get(0)));

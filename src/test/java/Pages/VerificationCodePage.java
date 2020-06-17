@@ -34,7 +34,7 @@ public class VerificationCodePage extends BasePage
 
 
 
-    public AdminPanelPage EnterCodeAndClickSubmit(String one, String Two, String Three, String Four)
+    public PractitionerPage EnterCodeAndClickSubmit(String one, String Two, String Three, String Four)
     {
         Utils.WaitForElementsToExist(driver, OTPInputField);
         OTPInputField.get(0).sendKeys(one);
@@ -43,7 +43,7 @@ public class VerificationCodePage extends BasePage
         OTPInputField.get(3).sendKeys(Four);
         Utils.WaitForAnElementToExist(driver, VerifyButton);
         VerifyButton.click();
-        return new AdminPanelPage(driver);
+        return new PractitionerPage(driver);
     }
 
     public ResetPasswordPage EnterOTPAndClickSubmitForResetPassword(String One, String Two, String Three, String Four)

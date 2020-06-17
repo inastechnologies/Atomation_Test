@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.AdminPanelPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.SignUpPage;
+import Pages.*;
 import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,25 +10,25 @@ import java.util.List;
 public class IntegrationTests extends BaseTest
 {
     @Test
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredMobileNoAndPassword()
+    public void VerifyUserCanLoginAsPractitionerWithRegisteredMobileNoAndPassword()
     {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(" 9090909090", "Test@123");
+        PractitionerPage practitionerPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(" 9090909090", "Test@123");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
     @Test
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredEmailAndPassword()
+    public void VerifyUserCanLoginAsPractitionerWithRegisteredEmailAndPassword()
     {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("lolo@gmail.com", "Test@123");
+        PractitionerPage practitionerPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Ayati@gmail.com", "Thannidi@270116");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
     @Test
