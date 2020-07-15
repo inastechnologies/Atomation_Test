@@ -26,12 +26,12 @@ public class WelcomeToQNaturePage extends BasePage
     @FindBy(css = "div.options-pop")
     public WebElement LogoutButton;
 
-    public PractitionerPage AfterSubmittingFormClickLogout()
+    public PractitionerManageAppointmentsPage AfterSubmittingFormClickLogout()
     {
         Utils.WaitForAnElementToExist(driver, ProfileIcon);
         ProfileIcon.click();
         Utils.WaitForAnElementToExist(driver, LogoutButton);
         LogoutButton.click();
-        return new PractitionerPage(driver);
+        return new PractitionerManageAppointmentsPage(driver);
     }
 }

@@ -87,7 +87,7 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//input[@formcontrolname='confirm_password']")
     public WebElement ConfirmPasswordInputBox;
 
-    @FindBy(xpath = "//input[@formcontrolname='location']")
+    @FindBy(xpath = "//select[@formcontrolname='location']")
     public WebElement LocationInputBox;
 
     @FindBy(xpath = "//input[@value='Practitioner']")
@@ -190,7 +190,8 @@ public class SignUpPage extends BasePage
         EnterDataIntoAfield(LastName, LastNameInputBox);
         EnterDataIntoAfield(Email, EmailInputBox);
         EnterDataIntoAfield(MobileNumber, MobileNumberInputBox);
-        EnterDataIntoAfield(Location, LocationInputBox);
+        Utils.SelectFromDropDownUsingVisibleText(LocationInputBox, Location);
+        //EnterDataIntoAfield(Location, LocationInputBox);
         EnterDataIntoAfield(Password, PasswordInputBox);
         EnterDataIntoAfield(ConfirmPassword, ConfirmPasswordInputBox);
         return new SubscriptionPage(driver);
@@ -211,12 +212,6 @@ public class SignUpPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, SignUpButton);
         SignUpButton.click();
-    }
-
-    public void ClearDataFromField(WebElement element)
-    {
-        Utils.WaitForAnElementToExist(driver, element);
-        element.clear();
     }
 
     public void CLickEveryFieldBeforeEnteringTheData()

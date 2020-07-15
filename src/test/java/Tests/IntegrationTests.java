@@ -15,9 +15,9 @@ public class IntegrationTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        PractitionerPage practitionerPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(" 9090909090", "Test@123");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(" 9090909090", "Test@123");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerPage.ManageAppointments), "MANAGE APPOINTMENTS");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerManageAppointmentsPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
     @Test
@@ -26,9 +26,9 @@ public class IntegrationTests extends BaseTest
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        PractitionerPage practitionerPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Ayati@gmail.com", "Thannidi@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Ayati@gmail.com", "Thannidi@270116");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerPage.ManageAppointments), "MANAGE APPOINTMENTS");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerManageAppointmentsPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
     @Test

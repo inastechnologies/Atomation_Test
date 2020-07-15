@@ -56,13 +56,13 @@ public class LoginPage extends BasePage
     @FindBy(css = "span.image-circle")
     public List<WebElement> LoginPageIcons;
 
-    public PractitionerPage EnterMobileNumberOrEmailEnterPasswordAndClickLogin(String MobileOrEmail, String Password)
+    public PractitionerManageAppointmentsPage EnterMobileNumberOrEmailEnterPasswordAndClickLogin(String MobileOrEmail, String Password)
     {
         Utils.WaitForAnElementToExist(driver, MobileEmailInputField);
         MobileEmailInputField.sendKeys(MobileOrEmail);
         PasswordInputField.sendKeys(Password);
         LoginButton.click();
-        return new PractitionerPage(driver);
+        return new PractitionerManageAppointmentsPage(driver);
     }
 
     public ForgotPasswordPage ClickAndNavigateToForgetPasswordPage()

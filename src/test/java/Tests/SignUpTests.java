@@ -120,7 +120,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -143,7 +143,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -168,7 +168,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -193,7 +193,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -218,7 +218,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -243,7 +243,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -268,7 +268,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage landingPage = new LandingPage(driver);
@@ -368,7 +368,7 @@ public class SignUpTests extends  BaseTest
         LandingPage homePage = new LandingPage(driver);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.CLickEveryFieldBeforeEnteringTheData();
-        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("fhdgf", "hffhhf", "@gmail.com", "9000373959", "Hyderabad", "GGGG1234", "GGGG1234");
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("fhdgf", "hffhhf", "@gmail.com", "9000373959", "Sydney", "GGGG1234", "GGGG1234");
         signUpPage.PractitionerRadioButton.click();
 
         signUpPage.SignUpButton.click();
@@ -386,7 +386,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -407,7 +407,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -429,7 +429,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "96886" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
 
@@ -453,7 +453,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlfaNumeric + "@J5";
         String ConfirmPassword = AlfaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -475,7 +475,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "955533" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -496,7 +496,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -517,7 +517,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -538,7 +538,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "956%hh jjgY*" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -580,7 +580,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "93553" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "6@";
         String ConfirmPassword = AlphaNumeric + "6@";
         LandingPage homePage = new LandingPage(driver);
@@ -601,7 +601,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = "@@";
         String ConfirmPassword = AlphaNumeric + "@@67";
         LandingPage homePage = new LandingPage(driver);
@@ -641,7 +641,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "93553" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "6@";
         String ConfirmPassword = AlphaNumeric + "6@";
         LandingPage homePage = new LandingPage(driver);
@@ -662,7 +662,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@Jkjhjh%5";
         LandingPage homePage = new LandingPage(driver);
@@ -684,7 +684,7 @@ public class SignUpTests extends  BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Sydney";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
