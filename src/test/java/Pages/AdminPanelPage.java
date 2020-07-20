@@ -21,11 +21,13 @@ public class AdminPanelPage extends BasePage
     @FindBy(css = "button.button")
     public WebElement LoginButton;
 
-    public void EnterUserNamePassword()
+    @FindBy(xpath = "//span[text()='Access Management & Privileges']")
+    public WebElement AccessManagementAndPrivilegesText;
+
+    public void EnterUserNamePassword(String UserName, String Password)
     {
-        UserNameInputField.sendKeys("9866176100");
-        PasswordInputField.sendKeys("Thannidi@270116");
+        UserNameInputField.sendKeys(UserName);
+        PasswordInputField.sendKeys(Password);
         LoginButton.click();
     }
-
 }
