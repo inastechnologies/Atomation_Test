@@ -23,9 +23,9 @@ public class AdminPanelPage extends BasePage
 
     public void EnterUserNamePassword()
     {
-        UserNameInputField.sendKeys("7026562080");
-        PasswordInputField.sendKeys("Sushma@123");
-        //LoginButton.click();
+        UserNameInputField.sendKeys("9866176100");
+        PasswordInputField.sendKeys("Thannidi@270116");
+        LoginButton.click();
     }
 
 }

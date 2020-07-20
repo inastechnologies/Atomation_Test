@@ -1610,7 +1610,7 @@ public class PractitionerManageAppointmentsTests extends BaseTest {
         practitionerManageAppointmentsPage.SetAvailability.click();
 
         practitionerManageAppointmentsPage.NameInput.sendKeys("Intial");
-        practitionerManageAppointmentsPage.NoOfMinsInput.sendKeys("60");
+        practitionerManageAppointmentsPage.NoOfMinsInput.sendKeys("30");
         practitionerManageAppointmentsPage.FeesInput.sendKeys("500");
         practitionerManageAppointmentsPage.SessionCanIncludeUpToInput.sendKeys("1");
         practitionerManageAppointmentsPage.AddButtons.get(1).click();
