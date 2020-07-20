@@ -5,9 +5,24 @@ import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTests extends BaseTest {
+public class LoginTests extends BaseTest
+{
 
-    @Test // working
+    @Test
+    public void VerifyIfFindAskBookAndHomeIconsAreClickableInLoginPage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        LoginPage loginPage = landingPage.NavigateToLogInPage();
+
+        Utils.WaitForElementsToExist(driver, loginPage.HeaderIcons);
+
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(2)));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.HeaderIcons.get(3)));
+    }
+
+    @Test
     public void VerifyIfAllTheFieldsInTheLoginPageAreClickable()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -18,7 +33,19 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginButton));
     }
 
-    @Test// working
+    @Test
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    {
+        LandingPage landingPage = new LandingPage(driver);
+        LoginPage loginPage = landingPage.NavigateToLogInPage();
+
+        Utils.WaitForElementsToExist(driver, loginPage.HeaderIcons);
+
+        loginPage.HeaderIcons.get(3).click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
+    }
+
+    @Test
     public void VerifyForgotPasswordButtonIsClickableAndUserCanNavigateToForgetPasswordScreen() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
@@ -28,7 +55,19 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, forgotPasswordPage.ForgetPasswordText), "Forgot Password");
     }
 
-    @Test// working
+    @Test
+    public void VerifyWhenClickedOnSignUpLinkAtTheBottomOfThePageItNavigatesToSignUpPage()
+    {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+        Utils.WaitForAnElementToExist(driver, loginPage.SignUpLink);
+        loginPage.SignUpLink.click();
+        SignUpPage signUpPage = new SignUpPage(driver);
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.SignUpText), "SIGN UP");
+    }
+
+    @Test
     public void VerifyIfUserCanNavigateToVerificationCodePageAfterEnteringValidPhoneNoEmailInForgotPasswordPage()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -36,12 +75,12 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerificationCodeText), "Verification Code");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationCodeText), "Verification Code");
     }
 
-    @Test// working
+    @Test
     public void VerifyIfUserCanNavigateToResetPasswordPageAfterEnteringOTP()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -49,13 +88,13 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verifyYourAccountPage.EnterOTPAndClickSubmitForResetPassword();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
+        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, resetPasswordPage.ResetPasswordMessage), "Reset Password");
     }
 
-    @Test// working
+    @Test
     public void VerifyIfUserCanNavigateToLoginPageAfterResettingPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -63,23 +102,23 @@ public class LoginTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerifyYourAccountPage verifyYourAccountPage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode();
-        ResetPasswordPage resetPasswordPage = verifyYourAccountPage.EnterOTPAndClickSubmitForResetPassword();
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9000473959");
+        ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
         resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test //working
+    @Test
     public void VerifyPasswordFieldInLoginPageHasPasswordProtectedEyeAndCanBeTickedAndUnTicked()
     {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        Assert.assertFalse(Utils.isElementSelected(driver, loginPage.PasswordEye));
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.PasswordEye));
     }
 
-    @Test// working
+    @Test
     public void VerifyGuestButtonIsClickableAndUserCanNavigateToGuestLoginPage()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -87,18 +126,18 @@ public class LoginTests extends BaseTest {
 
         Assert.assertTrue(Utils.isClickable(driver, loginPage.GuestButton));
 
-        AdminPanelPage adminPanelPage = loginPage.ClickAndNavigateToGuestLoginPage();
+        WelcomeToQNaturePage welcomeToQNaturePage = loginPage.ClickAndNavigateToGuestLoginPage();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, welcomeToQNaturePage.WelcomeToQNature), "Welcome to QNature");
     }
 
-    @Test// working
+    @Test
     public void VerifyFaceBookAndGoogleIconsAreClickableInLoginPage()
     {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
-        Utils.WaitForAnElementToExist(driver, loginPage.LoginPageIcons.get(4));
+        Utils.WaitForElementsToExist(driver, loginPage.LoginPageIcons);
+        Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(4)));
         Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(5)));
-        Assert.assertTrue(Utils.isClickable(driver, loginPage.LoginPageIcons.get(6)));
     }
 }

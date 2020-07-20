@@ -15,8 +15,14 @@ public class SignUpPage extends BasePage
     }
 
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()=' LOGIN ']")
     public WebElement LoginButton;
+
+    @FindBy(css = "div.text-signUp")
+    public WebElement SignUpText;
 
     @FindBy(xpath = "//div[text()=' First Name ']")
     public WebElement FirstNameFieldText;
@@ -81,7 +87,7 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//input[@formcontrolname='confirm_password']")
     public WebElement ConfirmPasswordInputBox;
 
-    @FindBy(xpath = "//input[@formcontrolname='location']")
+    @FindBy(xpath = "//select[@formcontrolname='location']")
     public WebElement LocationInputBox;
 
     @FindBy(xpath = "//input[@value='Practitioner']")
@@ -171,7 +177,6 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//div[text()='Please agree']")
     public WebElement TermsAndConditionsErrorMessage;
 
-    //public By NamesErrorMessage = By.xpath("//label[text()='Name is required']");
 
     public void EnterDataIntoAfield(String Text, WebElement element)
     {
@@ -179,19 +184,20 @@ public class SignUpPage extends BasePage
         element.sendKeys(Text);
     }
 
-    public LoginPage EnterDataIntoAllTheFieldsInSignUpPage(String FirstName, String LastName, String Email, String MobileNumber, String Location, String Password, String ConfirmPassword)
+    public SubscriptionPage EnterDataIntoAllTheFieldsInSignUpPage(String FirstName, String LastName, String Email, String MobileNumber, String Location, String Password, String ConfirmPassword)
     {
         EnterDataIntoAfield(FirstName, FirstNameInputBox);
         EnterDataIntoAfield(LastName, LastNameInputBox);
         EnterDataIntoAfield(Email, EmailInputBox);
         EnterDataIntoAfield(MobileNumber, MobileNumberInputBox);
-        EnterDataIntoAfield(Location, LocationInputBox);
+        Utils.SelectFromDropDownUsingVisibleText(LocationInputBox, Location);
+        //EnterDataIntoAfield(Location, LocationInputBox);
         EnterDataIntoAfield(Password, PasswordInputBox);
         EnterDataIntoAfield(ConfirmPassword, ConfirmPasswordInputBox);
-        return new LoginPage(driver);
+        return new SubscriptionPage(driver);
     }
 
-    public BusinessInfoPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp()
+    public SubscriptionPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp()
     {
         Utils.WaitForAnElementToExist(driver, PractitionerRadioButton);
         PractitionerRadioButton.click();
@@ -199,19 +205,13 @@ public class SignUpPage extends BasePage
         AcceptTermsCheckBox.click();
         Utils.WaitForAnElementToExist(driver, SignUpButton);
         SignUpButton.click();
-        return new BusinessInfoPage(driver);
+        return new SubscriptionPage(driver);
     }
 
     public void ClickSignUpButtonWithEmptyFields()
     {
         Utils.WaitForAnElementToExist(driver, SignUpButton);
         SignUpButton.click();
-    }
-
-    public void ClearDataFromField(WebElement element)
-    {
-        Utils.WaitForAnElementToExist(driver, element);
-        element.clear();
     }
 
     public void CLickEveryFieldBeforeEnteringTheData()

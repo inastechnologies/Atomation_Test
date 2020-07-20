@@ -15,17 +15,20 @@ public class BusinessInfoPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(xpath = "//div[text()='Business Information']")
     public WebElement BusinessInfoText;
 
-    @FindBy(xpath = "//div[text()=' Clinic/Institute/Organization Name (Opt) ']")
+    @FindBy(xpath = "//div[text()=' Clinic/Institute/Organization Name (Opt) : ']")
     public WebElement ClinicInstituteOrganizationName;
 
-    @FindBy(xpath = "//div[text()=' Australian Business Number(ABN) ']")
+    @FindBy(xpath = "//div[text()=' Australian Business Number(ABN) : ']")
     public WebElement AustralianBusinessNo;
 
-    @FindBy(xpath = "//div[text()=' Address1 ']")
-    public WebElement Address1;
+    @FindBy(xpath = "//div[text()=' Address ']")
+    public WebElement Address;
 
     @FindBy(xpath = "//div[text()=' Address2 : ']")
     public WebElement Address2;
@@ -55,7 +58,7 @@ public class BusinessInfoPage extends BasePage
     public WebElement ABNErrorMessage;
 
     @FindBy(xpath = "//input[@formcontrolname='address1']")
-    public WebElement Address1InputBox;
+    public WebElement AddressInputBox;
 
     @FindBy(xpath = "//label[text()='Address1 is required']")
     public WebElement Address1ErrorMessage;
@@ -87,8 +90,11 @@ public class BusinessInfoPage extends BasePage
     @FindBy(xpath = "//label[text()='Country is required']")
     public WebElement CountryErrorMessage;
 
-    @FindBy(css = "input.next-btn.border-0")
+    @FindBy(xpath = "//input[@value='Next']")
     public WebElement NextButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
@@ -99,16 +105,15 @@ public class BusinessInfoPage extends BasePage
         element.sendKeys(Text);
     }
 
-    public PersonalInfoPage EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext(String Clinic, String AUsBusinessNo, String Address1, String Address2, String City, String AreaCode, String State, String Country)
+    public PersonalInfoPage EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext(String Clinic, String AUsBusinessNo, String Address1, String Country, String City, String AreaCode, String State)
     {
         EnterDataIntoAfield(Clinic, ClinicInputBox);
         EnterDataIntoAfield(AUsBusinessNo, AUSBusinessNoInputBox);
-        EnterDataIntoAfield(Address1, Address1InputBox);
-        EnterDataIntoAfield(Address2, Address2InputBox);
+        EnterDataIntoAfield(Address1, AddressInputBox);
+        EnterDataIntoAfield(Country, CountryInputBox);
         EnterDataIntoAfield(City, CityInputBox);
         EnterDataIntoAfield(AreaCode, AreaCodeInputBox);
         EnterDataIntoAfield(State, StateInputBox);
-        EnterDataIntoAfield(Country, CountryInputBox);
         NextButton.click();
         return new PersonalInfoPage(driver);
     }
@@ -117,12 +122,18 @@ public class BusinessInfoPage extends BasePage
         Utils.WaitForAnElementToExist(driver, ClinicInputBox);
         ClinicInputBox.click();
         AUSBusinessNoInputBox.click();
-        Address1InputBox.click();
-        Address2InputBox.click();
+        AddressInputBox.click();
+        CountryInputBox.click();
         CityInputBox.click();
         AreaCodeInputBox.click();
         StateInputBox.click();
-        CountryInputBox.click();
+        return new PersonalInfoPage(driver);
+    }
+
+    public PersonalInfoPage ClickSkipAndNavigateToNextPage()
+    {
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
         return new PersonalInfoPage(driver);
     }
 

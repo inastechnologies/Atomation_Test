@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.AdminPanelPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.SignUpPage;
+import Pages.*;
 import Utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,30 +9,29 @@ import java.util.List;
 
 public class IntegrationTests extends BaseTest
 {
-    @Test //working
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredMobileNoAndPassword()
+    @Test
+    public void VerifyUserCanLoginAsPractitionerWithRegisteredMobileNoAndPassword()
     {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("9000000001", "Test@123");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(" 9090909090", "Test@123");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerManageAppointmentsPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
-    @Test //working
-    public void VerifyUserCanLoginSuccessfullyWithRegisteredEmailAndPassword()
+    @Test
+    public void VerifyUserCanLoginAsPractitionerWithRegisteredEmailAndPassword()
     {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
-        AdminPanelPage adminPanelPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("amrutha@gmail.com", "Test@123");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Ayati@gmail.com", "Thannidi@270116");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AdminPanelMessage), "Welcome to QNature");
-
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerManageAppointmentsPage.ManageAppointments), "MANAGE APPOINTMENTS");
     }
 
-    @Test// working
+    @Test
     public void VerifyUserCanLoginWithInvalidMobileNumberAndValidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -50,7 +46,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test// working
+    @Test
     public void VerifyUserCanNotLoginWithInvalidEmailIdAndValidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -64,7 +60,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test// working
+    @Test
     public void VerifyUserCanLoginWithValidMobileNoAndInvalidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -78,7 +74,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithValidEmailAndInvalidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -92,7 +88,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithInvalidMobileNoAndInvalidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -106,7 +102,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithInvalidEmailAndInvalidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -120,7 +116,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithEmptyMobileNoOrEmailFieldAndValidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -132,7 +128,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.ValidMobileEmailErrMessage), "Phone Number or Email is required");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithValidMobileNoAndEmptyPasswordField()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -144,7 +140,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.ValidPasswordMessage), "Password is required");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithValidEmailAndEmptyPasswordField()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -156,7 +152,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.ValidPasswordMessage), "Password is required");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithEmptyMobileNoOrEmailFieldAndEmptyPasswordField()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -171,7 +167,7 @@ public class IntegrationTests extends BaseTest
         Assert.assertEquals(ActualText.get(1), "Password is required");
     }
 
-    @Test//  working
+    @Test
     public void VerifyUserCanLoginWithCaseChangeEmailIdAndValidPassword()
     {
         LandingPage homePage = new LandingPage(driver);
@@ -183,19 +179,6 @@ public class IntegrationTests extends BaseTest
         List<String> ActualText = Utils.GetTextForAListOfElements(driver, loginPage.ValidMobileOrEmailMessage);
         Assert.assertEquals(ActualText.get(0), "Please enter the valid Credentials");
         Assert.assertEquals(ActualText.get(1), "Please enter the valid Credentials");
-    }
-
-    @Test//working
-    public void VerifyIfPractitionerAndClinicHasRadioButtonsAndSelectedOneAtaTime()
-    {
-        LandingPage homePage = new LandingPage(driver);
-        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-
-        signUpPage.PractitionerRadioButton.click();
-        Assert.assertTrue(Utils.isElementSelected(driver, signUpPage.PractitionerRadioButton));
-
-        signUpPage.ClinicRadioButton.click();
-        Assert.assertFalse(Utils.isElementSelected(driver, signUpPage.PractitionerRadioButton));
     }
 }
 

@@ -12,12 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Utils {
+public class Utils
+{
 
     public static void WaitForAnElementToExist(WebDriver driver, WebElement element)
     {
         WebDriverWait wait = new WebDriverWait(driver, 35);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void WaitForAnElementNotToExist(WebDriver driver, WebElement element)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, 35);
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public static void WaitForElementsToExist(WebDriver driver, List<WebElement> elements)
@@ -75,7 +82,7 @@ public class Utils {
     public static void SelectFromDropDownUsingVisibleText(WebElement element, String Text)
     {
         Select select = new Select(element);
-        select.selectByVisibleText(Text);
+        select.selectByValue(Text);
     }
 
     public static void MouseHoverToAnElement(WebDriver driver, WebElement element)

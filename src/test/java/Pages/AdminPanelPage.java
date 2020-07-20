@@ -1,32 +1,31 @@
 package Pages;
 
-import Utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AdminPanelPage extends BasePage
 {
     public AdminPanelPage(WebDriver driver)
     {
-        super(driver);
-    }
+    super(driver);
+     }
 
-    @FindBy(xpath = "//h1[text()='Welcome to QNature']")
-    public WebElement AdminPanelMessage;
+    @FindBy(xpath = "//input[@formcontrolname='username']")
+    public WebElement UserNameInputField;
 
-    @FindBy(css = "img.image-size-user")
-    public WebElement ProfileIcon;
+    @FindBy(xpath = "//input[@formcontrolname='password']")
+    public WebElement PasswordInputField;
 
-    @FindBy(css = "div.options-pop")
-    public WebElement LogoutButton;
+    @FindBy(css = "button.button")
+    public WebElement LoginButton;
 
-    public LoginPage AfterSubmittingFormClickLogout()
+    public void EnterUserNamePassword()
     {
-        Utils.WaitForAnElementToExist(driver, ProfileIcon);
-        ProfileIcon.click();
-        Utils.WaitForAnElementToExist(driver, LogoutButton);
-        LogoutButton.click();
-        return new LoginPage(driver);
+        UserNameInputField.sendKeys("9866176100");
+        PasswordInputField.sendKeys("Thannidi@270116");
+        LoginButton.click();
     }
+
 }

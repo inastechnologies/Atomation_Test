@@ -14,6 +14,9 @@ public class ForgotPasswordPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(css = "div.text-forgot.text-center")
     public WebElement ForgetPasswordText;
 
@@ -29,15 +32,15 @@ public class ForgotPasswordPage extends BasePage
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement SubmitButton;
 
-    public VerifyYourAccountPage EnterPhoneEmailAndClickGetVerificationCode()
+    public VerificationCodePage EnterPhoneEmailAndClickGetVerificationCode(String PhoneNo)
     {
         Utils.WaitForAnElementToExist(driver, PhoneEmailInputField);
-        PhoneEmailInputField.sendKeys("9000000009");
+        PhoneEmailInputField.sendKeys(PhoneNo);
         GetVerificationCodeButton.click();
-        return new VerifyYourAccountPage(driver);
+        return new VerificationCodePage(driver);
     }
 
-    public AdminPanelPage EnterOTPAndClickSubmit()
+    public WelcomeToQNaturePage EnterOTPAndClickSubmit()
     {
         Utils.WaitForElementsToExist(driver, OTPInputField);
         OTPInputField.get(0).sendKeys("1");
@@ -46,6 +49,6 @@ public class ForgotPasswordPage extends BasePage
         OTPInputField.get(3).sendKeys("4");
         Utils.WaitForAnElementToExist(driver, SubmitButton);
         SubmitButton.click();
-        return new AdminPanelPage(driver);
+        return new WelcomeToQNaturePage(driver);
     }
 }

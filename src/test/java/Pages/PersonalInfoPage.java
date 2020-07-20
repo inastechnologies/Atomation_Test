@@ -13,20 +13,26 @@ public class PersonalInfoPage extends BasePage {
         super(driver);
     }
 
+    @FindBy(css = "span.image-circle.hand-pointer")
+    public List<WebElement> HeaderIcons;
+
     @FindBy(css = "div.upload-mrg")
     public WebElement UploadPictureText;
 
     @FindBy(css = "div.text-field-name.text-field-name-click")
     public WebElement DOBFieldText;
 
-    @FindBy(css = "input.input-type-2.ng-pristine.ng-invalid.ng-touched")
+    @FindBy(xpath = "//input[@formcontrolname='dob']")
     public WebElement DOBInputField;
 
     @FindBy(css = "div.text-error")
     public WebElement DOBFieldError;
 
-    @FindBy(css = "input.next-btn.border-0")
+    @FindBy(xpath = "//input[@value='Next']")
     public WebElement PInfoNextButton;
+
+    @FindBy(xpath = "//input[@value='Skip']")
+    public WebElement SkipButton;
 
     @FindBy(id = "file")
     public WebElement BrowseButton;
@@ -39,29 +45,17 @@ public class PersonalInfoPage extends BasePage {
     {
         Utils.WaitForAnElementToExist(driver, element);
         element.sendKeys(text);
-        BrowseButton.sendKeys("D:\\Flower.jpg");
+        BrowseButton.sendKeys("D:\\Doctor Pic.jpg");
         Utils.WaitForAnElementToExist(driver, PInfoNextButton);
         PInfoNextButton.click();
         return new EducationalInfoPage(driver);
     }
 
-    public void EnterDOB()
+    public EducationalInfoPage ClickSkipAndNavigateToNextPage()
     {
-        DOBInputField.click();
-
-       // driver.findElement(By.id("datepicker")).click();
-
-        List<WebElement> allDates=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//td"));
-
-        for(WebElement ele:allDates)
-        {
-            String date = ele.getText();
-
-            if(date.equalsIgnoreCase("28"))
-            {
-                ele.click();
-                break;
-            }
-        }
+        Utils.WaitForAnElementToExist(driver, SkipButton);
+        SkipButton.click();
+        return new EducationalInfoPage(driver);
     }
+
 }
