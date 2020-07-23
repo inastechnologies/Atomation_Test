@@ -144,11 +144,11 @@ public class AdminPanelTests {
 
         adminPanelPage.ClickEveryFieldInSubAdminScreenBeforeEnteringDetails();
 
-       // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.SubAdminNameInput));
-       // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.RollNameInput));
-       // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.NoOfRollsInput));
+        // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.SubAdminNameInput));
+        // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.RollNameInput));
+        // Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.NoOfRollsInput));
         //Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.StatusInput));
-       // Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.SubAdminCreateButton));
+        // Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.SubAdminCreateButton));
     }
 
     @Test
@@ -159,7 +159,7 @@ public class AdminPanelTests {
         Thread.sleep(3000);
 
         adminPanelPage.AddButton.click();
-        adminPanelPage.SubAdminCreateButton.click();
+        adminPanelPage.RollNameInput.click();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminNameError), "Person Name Required field.");
     }
@@ -294,11 +294,11 @@ public class AdminPanelTests {
         Thread.sleep(3000);
         adminPanelPage.AddButton.click();
 
-        adminPanelPage.StatusInput.click();
-        adminPanelPage.SubAdminNameInput.sendKeys("ghfhgfh");
-        adminPanelPage.RollNameInput.sendKeys("yugj");
-        adminPanelPage.NoOfRollsInput.sendKeys("2");
        // adminPanelPage.StatusInput.click();
+        adminPanelPage.SubAdminNameInput.click();
+        adminPanelPage.RollNameInput.click();
+        adminPanelPage.NoOfRollsInput.sendKeys("2");
+        adminPanelPage.StatusInput.click();
         //adminPanelPage.SubAdminCreateButton.click();
 
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.StatusError), "Required status.");
@@ -439,13 +439,15 @@ public class AdminPanelTests {
 
     @Test
     public void VerifyThatCreatedSubAdminListIsInChronologicalOrderAccessManagementPage() throws InterruptedException {
+        String Characters = Utils.printRandomString(5);
+        String Name = "Jenn" + Characters;
         AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
         adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
 
         Thread.sleep(3000);
         adminPanelPage.AddButton.click();
 
-        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate("Sanvi", "Test", "1");
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Test", "1");
 
         Thread.sleep(3000);
         Actions actions = new Actions(driver);
@@ -454,7 +456,9 @@ public class AdminPanelTests {
 
         Thread.sleep(3000);
         adminPanelPage.AccessManagementTab.click();
-       // Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//td[text()='Sanvi']"))), "Sanvi");
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//td[text()='" + Name + "']"))), Name);
     }
 
     @Test
@@ -485,7 +489,7 @@ public class AdminPanelTests {
         Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.ViewIcon.get(1)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.ViewIcon.get(2)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.ViewIcon.get(8)));
-}
+    }
 
     @Test
     public void VerifyThatEditIconForParticularRowIsClickableInAccessManagementPage() throws InterruptedException {
@@ -573,5 +577,212 @@ public class AdminPanelTests {
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.DeletePopup), "Are you sure?");
+    }
+
+    @Test
+    public void VerifyThatWhenClickedOnCancelInTheDeletePopupTheRowShouldNotGetDelete() throws InterruptedException {
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.AddButton.click();
+
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate("Ridhi", "Test", "1");
+
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        adminPanelPage.AccessManagementTab.click();
+
+        Thread.sleep(3000);
+        adminPanelPage.DeleteIcon.get(0).click();
+        adminPanelPage.DeletePopupButtons.get(1).click();
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//td[text()='Ridhi']"))), "Ridhi");
+    }
+
+    @Test
+    public void VerifyThatWhenClickedOnDeleteInTheDeletePopupTheRowShouldGetDelete() throws InterruptedException {
+
+        String Characters = Utils.printRandomString(5);
+        String Name = "Jenn" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.AddButton.click();
+
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Test", "1");
+
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        adminPanelPage.AccessManagementTab.click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminList.get(0)), Name);
+
+        adminPanelPage.DeleteIcon.get(0).click();
+        adminPanelPage.DeletePopupButtons.get(0).click();
+
+        Thread.sleep(5000);
+        //Assert.assertTrue(adminPanelPage.SubAdminList.get(0));
+    }
+
+    @Test
+    public void VerifyThatUserIsAbleToCheckTheCheckBoxForAParticularRowInAccessManagementScreen() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.CheckBoxes.get(1).click();
+
+        Thread.sleep(3000);
+        Assert.assertNull(adminPanelPage.CheckBoxes.get(1).getAttribute("checked"));
+    }
+
+    @Test
+    public void VerifyThatTheCountOfTheSelectedRowsMustDisplayOnTopOfTheListInAccessManagementScreen() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.CheckBoxes.get(1).click();
+        adminPanelPage.CheckBoxes.get(2).click();
+
+        Thread.sleep(3000);
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.RowSelected));
+    }
+
+    @Test
+    public void VerifyThatIfUserClicksOnDeleteAfterSelectingMultipleRowsADeletePopupShouldAppear() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.CheckBoxes.get(1).click();
+        adminPanelPage.CheckBoxes.get(2).click();
+        adminPanelPage.RowSelectedDelete.click();
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.DeletePopup), "Are you sure?");
+    }
+
+    @Test
+    public void VerifyThatWhenClickedOnDeleteInTheDeletePopupTheRowsShouldGetDelete() throws InterruptedException {
+
+        String Characters = Utils.printRandomString(3);
+        String Name = "Jenn" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.AddButton.click();
+
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Test", "1");
+
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        adminPanelPage.AccessManagementTab.click();
+
+        Thread.sleep(3000);
+        adminPanelPage.CheckBoxes.get(1).click();
+        adminPanelPage.CheckBoxes.get(2).click();
+        adminPanelPage.RowSelectedDelete.click();
+        adminPanelPage.DeletePopupButtons.get(0);
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()='" + Name + "']"))));
+    }
+
+    @Test
+    public void VerifyThatIfUserIsAbleToViewNextAvailableRowsByClickingLeftArrowInAccessManagementPage() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+
+        adminPanelPage.NextPageIcon.click();
+
+        Thread.sleep(3000);
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()=' 11 ']"))));
+    }
+
+    @Test
+    public void VerifyThatIfUserIsAbleToClickLeftAndRightArrowsToNavigateBetweenPreviousAndNextListOfRows() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+
+        adminPanelPage.NextPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()=' 11 ']"))));
+
+        adminPanelPage.PreviousPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()=' 1 ']"))));
+    }
+
+    @Test
+    public void VerifyThatWhenClickedOnLeftArrowColumnNoShouldContinueTheOrderInAccessManagementScreen() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+
+        adminPanelPage.NextPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()=' 11 ']"))));
+    }
+
+    @Test
+    public void VerifyThatNumberOfRowsPresentInTheListIsMatchingWithTotalRows() throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.TotalRows));
+    }
+
+    @Test
+    public void VerifyThatAllCheckboxesOfTheRowsAreCheckedUponClickingOnNoCheckBox () throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        adminPanelPage.CheckBoxes.get(0).click();
+
+        Assert.assertNull(adminPanelPage.CheckBoxes.get(2).getAttribute("checked"));
+        Assert.assertNull(adminPanelPage.CheckBoxes.get(3).getAttribute("checked"));
+        Assert.assertNull(adminPanelPage.CheckBoxes.get(5).getAttribute("checked"));
+    }
+
+    @Test
+    public void VerifyThatIfTheSearchBarFieldIsClickableAndEditable () throws InterruptedException {
+
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+
+        adminPanelPage.SearchInput.sendKeys("Cind");
+        Assert.assertEquals(adminPanelPage.SearchInput.getAttribute("value"), "Cind");
     }
 }

@@ -41,7 +41,7 @@ public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "//th[@role='columnheader']")
     public List<WebElement> ColumnHeader;
 
-    @FindBy(xpath = "//mat-label[text()=' Total Rows:']")
+    @FindBy(css = "div.total")
     public WebElement TotalRows;
 
     @FindBy(id = "mat-input-2")
@@ -53,8 +53,14 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "span.title")
     public WebElement AddSubAdminText;
 
+    @FindBy(css = "td.mat-cell.cdk-cell.cdk-column-person_name.mat-column-person_name")
+    public List<WebElement> SubAdminList;
+
     @FindBy(css = "ul.custom-bread-crumb")
     public WebElement SubAdminProfileText;
+
+    @FindBy(css = "ul.custom-bread-crumb")
+    public WebElement SubAdminProfileTex;
 
     @FindBy(xpath = "//input[@formcontrolname='person_name']")
     public WebElement SubAdminNameInput;
@@ -97,6 +103,24 @@ public class AdminPanelPage extends BasePage {
 
     @FindBy(css = "p.title")
     public WebElement DeletePopup;
+
+    @FindBy(css = "button.button")
+    public List<WebElement> DeletePopupButtons;
+
+    @FindBy(css = "div.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin")
+    public List<WebElement> CheckBoxes;
+
+    @FindBy(css = "span.multselecteddelete.ng-star-inserted")
+    public WebElement RowSelected;
+
+    @FindBy(css = "button.mat-focus-indicator.mat-paginator-navigation-next.mat-icon-button.mat-button-base")
+    public WebElement NextPageIcon;
+
+    @FindBy(css = "button.mat-focus-indicator.mat-paginator-navigation-previous.mat-icon-button.mat-button-base")
+    public WebElement PreviousPageIcon;
+
+    @FindBy(css = "mat-icon.mat-icon.notranslate.multselecteddeleteicon.material-icons.mat-icon-no-color")
+    public WebElement RowSelectedDelete;
 
     public void EnterUserNamePassword(String UserName, String Password) {
         UserNameInputField.sendKeys(UserName);
