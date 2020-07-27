@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class AdminPanelPage extends BasePage {
@@ -44,7 +42,10 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "div.total")
     public WebElement TotalRows;
 
-    @FindBy(id = "mat-input-2")
+    @FindBy(css = "div.mat-paginator-range-label")
+    public WebElement RowsRange;
+
+    @FindBy(xpath = "//input[@placeholder='Search']")
     public WebElement SearchInput;
 
     @FindBy(css = "div.add-button")
@@ -59,8 +60,20 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "ul.custom-bread-crumb")
     public WebElement SubAdminProfileText;
 
-    @FindBy(css = "ul.custom-bread-crumb")
-    public WebElement SubAdminProfileTex;
+    @FindBy(css = "input.file-upload")
+    public WebElement SubAdminChooseFile;
+
+    @FindBy(xpath = "//img[@src='assets/images/profile.png']")
+    public WebElement SubAdminProfilePic;
+
+    @FindBy(css = "div.title")
+    public WebElement SubAdminTitleText;
+
+    @FindBy(css = "p.sub-title")
+    public WebElement SubAdminSubTitleText;
+
+    @FindBy(css = "button.button-1.ng-star-inserted")
+    public WebElement SubAdminActiveInactiveText;
 
     @FindBy(xpath = "//input[@formcontrolname='person_name']")
     public WebElement SubAdminNameInput;
@@ -77,8 +90,8 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "span.mat-option-text")
     public List<WebElement> StatusOptions;
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement SubAdminCreateButton;
+    @FindBy(id = "btnSubmit")
+    public WebElement CreateUpdateButton;
 
     @FindBy(xpath = "//mat-error[text()=' Person Name Required field. ']")
     public WebElement SubAdminNameError;
@@ -92,11 +105,20 @@ public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "//mat-error[text()=' Required status. ']")
     public WebElement StatusError;
 
+    @FindBy(css = "div.mat-tab-label-content")
+    public List<WebElement> SubAdminProfileTabs;
+
+    @FindBy(css = "div.heading")
+    public List<WebElement> BasicInfoHeadings;
+
     @FindBy(xpath = "//mat-icon[@mattooltip='View']")
     public List<WebElement> ViewIcon;
 
     @FindBy(xpath = "//mat-icon[@mattooltip='Edit']")
-    public List<WebElement> EditIcon;
+    public List<WebElement> EditIcons;
+
+    @FindBy(xpath = "//img[@mattooltip='Edit']")
+    public List<WebElement> SubAdminEditIcon;
 
     @FindBy(xpath = "//mat-icon[@mattooltip='Delete']")
     public List<WebElement> DeleteIcon;
@@ -122,6 +144,75 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "mat-icon.mat-icon.notranslate.multselecteddeleteicon.material-icons.mat-icon-no-color")
     public WebElement RowSelectedDelete;
 
+    @FindBy(css = "span.closeicon")
+    public WebElement CloseIcon;
+
+    @FindBy(xpath = "//input[@formcontrolname='first_name']")
+    public WebElement SubAdminFirstName;
+
+    @FindBy(xpath = "//input[@formcontrolname='middle_name']")
+    public WebElement SubAdminMiddleName;
+
+    @FindBy(xpath = "//input[@formcontrolname='last_name']")
+    public WebElement SubAdminLastName;
+
+    @FindBy(xpath = "//input[@formcontrolname='date_of_birth']")
+    public WebElement SubAdminDOB;
+
+    @FindBy(xpath = "//input[@formcontrolname='email_id']")
+    public WebElement SubAdminEmail;
+
+    @FindBy(xpath = "//input[@formcontrolname='mobile_number']")
+    public WebElement SubAdminMobile;
+
+    @FindBy(xpath = "//input[@formcontrolname='blood_group']")
+    public WebElement SubAdminBloodGroup;
+
+    @FindBy(xpath = "//mat-select[@formcontrolname='gender']")
+    public WebElement SubAdminGender;
+
+    @FindBy(css = "span.mat-option-text")
+    public List<WebElement> SubAdminGenderOptions;
+
+    @FindBy(xpath = "//input[@formcontrolname='short_biography']")
+    public WebElement SubAdminBiography;
+
+    @FindBy(xpath = "//input[@formcontrolname='address_line']")
+    public WebElement SubAdminAddress;
+
+    @FindBy(xpath = "//input[@formcontrolname='city']")
+    public WebElement SubAdminCity;
+
+    @FindBy(xpath = "//input[@formcontrolname='pincode']")
+    public WebElement SubAdminPicCode;
+
+    @FindBy(xpath = "//input[@formcontrolname='state']")
+    public WebElement SubAdminState;
+
+    @FindBy(xpath = "//input[@formcontrolname='country']")
+    public WebElement SubAdminCountry;
+
+    @FindBy(xpath = "//span[text()=' Update ']")
+    public WebElement UpdateButton;
+
+    @FindBy(css = "label.label")
+    public List<WebElement> BasicInformationFields;
+
+    @FindBy(xpath = "//mat-error[@role='alert']")
+    public List<WebElement> SubAdminErrorMessages;
+
+    @FindBy(css = "svg.mat-datepicker-toggle-default-icon.ng-star-inserted")
+    public WebElement SubAdminDOBPicker;
+
+    @FindBy(css = "button.mat-focus-indicator.mat-calendar-period-button.mat-button.mat-button-base")
+    public WebElement CalenderMonthYear;
+
+    @FindBy(css = "button.mat-focus-indicator.mat-calendar-next-button.mat-icon-button.mat-button-base")
+    public WebElement NextMonthIcon;
+
+    @FindBy(css = "button.mat-focus-indicator.mat-calendar-previous-button.mat-icon-button.mat-button-base")
+    public WebElement PreviousMonthIcon;
+
     public void EnterUserNamePassword(String UserName, String Password) {
         UserNameInputField.sendKeys(UserName);
         PasswordInputField.sendKeys(Password);
@@ -141,12 +232,32 @@ public class AdminPanelPage extends BasePage {
         NoOfRollsInput.sendKeys(NoOfRolls);
         StatusInput.click();
         StatusOptions.get(0).click();
-        SubAdminCreateButton.click();
+        CreateUpdateButton.click();
     }
 
     public void ClickOnDateToCheckTheAppointments(String Name, String RollName) throws InterruptedException {
 
         driver.findElement(By.xpath("//span[text()='" + Name + "']")).click();
         driver.findElement(By.xpath("//span[text()='" + Name + "']")).click();
+    }
+
+    public void FillAllTheFieldsInEditSubAdminScreenAndClickUpdate(String FirstName, String MiddleName, String LastName, String Dob, String Email, String Mobile, String BloodGroup, String Biography, String Address, String City, String PinCode, String State, String Country) {
+        Utils.WaitForAnElementToExist(driver, SubAdminFirstName);
+        SubAdminFirstName.sendKeys(FirstName);
+        SubAdminMiddleName.sendKeys(MiddleName);
+        SubAdminLastName.sendKeys(LastName);
+        SubAdminDOB.sendKeys(Dob);
+        SubAdminEmail.sendKeys(Email);
+        SubAdminMobile.sendKeys(Mobile);
+        SubAdminBloodGroup.sendKeys(BloodGroup);
+        SubAdminGender.click();
+        SubAdminGenderOptions.get(0).click();
+        SubAdminBiography.sendKeys(Biography);
+        SubAdminAddress.sendKeys(Address);
+        SubAdminCity.sendKeys(City);
+        SubAdminPicCode.sendKeys(PinCode);
+        SubAdminState.sendKeys(State);
+        SubAdminCountry.sendKeys(Country);
+        //UpdateButton.click();
     }
 }
