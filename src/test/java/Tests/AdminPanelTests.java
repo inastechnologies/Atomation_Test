@@ -125,7 +125,7 @@ public class AdminPanelTests {
 
         Thread.sleep(3000);
         adminPanelPage.AddButton.click();
-        
+
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.AddSubAdminText), "ADD SUB-ADMIN");
     }
 
@@ -419,7 +419,7 @@ public class AdminPanelTests {
         AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
         adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
 
-        Thread.sleep(3000);
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
 
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate("Sanvi", "Test", "1");
@@ -1145,18 +1145,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
@@ -1176,18 +1166,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminFirstName.click();
@@ -1208,18 +1188,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminFirstName.click();
@@ -1240,18 +1210,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminFirstName.click();
@@ -1271,19 +1231,10 @@ public class AdminPanelTests {
 
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
+
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminFirstName.click();
@@ -1303,23 +1254,13 @@ public class AdminPanelTests {
 
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
+
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("JiyA", "Jed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
@@ -1334,23 +1275,13 @@ public class AdminPanelTests {
 
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
+
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Ji ya", "Jed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1367,22 +1298,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("", "Jed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1399,22 +1319,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
@@ -1430,21 +1339,9 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
-
-        adminPanelPage.SubAdminFirstName.click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "775765", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
@@ -1462,21 +1359,9 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
-
-        adminPanelPage.SubAdminFirstName.click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "@@@@@@@^*&^()_", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
@@ -1494,21 +1379,9 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
-
-        adminPanelPage.SubAdminFirstName.click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
@@ -1526,21 +1399,9 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
-
-        adminPanelPage.SubAdminFirstName.click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "*&^&*(7675", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
@@ -1558,22 +1419,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("JiyA", "JedG", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
@@ -1589,22 +1439,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Je ed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1621,22 +1460,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1653,22 +1481,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "Jon", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
@@ -1684,18 +1501,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "767576", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
@@ -1714,18 +1521,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "%%%%%%^%**(@#!", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
@@ -1744,18 +1541,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
@@ -1774,18 +1561,8 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "6575*&^%#@!", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
@@ -1804,22 +1581,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("JiyA", "Jed", "JonG", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
@@ -1835,22 +1601,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "Jo ne", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1867,22 +1622,11 @@ public class AdminPanelTests {
         Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
         adminPanelPage.AddButton.click();
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
 
         Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
-
         adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Thread.sleep(3000);
@@ -1901,17 +1645,6 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         Thread.sleep(3000);
@@ -1930,20 +1663,9 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
-        Thread.sleep(3000);
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminDOBPicker);
         Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.SubAdminDOBPicker));
     }
 
@@ -1959,17 +1681,6 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminDOBPicker.click();
@@ -1988,20 +1699,11 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminDOBPicker);
         adminPanelPage.SubAdminDOBPicker.click();
+
         Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.NextMonthIcon));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, adminPanelPage.PreviousMonthIcon));
     }
@@ -2018,20 +1720,11 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminDOBPicker);
         adminPanelPage.SubAdminDOBPicker.click();
+
         Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.NextMonthIcon));
         Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.PreviousMonthIcon));
     }
@@ -2048,17 +1741,6 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminDOBPicker.click();
@@ -2078,17 +1760,6 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminDOBPicker.click();
@@ -2108,20 +1779,876 @@ public class AdminPanelTests {
         adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
 
         Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
-
-        Thread.sleep(3000);
-        adminPanelPage.AccessManagementTab.click();
-
-        Thread.sleep(3000);
-        adminPanelPage.ViewIcon.get(0).click();
-
-        Utils.WaitForAnElementToExist(driver, adminPanelPage.SubAdminEditIcon.get(1));
         adminPanelPage.SubAdminEditIcon.get(1).click();
 
         adminPanelPage.SubAdminDOBPicker.click();
         Assert.assertTrue(Utils.isClickable(driver, adminPanelPage.CalenderMonthYear));
+    }
+
+    @Test
+    public void VerifyIfInDateOfBirthFieldInEditSubAdminPoUpSelectedDateMothAndYearIsDisplaying() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Last_Name Required .");
+    }
+
+    @Test
+    public void VerifyIfUserIdAbleToEnterDateManuallyInDateOfBirthFieldInEditSubAdminPoUp() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("", "Jed", "", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Thread.sleep(3000);
+        Assert.assertEquals(adminPanelPage.SubAdminDOB.getAttribute("value"), "2/2/2001");
+    }
+
+    @Test
+    public void VerifyIfDateOfBirthFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jiya", "Jed", "Jam", "", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Date_Of_Birth Required");
+    }
+
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingCorrectFormat() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "jiya@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingBothNumericalAndAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "jiya123@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingSpaces() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "Jelly)   (*&^%123@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Email_Id Required");
+    }
+
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingWithoutAtSymbolAndDot() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "gmail", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Email_Id Required");
+    }
+
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsMandatoryLeavingEmpty() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Email_Id Required");
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsAcceptingValidLengthOfTenDigits() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9878767897", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsAcceptingMoreThanValidLengthOfTenDigits() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "98787678976", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsAcceptingLessThanValidLengthOfTenDigits() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "987876789", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Mobile_Number Required.");
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Mobile_Number Required.");
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "#@#^9898", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Mobile_Number Required.");
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsLeftEmpty() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Mobile_Number Required.");
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsAcceptingValidData() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsNotAcceptingOnlyAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "BPositive", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Blood_Group Required.");
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsNotAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "78898", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Blood_Group Required.");
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsNotAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "*&^@!", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Blood_Group Required.");
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsNotAcceptingInvalidData() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "a+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Blood_Group Required.");
+    }
+
+    @Test
+    public void VerifyIfBloodGroupFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Blood_Group Required.");
+    }
+
+    @Test
+    public void VerifyIfShortBiographyFieldInEditSubAdminPoUpIsAcceptingBothAlphabetsAndNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester123", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfShortBiographyFieldInEditSubAdminPoUpIsAcceptingSpecialCharactersAndSpaces() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester @ 123", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfShortBiographyFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Short_Biography Required.");
+    }
+
+    @Test
+    public void VerifyIfAddressFieldInEditSubAdminPoUpIsAcceptingBothAlphabetsAndNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Test", "Creek Street 123", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfAddressFieldInEditSubAdminPoUpIsAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "@Creek Street *123", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfAddressFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "", "Melbourne", "5656", "Vic", "Australia");
+
+        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Address Line Required .");
+    }
+
+    @Test
+    public void VerifyIfCityFieldInEditSubAdminPoUpIsAcceptingAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfCityFieldInEditSubAdminPoUpIsNotAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "1235", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "City Required .");
+    }
+
+    @Test
+    public void VerifyIfCityFieldInEditSubAdminPoUpIsNotAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "!@#%^", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "City Required .");
+    }
+
+    @Test
+    public void VerifyIfCityFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "", "5656", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "City Required .");
+    }
+
+    @Test
+    public void VerifyIfPinCodeFieldInEditSubAdminPoUpIsNotAcceptingAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "fdgdgfd", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Pincode Required.");
+    }
+
+    @Test
+    public void VerifyIfPinCodeFieldInEditSubAdminPoUpIsAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "5678", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfPinCodeFieldInEditSubAdminPoUpIsNotAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "*&^()!@#", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Pincode Required.");
+    }
+
+    @Test
+    public void VerifyIfPinCodeFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "", "Vic", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Pincode Required.");
+    }
+
+    @Test
+    public void VerifyIfStateFieldInEditSubAdminPoUpIsAcceptingAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "Vic", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfStateFieldInEditSubAdminPoUpIsNotAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "999", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "State Required.");
+    }
+
+    @Test
+    public void VerifyIfStateFieldInEditSubAdminPoUpIsNotAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "@#%^&", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "State Required.");
+    }
+
+    @Test
+    public void VerifyIfStateFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "", "Australia");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "State Required.");
+    }
+
+    @Test
+    public void VerifyIfCountryFieldInEditSubAdminPoUpIsAcceptingAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "Victoria", "Australia");
+
+        Assert.assertTrue(adminPanelPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfCountryFieldInEditSubAdminPoUpIsNotAcceptingNumerical() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "Victoria", "67575");
+
+        adminPanelPage.UpdateButton.click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Country Required.");
+    }
+
+    @Test
+    public void VerifyIfCountryFieldInEditSubAdminPoUpIsNotAcceptingSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "Victoria", "@#%^&");
+
+        adminPanelPage.UpdateButton.click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Country Required.");
+    }
+
+    @Test
+    public void VerifyIfCountryFieldInEditSubAdminPoUpIsMandatory() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AdminPanelPage adminPanelPage = new AdminPanelPage(driver);
+        adminPanelPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, adminPanelPage.AddButton);
+        adminPanelPage.AddButton.click();
+        adminPanelPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        adminPanelPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        adminPanelPage.FillAllTheFieldsInEditSubAdminScreenAndClickUpdate("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9898989898", "B+", "Tester", "Rose creek 123", "Melbourne", "6789", "Victoria", "@#%^&");
+
+        adminPanelPage.UpdateButton.click();
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, adminPanelPage.SubAdminErrorMessages.get(0)), "Country Required.");
     }
 }
