@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
-public class AdminPanelPage extends BasePage {
-    public AdminPanelPage(WebDriver driver) {
+public class AccessManagementAndPrivilegesPage extends BasePage {
+    public AccessManagementAndPrivilegesPage(WebDriver driver) {
         super(driver);
     }
 
@@ -60,8 +60,8 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "ul.custom-bread-crumb")
     public WebElement SubAdminProfileText;
 
-    @FindBy(css = "input.file-upload")
-    public WebElement SubAdminChooseFile;
+    @FindBy(xpath = "//input[@type='file']")
+    public List<WebElement> ChooseFile;
 
     @FindBy(xpath = "//img[@src='assets/images/profile.png']")
     public WebElement SubAdminProfilePic;
@@ -90,7 +90,7 @@ public class AdminPanelPage extends BasePage {
     @FindBy(css = "span.mat-option-text")
     public List<WebElement> StatusOptions;
 
-    @FindBy(id = "btnSubmit")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement CreateUpdateButton;
 
     @FindBy(xpath = "//mat-error[text()=' Person Name Required field. ']")
@@ -109,7 +109,7 @@ public class AdminPanelPage extends BasePage {
     public List<WebElement> SubAdminProfileTabs;
 
     @FindBy(css = "div.heading")
-    public List<WebElement> BasicInfoHeadings;
+    public List<WebElement> SubAdminTabsHeadings;
 
     @FindBy(xpath = "//mat-icon[@mattooltip='View']")
     public List<WebElement> ViewIcon;
@@ -205,13 +205,50 @@ public class AdminPanelPage extends BasePage {
     public WebElement SubAdminDOBPicker;
 
     @FindBy(css = "button.mat-focus-indicator.mat-calendar-period-button.mat-button.mat-button-base")
-    public WebElement CalenderMonthYear;
+    public WebElement CalenderHeading;
 
     @FindBy(css = "button.mat-focus-indicator.mat-calendar-next-button.mat-icon-button.mat-button-base")
-    public WebElement NextMonthIcon;
+    public WebElement CalenderRightArrow;
 
     @FindBy(css = "button.mat-focus-indicator.mat-calendar-previous-button.mat-icon-button.mat-button-base")
-    public WebElement PreviousMonthIcon;
+    public WebElement CalenderLeftArrow;
+
+    @FindBy(css = "div.mat-calendar-body-cell-content")
+    public List<WebElement> CalenderListOfYearsAndMonths;
+
+    @FindBy(css = "div.mat-select-arrow-wrapper.ng-tns-c218-25")
+    public WebElement GenderDropDown;
+
+    @FindBy(xpath = "//input[@formcontrolname='company_email']")
+    public WebElement CompanyEmailField;
+
+    @FindBy(xpath = "//input[@formcontrolname='date_of_joining']")
+    public WebElement DOJField;
+
+    @FindBy(xpath = "//input[@formcontrolname='department']")
+    public WebElement DepartmentField;
+
+    @FindBy(xpath = "//input[@formcontrolname='roll']")
+    public WebElement RollField;
+
+    @FindBy(css = "button.button")
+    public List<WebElement> EduAndExpAdd;
+
+    @FindBy(css = "span.title")
+    public WebElement PopUpHeadingText;
+
+    @FindBy(xpath = "//img[@mattooltip='Upload']")
+    public WebElement AddDocumentsButton;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public List<WebElement> DocumentsUploadAndCancel;
+
+    @FindBy(css = "div.sub-2-label")
+    public WebElement DocumentFileName;
+
+    @FindBy(css = "div.heading")
+    public WebElement DocumentsText;
+
 
     public void EnterUserNamePassword(String UserName, String Password) {
         UserNameInputField.sendKeys(UserName);
@@ -241,7 +278,7 @@ public class AdminPanelPage extends BasePage {
         driver.findElement(By.xpath("//span[text()='" + Name + "']")).click();
     }
 
-    public void FillAllTheFieldsInEditSubAdminScreenAndClickUpdate(String FirstName, String MiddleName, String LastName, String Dob, String Email, String Mobile, String BloodGroup, String Biography, String Address, String City, String PinCode, String State, String Country) {
+    public void FillAllTheFieldsBasicInformationHeadingInADDSubAdminDetailsScreen(String FirstName, String MiddleName, String LastName, String Dob, String Email, String Mobile, String BloodGroup, String Biography, String Address, String City, String PinCode, String State, String Country) {
         Utils.WaitForAnElementToExist(driver, SubAdminFirstName);
         SubAdminFirstName.sendKeys(FirstName);
         SubAdminMiddleName.sendKeys(MiddleName);
@@ -259,5 +296,13 @@ public class AdminPanelPage extends BasePage {
         SubAdminState.sendKeys(State);
         SubAdminCountry.sendKeys(Country);
         //UpdateButton.click();
+    }
+
+    public void FillAllTheFieldsOfEducationAndExperienceHeadingInADDSubAdminInformationScreen(String CompanyEmail, String DOJ, String Department, String Roll) {
+        Utils.WaitForAnElementToExist(driver, CompanyEmailField);
+        CompanyEmailField.sendKeys(CompanyEmail);
+        DOJField.sendKeys(DOJ);
+        DepartmentField.sendKeys(Department);
+        RollField.sendKeys(Roll);
     }
 }

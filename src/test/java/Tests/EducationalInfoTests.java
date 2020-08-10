@@ -20,7 +20,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@Sai4";
         String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
@@ -33,7 +33,7 @@ public class EducationalInfoTests extends BaseTest
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+                "87523586390", "Nizampet Main Road", "India", "Melbourne", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
@@ -57,7 +57,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@Sai4";
         String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage landingPage = new LandingPage(driver);
@@ -70,7 +70,7 @@ public class EducationalInfoTests extends BaseTest
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+                "87523586390", "Nizampet Main Road", "India", "Melbourne", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
 
@@ -91,7 +91,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@J5lP";
         String ConfirmPassword = AlphaNumeric + "@J5lP";
         LandingPage homePage = new LandingPage(driver);
@@ -103,7 +103,7 @@ public class EducationalInfoTests extends BaseTest
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+                "87523586390", "Nizampet Main Road", "India", "Melbourne", "5377", "Telangana");
 
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2010", personalInfoPage.DOBInputField);
@@ -122,7 +122,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@J5";
         String ConfirmPassword = AlphaNumeric + "@J5";
         LandingPage homePage = new LandingPage(driver);
@@ -134,7 +134,7 @@ public class EducationalInfoTests extends BaseTest
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+                "87523586390", "Nizampet Main Road", "India", "Melbourne", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("03-02-1995 ", personalInfoPage.DOBInputField);
 
@@ -159,7 +159,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@Jk5";
         String ConfirmPassword = AlphaNumeric + "@Jk5";
         LandingPage homePage = new LandingPage(driver);
@@ -171,7 +171,7 @@ public class EducationalInfoTests extends BaseTest
 
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Hyderabad", "5377", "Telangana");
+                "87523586390", "Nizampet Main Road", "India", "Melbourne", "5377", "Telangana");
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
@@ -198,7 +198,7 @@ public class EducationalInfoTests extends BaseTest
         int PhoneNumber = Utils.RandomGenerator();
         String PhoneNum = Integer.toString(PhoneNumber);
         String PhoneNo = "9" + PhoneNum;
-        String Location = "Hyderabad";
+        String Location = "Melbourne";
         String Password = AlphaNumeric + "@Jk5";
         String ConfirmPassword = AlphaNumeric + "@Jk5";
         LandingPage homePage = new LandingPage(driver);

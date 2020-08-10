@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 public class DemoTests extends BaseTest
 {
-
     @Test
     public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException
     {

@@ -2,6 +2,8 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,7 +26,7 @@ public class SignUpTests extends  BaseTest
     }
 
     @Test
-    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
+    public void VerifyWhenUserClickOnTheHomeIconItNavigatesToHomePage()
     {
         LandingPage landingPage = new LandingPage(driver);
         SignUpPage signUpPage = landingPage.NavigateToSignUpPage();
@@ -110,7 +112,7 @@ public class SignUpTests extends  BaseTest
     }
 
     @Test
-    public void VerifyWhenWeClickOnThePractitionerCategoryItNavigatesToRegistrationScreen()
+    public void VerifyWhenUserClickOnThePractitionerCategoryItNavigatesToRegistrationScreen()
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -175,6 +177,8 @@ public class SignUpTests extends  BaseTest
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
         signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo , Location, Password, ConfirmPassword);
         signUpPage.CustomerRadioButton.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         signUpPage.AcceptTermsCheckBox.click();
         signUpPage.SignUpButton.click();
         WelcomeToQNaturePage welcomeToQNaturePage = new WelcomeToQNaturePage(driver);
