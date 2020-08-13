@@ -151,6 +151,19 @@ public class CustomerManagementTests {
     }
 
     @Test
+    public void VerifyIfUserClicksOnLeftArrowTheOrderShouldContinueInNextPageInCustomerManagementPage() throws InterruptedException {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        customerManagementPage.NextPageIcon.click();
+
+        Thread.sleep(3000);
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//td[text()=' 11 ']"))));
+    }
+
+    @Test
     public void VerifyThatNumberOfRowsPresentInTheListIsMatchingWithTotalRowsInCustomerManagementScreen() throws InterruptedException {
 
         CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
@@ -326,11 +339,11 @@ public class CustomerManagementTests {
 
         Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
         customerManagementPage.ViewIcon.get(0).click();
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage. CustomerProfilePic.get(0)));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage. CustomerProfileTitleText));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage. CustomerSubTitleText.get(0)));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage. CustomerSubTitleText.get(1)));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage. CustomerStatusText));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.CustomerProfilePic.get(0)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.CustomerProfileTitleText));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.CustomerSubTitleText.get(0)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.CustomerSubTitleText.get(1)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.CustomerStatusText));
     }
 
     @Test
@@ -343,9 +356,9 @@ public class CustomerManagementTests {
         Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
         customerManagementPage.ViewIcon.get(0).click();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage. CustomerProfileTabs.get(0)), "BASIC INFORMATION");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage. CustomerProfileTabs.get(1)), "SERVICES TAKEN");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage. CustomerProfileTabs.get(2)), "UPLOAD");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage.CustomerProfileTabs.get(0)), "BASIC INFORMATION");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage.CustomerProfileTabs.get(1)), "SERVICES TAKEN");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, customerManagementPage.CustomerProfileTabs.get(2)), "UPLOAD");
     }
 
     @Test
@@ -358,7 +371,7 @@ public class CustomerManagementTests {
         Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
         customerManagementPage.ViewIcon.get(0).click();
 
-        Assert.assertTrue(Utils.ElementsDisplayed(driver, customerManagementPage. BasicInfoFieldsText));
+        Assert.assertTrue(Utils.ElementsDisplayed(driver, customerManagementPage.BasicInfoFieldsText));
     }
 
     @Test
@@ -371,8 +384,131 @@ public class CustomerManagementTests {
         Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
         customerManagementPage.ViewIcon.get(0).click();
 
-        Assert.assertTrue(Utils.isClickable(driver, customerManagementPage. CustomerProfileTabs.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, customerManagementPage.CustomerProfileTabs.get(1)));
     }
+
+    @Test
+    public void VerifyThatIfTheUserClickServiceTakenTabAllTheRequiredFieldsAreVisibleInCustomerProfilePage() {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+        customerManagementPage.CustomerProfileTabs.get(1).click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.TotalRows));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(0)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(1)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(2)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(3)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(4)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(5)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(6)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(7)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(8)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, customerManagementPage.ServiceTakenFieldsText.get(9)));
+    }
+
+    @Test
+    public void VerifyThatIfCheckBoxCanBeTickedUnderServiceTakenTabInCustomerProfilePage() {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+        customerManagementPage.CustomerProfileTabs.get(1).click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ServiceTakenFieldsText);
+        Assert.assertNull(customerManagementPage.ServiceTakenFieldsText.get(1).getAttribute("checked"));
+    }
+
+    @Test
+    public void VerifyThatIfEachPageAcceptsTenRowsAndWhenClickedOnNextArrowItShouldContinueFrom11UnderServiceTakenTab() throws InterruptedException {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+        customerManagementPage.CustomerProfileTabs.get(1).click();
+
+        Thread.sleep(2000);
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//div[text()=' 1 – 10 of 100 ']"))));
+
+        customerManagementPage.NextPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//div[text()=' 11 – 20 of 100 ']"))));
+    }
+
+    @Test
+    public void VerifyThatIfTheUserIsAbleToNavigateBetweenThePreviousPageAndNextPageUnderServiceTakenTabInCustomerProfilePage() {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+        customerManagementPage.CustomerProfileTabs.get(1).click();
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.NextPageIcon);
+        customerManagementPage.NextPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//div[text()=' 11 – 20 of 100 ']"))));
+
+        customerManagementPage.PreviousPageIcon.click();
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//div[text()=' 1 – 10 of 100 ']"))));
+    }
+
+    @Test
+    public void VerifyThatIfTheSearchBarFieldIsClickableAndEditableUnderServiceTakenTabInCustomerProfilePage() {
+
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+        customerManagementPage.CustomerProfileTabs.get(1).click();
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.SearchInput);
+        customerManagementPage.SearchInput.sendKeys("Kia");
+
+        Assert.assertEquals(customerManagementPage.SearchInput.getAttribute("value"), "Kia");
+    }
+
+    @Test
+    public void VerifyThatIfTheSearchBarFieldIsAcceptingAlphabetsUnderServicesTakenTabInCustomerProfilePage() {
+
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        String First = Utils.GetTextFromAnElement(driver, customerManagementPage.CustomerNameList.get(0));
+
+        customerManagementPage.SearchInput.sendKeys("hjgjhjg");
+
+        Assert.assertEquals(customerManagementPage.SearchInput.getAttribute("value"), "hjgjhjg");
+    }
+
+    @Test
+    public void VerifyThatIfTheUserCanClickUploadTabInCustomerProfilePage() {
+        CustomerManagementPage customerManagementPage = new CustomerManagementPage(driver);
+
+        Utils.WaitForAnElementToExist(driver, customerManagementPage.CustomerManagementTab);
+        customerManagementPage.CustomerManagementTab.click();
+
+        Utils.WaitForElementsToExist(driver, customerManagementPage.ViewIcon);
+        customerManagementPage.ViewIcon.get(0).click();
+
+        Assert.assertTrue(Utils.isClickable(driver, customerManagementPage.CustomerProfileTabs.get(2)));
+    }
+
 }
 
 

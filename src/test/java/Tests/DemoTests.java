@@ -56,6 +56,8 @@ public class DemoTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
+
+
     @Test
     public void VerifyIfUserCanBuyEssentialSubscription() throws InterruptedException {
         String Characters = Utils.printRandomString(6);

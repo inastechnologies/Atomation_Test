@@ -82,4 +82,7 @@ public class CustomerManagementPage extends BasePage {
     @FindBy(css = "label.label")
     public List<WebElement> BasicInfoFieldsText;
 
-}
+    @FindBy(xpath = "//th[@role='columnheader']")
+    public List<WebElement> ServiceTakenFieldsText;
+
+    }

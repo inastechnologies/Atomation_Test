@@ -1195,6 +1195,92 @@ public class AccessManagementAndPrivilegesTests {
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, accessManagementAndPrivilegesPage.SubAdminNameError), "No of roll Required.");
     }
 
+    @Test
+    public void VerifyThatIfStatusDropDownHasActiveAndInActiveOptionsInEditSubAdminScreen() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AddButton.click();
+
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AccessManagementTab.click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.ViewIcon.get(0).click();
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(0).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.StatusInput.click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, accessManagementAndPrivilegesPage.StatusOptions.get(0)), "Active");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, accessManagementAndPrivilegesPage.StatusOptions.get(1)), "InActive");
+    }
+
+    @Test
+    public void VerifyThatIfSelectedStatusOptionIsAppearingInTheFieldInEditSubAdminScreen() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AddButton.click();
+
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AccessManagementTab.click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.ViewIcon.get(0).click();
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(0).click();
+        accessManagementAndPrivilegesPage.StatusInput.click();
+
+        Assert.assertTrue(Utils.isClickable(driver, accessManagementAndPrivilegesPage.StatusOptions.get(0)));
+    }
+
+    @Test
+    public void VerifyThatIfUserIsAbleToChangeTheOptionsInStatusFieldInEditSubAdminScreen() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AddButton.click();
+
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.AccessManagementTab.click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.ViewIcon.get(0).click();
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(0).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.StatusInput.click();
+
+        Assert.assertTrue(Utils.isClickable(driver, accessManagementAndPrivilegesPage.StatusOptions.get(1)));
+    }
+
 
     @Test
     public void VerifyThatIfAllFieldsAreEmptyUpdateButtonIsDisabled() throws InterruptedException {
@@ -1271,6 +1357,34 @@ public class AccessManagementAndPrivilegesTests {
 
         Assert.assertTrue(Utils.isClickable(driver, accessManagementAndPrivilegesPage.CreateUpdateButton));
     }
+
+    //@Test
+    public void VerifyIfTheUserCanSeeUserUpdatedMessageAfterClickingOnUpdateButton() throws InterruptedException {
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.ViewIcon.get(0).click();
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(0).click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.SubAdminNameInput.clear();
+        accessManagementAndPrivilegesPage.RollNameInput.clear();
+        accessManagementAndPrivilegesPage.NoOfRollsInput.clear();
+
+        accessManagementAndPrivilegesPage.SubAdminNameInput.sendKeys("Jiha");
+        accessManagementAndPrivilegesPage.RollNameInput.sendKeys("Edit");
+        accessManagementAndPrivilegesPage.NoOfRollsInput.sendKeys("2");
+
+        accessManagementAndPrivilegesPage.CreateUpdateButton.click();
+
+
+        Thread.sleep(1000);
+        String alertMessage = driver.switchTo().alert().getText();
+
+        Assert.assertEquals(alertMessage, "User Updated");
+    }
+
 
     @Test
     public void VerifyThatIfAnySubAdminDetailsAreEditedItShouldBeReflectedOnAccessManagementHomePageAndUpdatedOnSubAdminProfilePage() throws InterruptedException {
@@ -2415,9 +2529,28 @@ public class AccessManagementAndPrivilegesTests {
 
         Assert.assertTrue(accessManagementAndPrivilegesPage.UpdateButton.isEnabled());
     }
+    @Test
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingAllTheSpecialCharacters() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, accessManagementAndPrivilegesPage.AddButton);
+        accessManagementAndPrivilegesPage.AddButton.click();
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.FillAllTheFieldsBasicInformationHeadingInADDSubAdminDetailsScreen("Jelly", "Jed", "Jam", "02/02/2001", "Jelly)(*&^%123@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(accessManagementAndPrivilegesPage.UpdateButton.isEnabled());
+    }
 
     @Test
-    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsAcceptingSpaces() throws InterruptedException {
+    public void VerifyIfEmailIdFieldInEditSubAdminPoUpIsNotAcceptingSpaces() throws InterruptedException {
         String Characters = Utils.printRandomString(3);
         String Name = "Moli" + Characters;
         AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
@@ -2492,6 +2625,26 @@ public class AccessManagementAndPrivilegesTests {
 
         Thread.sleep(3000);
         accessManagementAndPrivilegesPage.FillAllTheFieldsBasicInformationHeadingInADDSubAdminDetailsScreen("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
+
+        Assert.assertTrue(accessManagementAndPrivilegesPage.UpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfMobileNumberFieldInEditSubAdminPoUpIsNotAcceptingAlphabets() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, accessManagementAndPrivilegesPage.AddButton);
+        accessManagementAndPrivilegesPage.AddButton.click();
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.FillAllTheFieldsBasicInformationHeadingInADDSubAdminDetailsScreen("Jelly", "Jed", "Jam", "02/02/2001", "m05@gmail.com", "uyhjghj9878767876", "B+", "Tester", "Creek Street", "Melbourne", "5656", "Vic", "Australia");
 
         Assert.assertTrue(accessManagementAndPrivilegesPage.UpdateButton.isEnabled());
     }
@@ -4147,6 +4300,63 @@ public class AccessManagementAndPrivilegesTests {
         accessManagementAndPrivilegesPage.CreateUpdateButton.click();
 
         Assert.assertTrue(accessManagementAndPrivilegesPage.CreateUpdateButton.isEnabled());
+    }
+
+    @Test
+    public void VerifyIfAfterFillingAllTheFieldsAdminInformationHeadingTheDataIsSavedAndDisplayed() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, accessManagementAndPrivilegesPage.AddButton);
+        accessManagementAndPrivilegesPage.AddButton.click();
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.SubAdminProfileTabs.get(1).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.FillAllTheFieldsOfEducationAndExperienceHeadingInADDSubAdminInformationScreen("abc@gmail.com", "2/2/2020", "Admin", "Test");
+        accessManagementAndPrivilegesPage.CreateUpdateButton.click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, accessManagementAndPrivilegesPage.FieldsContent.get(0)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, accessManagementAndPrivilegesPage.FieldsContent.get(1)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, accessManagementAndPrivilegesPage.FieldsContent.get(2)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, accessManagementAndPrivilegesPage.FieldsContent.get(3)));
+    }
+
+    @Test
+    public void VerifyIfAfterFillingAllTheFieldsUnderAdminInformationHeadingWhenClickedOnEditTheDataIsRetrieved() throws InterruptedException {
+        String Characters = Utils.printRandomString(3);
+        String Name = "Moli" + Characters;
+        AccessManagementAndPrivilegesPage accessManagementAndPrivilegesPage = new AccessManagementAndPrivilegesPage(driver);
+        accessManagementAndPrivilegesPage.EnterUserNamePassword("9866176100", "Thannidi@270116");
+
+        Utils.WaitForAnElementToExist(driver, accessManagementAndPrivilegesPage.AddButton);
+        accessManagementAndPrivilegesPage.AddButton.click();
+        accessManagementAndPrivilegesPage.FillAllTheFieldsInAddSubAdminScreenAndClickCreate(Name, "Edit", "2");
+
+        Thread.sleep(3000);
+        accessManagementAndPrivilegesPage.SubAdminProfileTabs.get(1).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(1).click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.FillAllTheFieldsOfEducationAndExperienceHeadingInADDSubAdminInformationScreen("abc@gmail.com", "2/2/2020", "Admin", "Test");
+        accessManagementAndPrivilegesPage.CreateUpdateButton.click();
+
+        Thread.sleep(2000);
+        accessManagementAndPrivilegesPage.SubAdminEditIcon.get(1).click();
+
+        Assert.assertEquals(accessManagementAndPrivilegesPage.CompanyEmailField.getAttribute("value"), "abc@gmail.com");
+        Assert.assertEquals(accessManagementAndPrivilegesPage.DOJField.getAttribute("value"), "2/2/2020");
+        Assert.assertEquals(accessManagementAndPrivilegesPage.DepartmentField.getAttribute("value"), "Admin");
+        Assert.assertEquals(accessManagementAndPrivilegesPage.RollField.getAttribute("value"), "Test");
     }
 
     @Test

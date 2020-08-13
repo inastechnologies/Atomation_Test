@@ -249,6 +249,10 @@ public class AccessManagementAndPrivilegesPage extends BasePage {
     @FindBy(css = "div.heading")
     public WebElement DocumentsText;
 
+    @FindBy(css = "div.content")
+    public List<WebElement> FieldsContent;
+
+
 
     public void EnterUserNamePassword(String UserName, String Password) {
         UserNameInputField.sendKeys(UserName);
