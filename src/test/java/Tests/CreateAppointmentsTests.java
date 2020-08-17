@@ -2,14 +2,12 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
-import com.google.common.util.concurrent.Service;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.security.Provider;
 import java.util.List;
 
 public class CreateAppointmentsTests extends BaseTest {
@@ -497,7 +495,7 @@ public class CreateAppointmentsTests extends BaseTest {
    }
 
     @Test
-    public void VerifyThatSelectedDayIsDisplayedInSelectDayFieldInCreateAppointmentAndSessionTypePage() throws InterruptedException {
+    public void VerifyThatSelectedDayIsDisplayedInSelectDayFieldInCreateAppointmentAndSessionTypePage() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -514,7 +512,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatUserIsAbleToChangeOptionsInSelectDayFieldInCreateAppointmentAndSessionTypePage() throws InterruptedException {
+    public void VerifyThatUserIsAbleToChangeOptionsInSelectDayFieldInCreateAppointmentAndSessionTypePage() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -532,7 +530,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatIfFromDateAndToDateCanBeEnteredAndEnteredDatesAreReflectingInTheFieldsInCreateAppointmentAndSessionTypePage() throws InterruptedException {
+    public void VerifyThatIfFromDateAndToDateCanBeEnteredAndEnteredDatesAreReflectingInTheFieldsInCreateAppointmentAndSessionTypePage() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -549,7 +547,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatWhenUserSelectsRecurringWithDateRangeSessionTypeFromDateAndToDateFieldsAreNotAcceptingPastDates() throws InterruptedException {
+    public void VerifyThatWhenUserSelectsRecurringWithDateRangeSessionTypeFromDateAndToDateFieldsAreNotAcceptingPastDates() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -565,7 +563,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatIfDateCanBeEnteredInSelectDateFieldAndEnteredDateIsReflectingInTheFieldsInCreateAppointmentAndSessionTypePage() throws InterruptedException {
+    public void VerifyThatIfDateCanBeEnteredInSelectDateFieldAndEnteredDateIsReflectingInTheFieldsInCreateAppointmentAndSessionTypePage() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -575,13 +573,13 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterFromDateAndToDate("10-10-2020");
+        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("10-10-2020", "10:00AM", "12:00PM");
 
         Assert.assertEquals(createAppointmentPage.DateInput.getAttribute("value"), "2020-10-10");
     }
 
     @Test
-    public void VerifyThatWhenUserSelectsRecurringWithDateSpecificSessionTypeSelectDateFieldIsNotAcceptingPastDates() throws InterruptedException {
+    public void VerifyThatWhenUserSelectsRecurringWithDateSpecificSessionTypeSelectDateFieldIsNotAcceptingPastDates() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -597,7 +595,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatUserCanSelectFromTimeAndToTimeInOpeningHoursAndClickAdd() throws InterruptedException {
+    public void VerifyThatUserCanSelectFromTimeAndToTimeInOpeningHoursAndClickAdd() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -613,7 +611,25 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatErrorsMessagesCanBeSeenIfUserClicksAddButtonWithEmptyFields() throws InterruptedException {
+    public void VerifyThatErrorsMessagesCanBeSeenIfUserClicksAddButtonWithEmptyFields() {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Suny@gmail.com", "Suny@270116");
+
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.AddButton.click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver,createAppointmentPage.ErrorMessages.get(0)), "Above field is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver,createAppointmentPage.ErrorMessages.get(1)), "From time is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver,createAppointmentPage.ErrorMessages.get(2)), "To time is required");
+    }
+
+    @Test
+    public void VerifySelectedDayAndOpeningHoursCanBeSeenInChipFormat() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -624,9 +640,68 @@ public class CreateAppointmentsTests extends BaseTest {
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         createAppointmentPage.SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
 
-        Assert.assertTrue(Utils.isClickable(driver,createAppointmentPage.AddButton));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,createAppointmentPage.OpeningHoursSlots.get(0)));
     }
 
+    @Test
+    public void VerifyChipConsistsOfSelectedDay_AndOpeningHours() {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
 
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Suny@gmail.com", "Suny@270116");
+
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='10:00']")))));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='12:00']")))));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='Monday']")))));
+    }
+
+    @Test
+    public void VerifyChipConsistsOfSelectedDate_AndOpeningHours() {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Suny@gmail.com", "Suny@270116");
+
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("10/10/2020", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='10:00']")))));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='12:00']")))));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,(driver.findElement(By.xpath("//span[text()='2020-10-10']")))));
+    }
+
+    @Test
+    public void VerifyUserIsAbleToAddMoreOpeningHoursAfterSelectingDay_FromTime_ToTime() {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Suny@gmail.com", "Suny@270116");
+
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,createAppointmentPage.OpeningHoursSlots.get(0)));
+
+        createAppointmentPage.SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "03:00PM", "05:00PM");
+        createAppointmentPage.AddButton.click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver,createAppointmentPage.OpeningHoursSlots.get(1)));
+    }
 }

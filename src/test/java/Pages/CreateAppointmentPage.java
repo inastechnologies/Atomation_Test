@@ -15,18 +15,6 @@ public class CreateAppointmentPage extends BasePage
     }
 
 
-    @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
-    public WebElement CreateAppointmentSessionTypeHeading;
-
-    @FindBy(xpath = "//button[text()=' Set Confirmations & Reminders '] ")
-    public WebElement SetConfirmationRemindersHeading;
-
-    @FindBy(xpath = "//button[text()=' Cancellation or Reschedule Policy '] ")
-    public WebElement CancellationRescheduleHeading;
-
-    @FindBy(xpath = "//button[text()=' Payments & Integrations '] ")
-    public WebElement PaymentsIntegrationsHeading;
-
     @FindBy(css = "div.title")
     public List<WebElement> LocationModalityFieldsText;
 
@@ -82,7 +70,7 @@ public class CreateAppointmentPage extends BasePage
     public WebElement OpeningHoursText;
 
     @FindBy(css = "span.slot")
-    public List<WebElement> FromToTimeSlots;
+    public List<WebElement> OpeningHoursSlots;
 
     @FindBy(xpath = "//span[text()='X']")
     public List<WebElement> CancelSlot;
@@ -120,6 +108,9 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//div[text()='Above field is required']")
     public WebElement DateErrorMessage;
 
+    @FindBy(css = "div.text-error")
+    public List<WebElement> ErrorMessages;
+
 
     public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
 
@@ -146,12 +137,14 @@ public class CreateAppointmentPage extends BasePage
         ToDateField.sendKeys(ToDate);
     }
 
-    public void SelectRecurringWithDateSpecificSessionTypeAndEnterFromDateAndToDate(String Date) {
+    public void SelectRecurringWithDateSpecificSessionTypeAndEnterDate(String Date, String FromTime, String ToTime) {
 
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(2).click();
 
         DateInput.sendKeys(Date);
+        TimeInput.get(0).sendKeys(FromTime);
+        TimeInput.get(1).sendKeys(ToTime);
     }
 
 }
