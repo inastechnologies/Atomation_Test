@@ -32,8 +32,6 @@ public class VerificationCodePage extends BasePage
     @FindBy(css = "div.text-error")
     public WebElement VerificationErrorText;
 
-
-
     public PractitionerManageAppointmentsPage EnterCodeAndClickSubmit(String one, String Two, String Three, String Four)
     {
         Utils.WaitForElementsToExist(driver, OTPInputField);

@@ -32,7 +32,6 @@ public class VerifyYourAccountPage extends BasePage
     @FindBy(css = "div.text-error")
     public WebElement PhoneEmailError;
 
-
     public VerificationCodePage EnterPhoneOrEmailAndClickGetVerificationCode(String PhoneEmail)
     {
         Utils.WaitForAnElementToExist(driver, PhoneEmailInputField);

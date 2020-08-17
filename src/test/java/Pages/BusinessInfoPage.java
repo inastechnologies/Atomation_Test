@@ -9,7 +9,6 @@ import java.util.List;
 
 public class BusinessInfoPage extends BasePage
 {
-
     public BusinessInfoPage(WebDriver driver)
     {
         super(driver);

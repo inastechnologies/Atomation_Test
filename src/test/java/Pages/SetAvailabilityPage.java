@@ -1,29 +1,42 @@
 package Pages;
 
 import Utils.Utils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class PractitionerManageAppointmentsPage extends BasePage
+public class SetAvailabilityPage extends BasePage
 {
-    public PractitionerManageAppointmentsPage(WebDriver driver)
+    public SetAvailabilityPage(WebDriver driver)
     {
         super(driver);
     }
 
-
     @FindBy(xpath = "//div[text()='MANAGE APPOINTMENTS']")
     public WebElement ManageAppointments;
 
-    @FindBy(css = "button.q-button.set-button")
+    @FindBy(css = "h4.text-uppercase")
+    public WebElement AppointmentsHeading;
+
+    @FindBy(xpath = "//button[text()=' SET AVAILABILITY ']")
     public WebElement SetAvailability;
 
-    @FindBy(xpath = "//button[text()=' VIEW APPOINTMENTS ']")
-    public WebElement ViewAppointments;
+    @FindBy(css = "input.radio")
+    public List<WebElement> SessionTypeRadioButtons;
+
+    @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
+    public WebElement CreateAppointmentSessionTypeHeading;
+
+    @FindBy(xpath = "//button[text()=' Set Confirmations & Reminders '] ")
+    public WebElement SetConfirmationRemindersHeading;
+
+    @FindBy(xpath = "//button[text()=' Cancellation or Reschedule Policy '] ")
+    public WebElement CancellationRescheduleHeading;
+
+    @FindBy(xpath = "//button[text()=' Payments & Integrations '] ")
+    public WebElement PaymentsIntegrationsHeading;
 
     @FindBy(xpath = "//div[text()='MANAGE ORDERS']")
     public WebElement ManageOrders;
@@ -118,81 +131,14 @@ public class PractitionerManageAppointmentsPage extends BasePage
     @FindBy(xpath = "//input[@type='time']")
     public List<WebElement> TimeInput;
 
-    @FindBy(css = "button.time.add-button")
-    public List<WebElement> AddButtons;
 
-    @FindBy(xpath = "//button[text()=' SUBMIT ']")
-    public WebElement SubmitButton;
-
-    @FindBy(css = "span.image-circle.hand-pointer")
-    public List<WebElement> HeaderIcons;
-
-    @FindBy(css = "img.image-size-user")
-    public WebElement ProfileIcon;
-
-    @FindBy(css = "div.options-pop")
-    public WebElement LogoutButton;
-
-    public LoginPage ClickLogoutToGoOutOfThePage()
+    public CreateAppointmentPage ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage()
     {
-        Utils.WaitForAnElementToExist(driver, ProfileIcon);
-        ProfileIcon.click();
-        Utils.WaitForAnElementToExist(driver, LogoutButton);
-        LogoutButton.click();
-
-        return new LoginPage(driver);
-    }
-
-    public void ClickOnDateToCheckTheAppointments(String Date) throws InterruptedException
-    {
-        Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        ManageAppointments.click();
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[text()='" + Date + "']")).click();
-    }
-
-    public void ClickAppointmentsAndEnterDataInSetAvailabilityPage(String Location, String Modality, String ConsultationType, String NoOfDays, String Day, String ToTime, String FromTime, String Name, String NoOfMIns, String Fee, String SessionsIncludeUpto)
-    {
-        Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        ManageAppointments.click();
+        Utils.WaitForAnElementToExist(driver, SetAvailability);
         SetAvailability.click();
+        SessionTypeRadioButtons.get(1).click();
 
-        Utils.WaitForAnElementToExist(driver, LocationInput);
-        Utils.SelectFromDropDownUsingVisibleText(LocationInput, Location);
-        Utils.SelectFromDropDownUsingVisibleText(ModalityInput, Modality);
-        Utils.SelectFromDropDownUsingVisibleText(ConsultationTypeInput, ConsultationType);
-        Utils.SelectFromDropDownUsingVisibleText(NOOfBookingDaysInput, NoOfDays);
-        Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
-
-        TimeInput.get(0).sendKeys(FromTime);
-        TimeInput.get(1).sendKeys(ToTime);
-
-        AddButtons.get(0).click();
-
-        NameInput.sendKeys(Name);
-        NoOfMinsInput.sendKeys(NoOfMIns);
-        FeesInput.sendKeys(Fee);
-        SessionCanIncludeUpToInput.sendKeys(SessionsIncludeUpto);
-
-        AddButtons.get(1).click();
-
-        SubmitButton.click();
-    }
-
-    public void EnterFromTimeAndToTimeToAddSlots(String FromTime, String ToTime)
-    {
-        TimeInput.get(0).sendKeys(FromTime);
-        TimeInput.get(1).sendKeys(ToTime);
-    }
-
-    public SetAvailabilityPage ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage()
-    {
-        Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        ManageAppointments.click();
-
-        return new SetAvailabilityPage(driver);
+        return new CreateAppointmentPage(driver);
     }
 
 }
-

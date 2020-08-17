@@ -8,8 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class PersonalInfoPage extends BasePage {
-    public PersonalInfoPage(WebDriver driver) {
+public class PersonalInfoPage extends BasePage
+{
+    public PersonalInfoPage(WebDriver driver)
+    {
         super(driver);
     }
 

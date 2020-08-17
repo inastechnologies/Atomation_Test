@@ -82,7 +82,7 @@ public class Utils
     public static void SelectFromDropDownUsingVisibleText(WebElement element, String Text)
     {
         Select select = new Select(element);
-        select.selectByValue(Text);
+        select.selectByVisibleText(Text);
     }
 
     public static void MouseHoverToAnElement(WebDriver driver, WebElement element)

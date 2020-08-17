@@ -10,7 +10,6 @@ import java.util.List;
 public class ResetPasswordPage extends BasePage
 {
     public ResetPasswordPage(WebDriver driver)
-
     {
         super(driver);
     }
