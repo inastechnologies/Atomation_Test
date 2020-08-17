@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 public class DemoTests extends BaseTest
 {
-
     @Test
     public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException
     {
@@ -56,6 +55,8 @@ public class DemoTests extends BaseTest
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
+
+
 
     @Test
     public void VerifyIfUserCanBuyEssentialSubscription() throws InterruptedException {

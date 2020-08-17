@@ -55,7 +55,7 @@ public class Utils
         }
     }
 
-    public static boolean ElementsNotDisplayed(WebDriver driver, List<WebElement> element)
+    public static boolean ElementsDisplayed(WebDriver driver, List<WebElement> element)
     {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOfAllElements(element));
@@ -155,6 +155,33 @@ public class Utils
         }
         return elementsText;
     }
+
+    public static int extractMaximum(String str)
+    {
+        int num = 0, res = 0;
+        // Start traversing the given string
+        for (int i = 0; i<str.length(); i++)
+        {
+            // If a numeric value comes, start converting
+            // it into an integer till there are consecutive
+            // numeric digits
+            if (Character.isDigit(str.charAt(i)))
+                num = num * 10 + (str.charAt(i)-'0');
+                // Update maximum value
+            else
+            {
+                res = Math.max(res, num);
+
+                // Reset the number
+                num = 0;
+            }
+        }
+        // Return maximum value
+        return Math.max(res, num);
+    }
+
+
+
 }
 
 

@@ -1701,4 +1701,6 @@ public class PractitionerManageAppointmentsTests extends BaseTest {
         practitionerManageAppointmentsPage.ClickAppointmentsAndEnterDataInSetAvailabilityPage("", "Physiotherapy", "Online", "365", "1", "10:00AM", "12:00PM", "Initial Appointment", "60", "500", "1");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practitionerManageAppointmentsPage.SwalTitle), "Are you sure?");
     }
+
+
 }

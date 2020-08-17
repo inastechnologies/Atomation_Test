@@ -1,8 +1,10 @@
 package Pages;
 
 import Utils.Utils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -197,10 +199,13 @@ public class SignUpPage extends BasePage
         return new SubscriptionPage(driver);
     }
 
-    public SubscriptionPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp()
-    {
+    public SubscriptionPage ClickPractitionerCategoryClickTermsAndConditionsAndSignUp(){
         Utils.WaitForAnElementToExist(driver, PractitionerRadioButton);
         PractitionerRadioButton.click();
+
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        //actions.sendKeys(Keys.PAGE_UP).build().perform();
         Utils.WaitForAnElementToExist(driver, AcceptTermsCheckBox);
         AcceptTermsCheckBox.click();
         Utils.WaitForAnElementToExist(driver, SignUpButton);

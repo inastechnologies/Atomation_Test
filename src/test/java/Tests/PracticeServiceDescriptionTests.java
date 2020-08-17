@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PracticeServiceDescriptionTests extends BaseTest {
     @Test
-    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInPracticeServiceInfoPage() {
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInPracticeServiceInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -48,7 +48,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage() {
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
