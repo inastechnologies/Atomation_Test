@@ -48,12 +48,6 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//select[@formcontrolname='modality']")
     public WebElement ModalityInput;
 
-    @FindBy(xpath = "//span[text()='Consultation Type ']")
-    public WebElement ConsultationTypeText;
-
-    @FindBy(xpath = "//select[@formcontrolname='consultation_type']")
-    public WebElement ConsultationTypeInput;
-
     @FindBy(xpath = "//span[text()='Do not offer booking more than ']")
     public WebElement NoOfBookingsDaysText;
 
@@ -84,20 +78,38 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//input[@formcontrolname='name']")
     public WebElement NameInput;
 
-    @FindBy(xpath = "//input[@formcontrolname='no_of_min']")
-    public WebElement NoOfMinsInput;
+    @FindBy(xpath = "//select[@formcontrolname='nominutes']")
+    public WebElement DurationMinsInput;
+
+    @FindBy(xpath = "//select[@formcontrolname='nohours']")
+    public WebElement DurationHoursInput;
 
     @FindBy(xpath = "//input[@formcontrolname='fee']")
     public WebElement FeesInput;
 
-    @FindBy(xpath = "//input[@formcontrolname='session_can_include_upto']")
-    public WebElement SessionCanIncludeUpToInput;
+    @FindBy(xpath = "//select[@formcontrolname='eventMinutes']")
+    public WebElement EventMinsInput;
+
+    @FindBy(xpath = "//select[@formcontrolname='eventHours']")
+    public WebElement EventHoursInput;
+
+    @FindBy(xpath = "//select[@formcontrolname='cutHours']")
+    public WebElement CutOffHours;
+
+    @FindBy(xpath = "//select[@formcontrolname='cutMinutes']")
+    public WebElement CutOffMins;
+
+    @FindBy(xpath = "//select[@formcontrolname='consultation_type']")
+    public WebElement ConsultationTypeInput;
+
+    @FindBy(xpath = "//textarea[@formcontrolname='description']")
+    public WebElement Description;
+
+    @FindBy(css = "button.event-button")
+    public List<WebElement> CreateEvenButtons;
 
     @FindBy(css = "span.fromToSlot.fromToSlot-type.hand-pointer")
     public List<WebElement> AppointmentTypeSlots;
-
-    @FindBy(css = "span.weeks.hand-pointer")
-    public List<WebElement> Days;
 
     @FindBy(xpath = "//input[@type='time']")
     public List<WebElement> TimeInput;
@@ -111,6 +123,12 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
 
+    @FindBy(xpath = "//div[text()='Name is required']")
+    public WebElement NameError;
+
+    @FindBy(css = "button.q-button.view-button")
+    public WebElement SaveAndContinue;
+
 
     public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
 
@@ -119,11 +137,12 @@ public class CreateAppointmentPage extends BasePage
         Utils.SelectFromDropDownUsingVisibleText(ModalityInput, Modality);
     }
 
-    public void SelectDayAndOpeningHoursInCreateAppointmentPage(String Day, String FromTime, String ToTime) {
+    public void SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(String Day, String FromTime, String ToTime) {
 
-        Utils.WaitForAnElementToExist(driver, SelectDayInput);
+        Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
+        SessionTypeRadioButtons.get(0).click();
+
         Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
-
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
     }
@@ -132,7 +151,6 @@ public class CreateAppointmentPage extends BasePage
 
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(1).click();
-
         FromDateField.sendKeys(FromDate);
         ToDateField.sendKeys(ToDate);
     }
@@ -141,10 +159,38 @@ public class CreateAppointmentPage extends BasePage
 
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(2).click();
-
         DateInput.sendKeys(Date);
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
     }
+
+    public void EnterDataInAllFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees) {
+
+        Utils.WaitForAnElementToExist(driver, NameInput);
+        NameInput.sendKeys(Name);
+        DurationHoursInput.sendKeys(Hours);
+        DurationMinsInput.sendKeys(Minutes);
+        FeesInput.sendKeys(Fees);
+    }
+
+    public SetConfirmationsRemindersPage EnterDataInAllFieldsOfCreteAppointmentPageAndNavigateToSetConfirmationsAndRemindersPage(String Location, String Modality, String Day, String FromTime, String ToTime, String Name, String Hours, String Minutes, String Fees) {
+
+       SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
+       SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(Day, FromTime, ToTime);
+       AddButton.click();
+       Utils.SelectFromDropDownUsingVisibleText(NOOfBookingDaysInput, "15");
+       EnterDataInAllFieldsOfAppointmentType(Name, Hours, Minutes, Fees);
+       Utils.SelectFromDropDownUsingVisibleText(ConsultationTypeInput, "Online");
+       Utils.SelectFromDropDownUsingVisibleText(EventHoursInput, "01");
+       Utils.SelectFromDropDownUsingVisibleText(EventMinsInput, "15");
+       Utils.SelectFromDropDownUsingVisibleText(CutOffHours, "00");
+       Utils.SelectFromDropDownUsingVisibleText(CutOffMins, "00");
+       Description.sendKeys("fhgf");
+       CreateEvenButtons.get(1).click();
+       SaveAndContinue.click();
+
+       return new SetConfirmationsRemindersPage(driver);
+    }
+
 
 }

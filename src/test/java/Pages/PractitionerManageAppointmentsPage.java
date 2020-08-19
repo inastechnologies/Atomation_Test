@@ -16,7 +16,7 @@ public class PractitionerManageAppointmentsPage extends BasePage
     }
 
 
-    @FindBy(xpath = "//div[text()='MANAGE APPOINTMENTS']")
+    @FindBy(xpath = "//div[text()=' MANAGE APPOINTMENTS ']")
     public WebElement ManageAppointments;
 
     @FindBy(css = "button.q-button.set-button")

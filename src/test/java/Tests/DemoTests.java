@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class DemoTests extends BaseTest
 {
     @Test
-    public void VerifyIfUserCanSubmitRegistrationFormSuccessfullyAndLogout() throws InterruptedException
+    public void VerifyIfPractitionerCanSetAvailabilityAfterRegistration() throws InterruptedException
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -41,6 +41,7 @@ public class DemoTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
+        Thread.sleep(3000);
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
@@ -49,14 +50,25 @@ public class DemoTests extends BaseTest
         Thread.sleep(2000);
         PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.EnterDataInAllFieldsOfCreteAppointmentPageAndNavigateToSetConfirmationsAndRemindersPage(Location, "Physiotherapy", "Monday", "10:00AM", "12:00PM", "Initial", "0", "45", "50");
+
+        Thread.sleep(3000);
+        CancelletionAndReschedulePage cancelletionAndReschedulePage = setConfirmationsRemindersPage.EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage("fdgdf@gmail.com");
+
+        Thread.sleep(3000);
+        cancelletionAndReschedulePage.FillAlTheFieldsInCancellationAndReschedulingPage();
+
         Thread.sleep(5000);
         LoginPage loginPage =  practitionerManageAppointmentsPage.ClickLogoutToGoOutOfThePage();
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
-
-
 
     @Test
     public void VerifyIfUserCanBuyEssentialSubscription() throws InterruptedException {
@@ -83,15 +95,13 @@ public class DemoTests extends BaseTest
         EssentialSubscriptionPage essentialSubscriptionPage = subscriptionPage.ClickOnBuyButtonAndNavigateToEssentialSubscriptionPage();
 
         essentialSubscriptionPage.EnterPaymentDetailsAndConfirm("Sailaja", "Mamillapalli", "657565757", "21/09/2022");
+
         essentialSubscriptionPage.CheckBox.get(1).click();
-
         essentialSubscriptionPage.CheckBox.get(2).click();
-
-        Thread.sleep(3000);
     }
 
     @Test
-    public void VerifyUserCanLoginWithRegisteredEmailAndPasswordAndCheckForTheAppointments() throws InterruptedException {
+    public void VerifyIfUserCanLoginWithRegisteredEmailAndPasswordAndSetAvailability() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         homePage.LoginTab.click();
         LoginPage loginPage = new LoginPage(driver);
@@ -99,11 +109,20 @@ public class DemoTests extends BaseTest
         Thread.sleep(3000);
         PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Suny@gmail.com", "Suny@270116");
 
-        practitionerManageAppointmentsPage.ClickOnDateToCheckTheAppointments("25");
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.EnterDataInAllFieldsOfCreteAppointmentPageAndNavigateToSetConfirmationsAndRemindersPage("Sydney", "Physiotherapy", "Monday", "10:00AM", "12:00PM", "Initial", "0", "45", "50");
+
         Thread.sleep(3000);
+        CancelletionAndReschedulePage cancelletionAndReschedulePage = setConfirmationsRemindersPage.EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage("fdgdf@gmail.com");
 
+        Thread.sleep(3000);
+        cancelletionAndReschedulePage.FillAlTheFieldsInCancellationAndReschedulingPage();
+
+        Thread.sleep(3000);
         practitionerManageAppointmentsPage.ClickLogoutToGoOutOfThePage();
-
 
         Thread.sleep(3000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
