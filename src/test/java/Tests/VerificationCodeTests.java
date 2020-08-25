@@ -37,7 +37,7 @@ public class VerificationCodeTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -76,7 +76,7 @@ public class VerificationCodeTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -115,7 +115,7 @@ public class VerificationCodeTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
-        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
+        practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy","Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf",  "frdrdrd");
 
         VerifyYourAccountPage verifyYourAccountPage = new VerifyYourAccountPage(driver);
 
@@ -157,7 +157,7 @@ public class VerificationCodeTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
 
@@ -196,7 +196,7 @@ public class VerificationCodeTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
 

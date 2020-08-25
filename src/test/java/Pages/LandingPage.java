@@ -56,11 +56,11 @@ public class LandingPage extends BasePage
     @FindBy(css = "input.input-modalities.input2-w")
     public WebElement ModalitiesSearchInput;
 
-    @FindBy(xpath = "//div[text()='Bowen Therapy']")
-    public WebElement BowenTherapy;
+    @FindBy(xpath = "//div[text()='Nutrition']")
+    public WebElement Nutrition;
 
-    @FindBy(xpath = "//div[text()='Acupuncture']")
-    public WebElement Acupuncture;
+    @FindBy(xpath = "//div[text()='Homeopathy']")
+    public WebElement Homeopathy;
 
     @FindBy(xpath = "//div[text()='Allergy Treatments']")
     public WebElement AllergyTreatments;

@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CreateAppointmentPage extends BasePage
+public class EditAppointmentPage extends BasePage
 {
-    public CreateAppointmentPage(WebDriver driver)
+    public EditAppointmentPage(WebDriver driver)
     {
         super(driver);
     }
@@ -19,11 +19,8 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
     public WebElement CreateAppointmentSessionTypeHeading;
 
-    @FindBy(xpath = "//button[text()=' Set Confirmations & Reminders '] ")
-    public WebElement SetConfirmationRemindersHeading;
-
-    @FindBy(xpath = "//button[text()=' Cancellation or Reschedule Policy '] ")
-    public WebElement CancellationRescheduleHeading;
+    @FindBy(xpath = "//button[text()=' Confirmations & Reminders '] ")
+    public WebElement EditConfirmationRemindersHeading;
 
     @FindBy(xpath = "//button[text()=' Payments & Integrations '] ")
     public WebElement PaymentsIntegrationsHeading;
@@ -130,7 +127,7 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(css = "button.time.add-button")
     public WebElement AddButton;
 
-    @FindBy(xpath = "//div[text()=' Past Dates or Same Date Not Acceptable ']")
+    @FindBy(xpath = "//div[text()='Above field is required']")
     public WebElement DateErrorMessage;
 
     @FindBy(css = "div.text-error")
@@ -143,17 +140,14 @@ public class CreateAppointmentPage extends BasePage
     public WebElement SaveAndContinue;
 
 
-    public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
+    public void SelectLocationAndModalityInEditAppointmentPage(String Location, String Modality) {
 
         Utils.WaitForAnElementToExist(driver, LocationInput);
         Utils.SelectFromDropDownUsingVisibleText(LocationInput, Location);
         Utils.SelectFromDropDownUsingVisibleText(ModalityInput, Modality);
     }
 
-    public void SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(String Day, String FromTime, String ToTime) {
-
-        Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
-        SessionTypeRadioButtons.get(0).click();
+    public void SelectDayAndOpeningHours(String Day, String FromTime, String ToTime) {
 
         Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
         TimeInput.get(0).sendKeys(FromTime);
@@ -180,7 +174,7 @@ public class CreateAppointmentPage extends BasePage
         TimeInput.get(1).sendKeys(ToTime);
     }
 
-    public void EnterDataInAllFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees) {
+    public void EditDataInTheFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees) {
 
         Utils.WaitForAnElementToExist(driver, NameInput);
         NameInput.sendKeys(Name);
@@ -191,21 +185,21 @@ public class CreateAppointmentPage extends BasePage
 
     public void CreateEventForRecurringSessionType(String Location, String Modality, String Day, String FromTime, String ToTime) {
 
-       SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
-       SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(Day, FromTime, ToTime);
+       SelectLocationAndModalityInEditAppointmentPage(Location, Modality);
+       //SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(Day, FromTime, ToTime);
        AddButton.click();
     }
 
     public void CreateEventForRecurringWithInDateRangeSessionType(String Location, String Modality, String FromDate, String ToDate, String Day, String FromTime, String ToTime) {
 
-        SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
-        SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(FromDate, ToDate, Day, FromTime, ToTime);
+        SelectLocationAndModalityInEditAppointmentPage(Location, Modality);
+        //SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(FromDate, ToDate, Day, FromTime, ToTime);
         AddButton.click();
     }
 
     public void CreateEventForDateSpecificSessionType(String Location, String Modality, String Date, String FromTime, String ToTime) {
 
-        SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
+        SelectLocationAndModalityInEditAppointmentPage(Location, Modality);
         SelectRecurringWithDateSpecificSessionTypeAndEnterDate(Date, FromTime, ToTime);
         AddButton.click();
     }

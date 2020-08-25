@@ -47,7 +47,7 @@ public class LandingPageTests extends BaseTest
         Assert.assertTrue(Utils.IsElementDisplayed(driver, landingPage.HeaderIcons.get(2)));
     }
 
-    @Test // working need to assert
+    //@Test // working need to assert
     public void VerifyIfUserCanClickOnFindAndSearchForServicesHeNeeds()
     {
         LandingPage landingPage = new LandingPage(driver);
@@ -61,7 +61,7 @@ public class LandingPageTests extends BaseTest
         landingPage.ClickOnAskIconAndNavigateToPractitionerPage();
     }
 
-    @Test // working need to assert
+    //@Test // working need to assert
     public void VerifyIfUserCanClickOnBookIconAndNavigateToTheListOfPractitionersPage()
     {
         LandingPage landingPage = new LandingPage(driver);
@@ -132,7 +132,7 @@ public class LandingPageTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
     }
 
-    @Test
+    //@Test
     public void VerifyWhenClickedOnListYourBusinessButtonItNavigatesToSignUpPage() throws InterruptedException {
         LandingPage landingPage = new LandingPage(driver);
         SignUpPage signUpPage = landingPage.ClickListYourBusinessAndNavigateToLogInPage();
@@ -149,12 +149,12 @@ public class LandingPageTests extends BaseTest
         landingPage.RightScroll.click();
 
         Thread.sleep(3000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BowenTherapy), "Bowen Therapy");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.Nutrition), "Nutrition");
 
         landingPage.LeftScroll.click();
 
         Thread.sleep(3000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.Acupuncture), "Acupuncture");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.Homeopathy), "Homeopathy");
     }
 
     @Test
@@ -193,7 +193,7 @@ public class LandingPageTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.AvailNowButton), "Avail Now");
     }
 
-    @Test
+    //@Test
     public void VerifyWhenClickedOnAvailNowButtonInSpecificOfferItNavigatesToSignUpPage()
     {
         LandingPage landingPage = new LandingPage(driver);
@@ -214,7 +214,7 @@ public class LandingPageTests extends BaseTest
         Assert.assertTrue(Utils.isClickable(driver, landingPage.HeartAndMessageSymbol.get(1)));
     }
 
-    @Test
+    //@Test
     public void VerifyThatClickingOnAskButtonFromQuestionAnswersTabNavigatesToSignUpPage()
     {
         LandingPage landingPage = new LandingPage(driver);
@@ -225,7 +225,7 @@ public class LandingPageTests extends BaseTest
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, signUpPage.SignUpText),"SIGN UP");
     }
 
-    @Test
+    //@Test
     public void VerifyThatClickingOnListYourBusinessInYQNATURESectionItNavigatesToSignUpPage()
     {
         LandingPage landingPage = new LandingPage(driver);

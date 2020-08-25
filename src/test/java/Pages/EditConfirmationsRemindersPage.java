@@ -5,11 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
-public class SetConfirmationsRemindersPage extends BasePage
+public class EditConfirmationsRemindersPage extends BasePage
 {
-    public SetConfirmationsRemindersPage(WebDriver driver)
+    public EditConfirmationsRemindersPage(WebDriver driver)
     {
         super(driver);
     }
@@ -44,6 +42,9 @@ public class SetConfirmationsRemindersPage extends BasePage
 
     @FindBy(xpath = "//select[@formcontrolname='third_remainder']")
     public WebElement ThirdReminderMins;
+
+    @FindBy(css = "i.fa.fa-pencil")
+    public WebElement EditPencil;
 
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;

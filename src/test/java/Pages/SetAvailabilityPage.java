@@ -20,7 +20,7 @@ public class SetAvailabilityPage extends BasePage
     @FindBy(css = "h4.text-uppercase")
     public WebElement AppointmentsHeading;
 
-    @FindBy(xpath = "//button[text()=' SET AVAILABILITY ']")
+    @FindBy(xpath = "//div[text()=' SET AVAILABILITY ']")
     public WebElement SetAvailability;
 
     @FindBy(css = "input.radio")
@@ -35,7 +35,7 @@ public class SetAvailabilityPage extends BasePage
     @FindBy(xpath = "//button[text()=' Cancellation or Reschedule Policy '] ")
     public WebElement CancellationRescheduleHeading;
 
-    @FindBy(xpath = "//button[text()=' Payments & Integrations '] ")
+    @FindBy(xpath = "//button[text()='   Payments &  Integrations '] ")
     public WebElement PaymentsIntegrationsHeading;
 
     @FindBy(xpath = "//div[text()='MANAGE ORDERS']")
@@ -134,8 +134,6 @@ public class SetAvailabilityPage extends BasePage
 
     public CreateAppointmentPage ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage()
     {
-        Utils.WaitForAnElementToExist(driver, SetAvailability);
-        SetAvailability.click();
         SessionTypeRadioButtons.get(1).click();
 
         return new CreateAppointmentPage(driver);
