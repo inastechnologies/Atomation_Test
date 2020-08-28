@@ -174,11 +174,20 @@ public class DemoTests extends BaseTest
         Thread.sleep(2000);
         editCancelletionAndReschedulePage.SaveAndContinue.click();
 
-        //Thread.sleep(5000);
-        //LoginPage loginPage =  practitionerManageAppointmentsPage.ClickLogoutToGoOutOfThePage();
+        Thread.sleep(5000);
+        /*LoginPage loginPage =  practitionerManageAppointmentsPage.ClickLogoutToGoOutOfThePage();
 
-        //Thread.sleep(3000);
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+        Thread.sleep(3000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, loginPage.LoginText), "LOGIN");
+
+        Thread.sleep(3000);
+        loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin(Email, Password);
+
+        Thread.sleep(3000);
+        practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
+
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");*/
+
     }
 
     @Test

@@ -5,7 +5,9 @@ import Utils.Utils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -94,7 +96,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatToolTipIsPresentForEachRadioOfSessionTypesAndMessageIsDisplayed() throws InterruptedException {
+    public void VerifyThatToolTipIsPresentForEachRadioOfSessionTypes_BothCreateEventButtonsAndMessageIsDisplayed() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -109,6 +111,8 @@ public class CreateAppointmentsTests extends BaseTest {
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(0)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(1)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(2)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(3)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(4)));
 
         //Utils.MouseHoverToAnElement(driver, createAppointmentPage.ToolTipIcons.get(0));
         //Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipInfo.get(0)));
@@ -118,6 +122,12 @@ public class CreateAppointmentsTests extends BaseTest {
 
         Utils.MouseHoverToAnElement(driver, createAppointmentPage.ToolTipIcons.get(2));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipInfo.get(2)));
+
+        Utils.MouseHoverToAnElement(driver, createAppointmentPage.ToolTipIcons.get(3));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipInfo.get(3)));
+
+        Utils.MouseHoverToAnElement(driver, createAppointmentPage.ToolTipIcons.get(4));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipInfo.get(4)));
     }
 
     @Test
@@ -455,11 +465,8 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
-        //Alert alert = driver.switchTo().alert();
-        //String alertMessage = alert.getText();
-
-        //Assert.assertEquals(alertMessage, "Slot Already Exist");
-    }
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Slot Already Exist')]"))), "Slot Already Exist");
+   }
 
     @Test
     public void VerifyThatWhenClickedOnCloseIconOfChip_PopupAppearsWith_YesDeleteItButtonAndCancelButton() {
@@ -864,7 +871,7 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatToolTipsArePresentForCreateEventButtonsAndMessageIsDisplayed() throws InterruptedException {
+    public void VerifyThatToolTipsArePresentForCreateEventButtonsAndMessageIsDisplayed() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
@@ -1159,9 +1166,347 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.CancelSlot.get(1).click();
 
         Thread.sleep(2000);
-        //createAppointmentPage.DeleteItButton.click();
 
         Utils.WaitForAnElementToExist(driver, createAppointmentPage.DeleteItButton);
         Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.DeleteItButton));
+    }
+
+    @Test
+    public void VerifyUserIsAbleToDeleteTheAppointmentTypeOrEventChip() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Utils.WaitForAnElementToExist(driver, createAppointmentPage.CancelSlot.get(1));
+        createAppointmentPage.CancelSlot.get(1).click();
+
+        Thread.sleep(2000);
+        createAppointmentPage.DeleteItButton.click();
+
+        Thread.sleep(2000);
+        Assert.assertTrue(Utils.isElementNotPresent(driver, createAppointmentPage.Slots.get(2)));
+    }
+
+    @Test
+    public void VerifyCreateAnotherEventButtonIsClickableAndUserIsAbleToCreateOneOrMoreEvents() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.CreateEvenButtons.get(0)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(1)));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(2)));
+    }
+
+    @Test
+    public void VerifyAfterCreatingOneEventAllTheFieldsShouldBeEnabledToCreateMoreEvents() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        Assert.assertTrue(createAppointmentPage.LocationInput.isEnabled());
+        Assert.assertTrue(createAppointmentPage.ModalityInput.isEnabled());
+        Assert.assertTrue(createAppointmentPage.SessionTypeRadioButtons.get(0).isEnabled());
+    }
+
+    @Test
+    public void VerifyThatWithoutCreatingAnyEventIfUserClicksOnSaveButtonItDisplaysErrorMessage() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SaveAndContinue.click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'No Events Added')]"))), "No Events Added");
+    }
+
+    @Test
+    public void VerifySaveButtonIsClickableAndUserCanSaveTheCreatedEvents() throws InterruptedException {
+            LandingPage homePage = new LandingPage(driver);
+            LoginPage loginPage = homePage.NavigateToLogInPage();
+
+            PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+            Thread.sleep(3000);
+            SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+            CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+            createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+            createAppointmentPage.AddButton.click();
+
+            createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+
+            createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+            createAppointmentPage.CreateEvenButtons.get(1).click();
+
+            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+            createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+            createAppointmentPage.AddButton.click();
+
+            createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+
+            createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+            createAppointmentPage.CreateEvenButtons.get(0).click();
+
+            Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.SaveAndContinue));
+            createAppointmentPage.SaveAndContinue.click();
+        }
+
+    @Test
+    public void VerifyUserCanNotCreateEventsWithoutSelectingLocation_ModalityAnd_SessionType() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Location is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Modality Type is required");
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+       // Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Please Select Session Type");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Above field is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "From time is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(3)), "To time is required");
+    }
+
+    @Test
+    public void VerifyUserCanNotCreateEventsWithoutSelectingDoNoOfferBookingsMoreThanField() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Number of Booking Days is required");
+   }
+
+    @Test
+    public void VerifyIfUserIsAbleToCreateEventsWithoutEnteringAppointmentTypeFields() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Name is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Number of hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "Number of Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(3)), "Fee is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Event Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Event Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Event Time Cannot be less than Duration time");
+    }
+
+    @Test
+    public void VerifyUserCanNotCreateEventsWithoutSelectingConsultationType_eventStartTime_CutOffTime_Description() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Consultation type is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "Event Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(3)), "Event Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Cut of Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Cut of Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Description is required");
+    }
+
+    @Test
+    public void VerifyUserCanNotCreateEventsWithoutSelectingFromDateAndToDateInRecurringWithinDateRangeSessionType() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+
+        createAppointmentPage.SessionTypeRadioButtons.get(1).click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "From Date is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "To Date is required");
     }
 }

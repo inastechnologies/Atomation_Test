@@ -2,8 +2,10 @@ package Pages;
 
 import Utils.Utils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -139,6 +141,8 @@ public class PractitionerManageAppointmentsPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, ProfileIcon);
         ProfileIcon.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
         Utils.WaitForAnElementToExist(driver, LogoutButton);
         LogoutButton.click();
 
@@ -194,7 +198,7 @@ public class PractitionerManageAppointmentsPage extends BasePage
     public SetAvailabilityPage ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage()
     {
         Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        Utils.MouseHoverToAnElement(driver, ManageAppointments);
+        ManageAppointments.click();
         SetAvailability.click();
 
         return new SetAvailabilityPage(driver);

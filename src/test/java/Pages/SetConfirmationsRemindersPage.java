@@ -15,8 +15,20 @@ public class SetConfirmationsRemindersPage extends BasePage
     }
 
 
+    @FindBy(css = "span.title")
+    public List<WebElement> RequiredFields;
+
     @FindBy(xpath = "//input[@formcontrolname='pract_email_id']")
     public WebElement PractitionerEmail;
+
+    @FindBy(xpath = "//div[text()=' Email is required ']")
+    public WebElement EmailError;
+
+    @FindBy(xpath = "//div[text()='Email must be a valid email address']")
+    public WebElement ValidEmailError;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public List<WebElement> CheckBoxes;
 
     @FindBy(xpath = "//input[@formcontrolname='conformation_sms']")
     public WebElement ConfirmationSms;
@@ -26,6 +38,12 @@ public class SetConfirmationsRemindersPage extends BasePage
 
     @FindBy(xpath = "//input[@formcontrolname='cancellation_sms']")
     public WebElement CancellationSms;
+
+    @FindBy(css = "i.tool-tip__icon")
+    public List<WebElement> ToolTipIcons;
+
+    @FindBy(css = "p.tool-tip__info")
+    public List<WebElement> ToolTipInfo;
 
     @FindBy(xpath = "//input[@formcontrolname='first']")
     public WebElement FirstReminder;

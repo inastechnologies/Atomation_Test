@@ -221,4 +221,20 @@ public class CreateAppointmentPage extends BasePage
 
         return new SetConfirmationsRemindersPage(driver);
     }
+
+    public SetConfirmationsRemindersPage ClickAndNavigateToSetConfirmationsAndRemindersPage() {
+
+        Utils.WaitForAnElementToExist(driver, SetConfirmationRemindersHeading);
+        SetConfirmationRemindersHeading.click();
+
+        return new SetConfirmationsRemindersPage(driver);
+    }
+
+    public CancelletionAndReschedulePage ClickAndNavigateToSetCancellationAndReschedulingPage() {
+
+        Utils.WaitForAnElementToExist(driver, CancellationRescheduleHeading);
+        CancellationRescheduleHeading.click();
+
+        return new CancelletionAndReschedulePage(driver);
+    }
 }

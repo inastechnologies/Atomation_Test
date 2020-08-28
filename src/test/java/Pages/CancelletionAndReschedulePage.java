@@ -15,6 +15,12 @@ public class CancelletionAndReschedulePage extends BasePage
     }
 
 
+    @FindBy(css = "span.title")
+    public List<WebElement> MandatoryFields;
+
+    @FindBy(xpath = "//h6[text()='(i) Refunds are not processed automatically via Q nature, It happens via Latpay']")
+    public List<WebElement> CancellationReschedulingPolicyInRed;
+
     @FindBy(xpath = "//Select[@formcontrolname='c_time']")
     public WebElement CustomerCancelHours1;
 
