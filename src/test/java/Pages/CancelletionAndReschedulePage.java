@@ -78,6 +78,22 @@ public class CancelletionAndReschedulePage extends BasePage
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
 
+    @FindBy(css = "div.text-error")
+    public List<WebElement> ErrorMessages;
+
+    @FindBy(css = "i.tool-tip__icon")
+    public List<WebElement> ToolTipIcons;
+
+    @FindBy(css = "p.tool-tip__info")
+    public List<WebElement> ToolTipInfo;
+
+    @FindBy(xpath = " //div[text()=' description is required ']")
+    public WebElement PolicyDescriptionError1;
+
+    @FindBy(xpath = " //div[text()=' Description is required ']")
+    public WebElement PolicyDescriptionError2;
+
+
     public void FillAlTheFieldsInCancellationAndReschedulingPage()
     {
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "24");
@@ -103,5 +119,25 @@ public class CancelletionAndReschedulePage extends BasePage
         PolicyDescriptionTextArea2.sendKeys("ghfhgfh");
         CustomerCancellationReason2.get(2).click();
         SaveAndContinue.click();
+    }
+
+    public void SelectHoursAndEnterTextUnder_CustomersCanCancelOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2) {
+
+        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, Hours1);
+        RefundPrice1.sendKeys(Price1);
+        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, PriceType1);
+        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, Hours2);
+        RefundPrice2.sendKeys( Price2);
+        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, PriceType2);
+    }
+
+    public void SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2) {
+
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, Hours1);
+        ReschedulePrice1.sendKeys(Price1);
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, PriceType1);
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, Hours2);
+        ReschedulePrice2.sendKeys( Price2);
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, PriceType2);
     }
 }
