@@ -2,9 +2,12 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeServiceDescriptionTests extends BaseTest {
@@ -145,7 +148,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
         Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
         practiceServiceDescriptionPage.CLickEveryFieldInPracticeServiceInfoPage();
 
-       // List<String> ActualText = Utils.GetTextForAListOfElements(driver, practiceServiceDescriptionPage.ErrorMessages);
+        // List<String> ActualText = Utils.GetTextForAListOfElements(driver, practiceServiceDescriptionPage.ErrorMessages);
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.ErrorMessages.get(0)), "Service Type is required");
     }
@@ -188,7 +191,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfTheServiceTypeHasTheDropDownListOfServices() {
+    public void VerifyIfTheServiceTypeHasTheDropDownListOfRequiredServices() {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -216,8 +219,31 @@ public class PracticeServiceDescriptionTests extends BaseTest {
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        Assert.assertTrue(Utils.isClickable(driver, practiceServiceDescriptionPage.ServiceTypeInput));
-    }
+        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
+        Select select = new Select(practiceServiceDescriptionPage.ServiceTypeInput);
+        List<WebElement> options = select.getOptions();
+
+        ArrayList actualDropDownItems = new ArrayList();
+
+        for (WebElement value : options) {
+            actualDropDownItems.add(value.getText());
+        }
+
+// Verify Drop-down contains ONLY 7 values
+        if (options.size() == 143)
+
+            Assert.assertTrue(true);
+        else
+            Assert.assertTrue(false);
+
+// Compare expected and actual list
+           /* for (int i = 0; i < actualDropDownItems.size(); i++) {
+                if (exp.equals(actualDropDownItems.get(i)))
+                    Assert.assertTrue(true);*/
+
+        }
+
+
 
     @Test
     public void VerifyFieldsOOfPracticeServiceDescriptionPageAreAcceptingAlphabetsNumericalSpacesAndSplChar() {
