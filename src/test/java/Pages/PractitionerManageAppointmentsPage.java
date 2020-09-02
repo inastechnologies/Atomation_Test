@@ -2,24 +2,29 @@ package Pages;
 
 import Utils.Utils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class PractitionerManageAppointmentsPage extends BasePage
 {
-    public PractitionerManageAppointmentsPage(WebDriver driver) {
+    public PractitionerManageAppointmentsPage(WebDriver driver)
+    {
         super(driver);
     }
 
-
-    @FindBy(xpath = "//div[text()='MANAGE APPOINTMENTS']")
+    @FindBy(xpath = "//div[text()=' MANAGE APPOINTMENTS ']")
     public WebElement ManageAppointments;
 
-    @FindBy(css = "button.q-button.set-button")
+    @FindBy(xpath = "//div[text()=' SET AVAILABILITY ']")
     public WebElement SetAvailability;
+
+    @FindBy(xpath = "//div[text()=' VIEW/EDIT AVAILABILITY ']")
+    public WebElement View_EditAvailability;
 
     @FindBy(xpath = "//button[text()=' VIEW APPOINTMENTS ']")
     public WebElement ViewAppointments;
@@ -136,6 +141,8 @@ public class PractitionerManageAppointmentsPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, ProfileIcon);
         ProfileIcon.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_UP).build().perform();
         Utils.WaitForAnElementToExist(driver, LogoutButton);
         LogoutButton.click();
 
@@ -153,9 +160,12 @@ public class PractitionerManageAppointmentsPage extends BasePage
 
     public void ClickAppointmentsAndEnterDataInSetAvailabilityPage(String Location, String Modality, String ConsultationType, String NoOfDays, String Day, String ToTime, String FromTime, String Name, String NoOfMIns, String Fee, String SessionsIncludeUpto)
     {
-        Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        ManageAppointments.click();
+
+        Utils.MouseHoverToAnElement(driver, ManageAppointments);
+        //Utils.WaitForAnElementToExist(driver, ManageAppointments);
+        //ManageAppointments.click();
         SetAvailability.click();
+
 
         Utils.WaitForAnElementToExist(driver, LocationInput);
         Utils.SelectFromDropDownUsingVisibleText(LocationInput, Location);
@@ -183,6 +193,23 @@ public class PractitionerManageAppointmentsPage extends BasePage
     {
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
+    }
+
+    public SetAvailabilityPage ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage()
+    {
+        Utils.WaitForAnElementToExist(driver, ManageAppointments);
+        ManageAppointments.click();
+        SetAvailability.click();
+
+        return new SetAvailabilityPage(driver);
+    }
+
+    public EditAppointmentPage ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage()
+    {
+        Utils.MouseHoverToAnElement(driver, ManageAppointments);
+        View_EditAvailability.click();
+
+        return new EditAppointmentPage(driver);
     }
 
 }

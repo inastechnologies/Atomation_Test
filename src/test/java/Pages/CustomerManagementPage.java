@@ -8,8 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CustomerManagementPage extends BasePage {
-    public CustomerManagementPage(WebDriver driver) {
+public class CustomerManagementPage extends BasePage
+{
+    public CustomerManagementPage(WebDriver driver)
+    {
         super(driver);
     }
 

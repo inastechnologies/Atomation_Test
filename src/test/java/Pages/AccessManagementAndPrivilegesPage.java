@@ -7,8 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
-public class AccessManagementAndPrivilegesPage extends BasePage {
-    public AccessManagementAndPrivilegesPage(WebDriver driver) {
+public class AccessManagementAndPrivilegesPage extends BasePage
+{
+    public AccessManagementAndPrivilegesPage(WebDriver driver)
+    {
         super(driver);
     }
 

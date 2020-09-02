@@ -2,9 +2,12 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeServiceDescriptionTests extends BaseTest {
@@ -115,6 +118,42 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
+    public void VerifyIfServiceTypeFieldIsMandatory() {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Melbourne";
+        String Password = AlphaNumeric + "@J5";
+        String ConfirmPassword = AlphaNumeric + "@J5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf");
+
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2021");
+        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
+        practiceServiceDescriptionPage.CLickEveryFieldInPracticeServiceInfoPage();
+
+        // List<String> ActualText = Utils.GetTextForAListOfElements(driver, practiceServiceDescriptionPage.ErrorMessages);
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.ErrorMessages.get(0)), "Service Type is required");
+    }
+
+    @Test
     public void VerifyPracticeServiceDescriptionPagePageHasAllTheRequiredFields() {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
@@ -149,6 +188,126 @@ public class PracticeServiceDescriptionTests extends BaseTest {
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.DescribeQualificationsRegistrationsText), "Describe Your Qualifications & Registrations * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.UploadLogoText), "Upload Logo & Images :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, practiceServiceDescriptionPage.AdditionalInfoText), "Additional Information :");
+    }
+
+    @Test
+    public void VerifyIfTheServiceTypeHasTheDropDownListOfRequiredServices() {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Melbourne";
+        String Password = AlphaNumeric + "@J5";
+        String ConfirmPassword = AlphaNumeric + "@J5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdfd", "87523569390", "fgsdsgf", "fggasfdf", "rtwqe", "5677", "ytredf");
+
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2021");
+
+        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
+        Select select = new Select(practiceServiceDescriptionPage.ServiceTypeInput);
+        List<WebElement> options = select.getOptions();
+
+        ArrayList actualDropDownItems = new ArrayList();
+
+        for (WebElement value : options) {
+            actualDropDownItems.add(value.getText());
+        }
+
+// Verify Drop-down contains ONLY 7 values
+        if (options.size() == 143)
+
+            Assert.assertTrue(true);
+        else
+            Assert.assertTrue(false);
+
+// Compare expected and actual list
+           /* for (int i = 0; i < actualDropDownItems.size(); i++) {
+                if (exp.equals(actualDropDownItems.get(i)))
+                    Assert.assertTrue(true);*/
+
+        }
+
+
+
+    @Test
+    public void VerifyFieldsOOfPracticeServiceDescriptionPageAreAcceptingAlphabetsNumericalSpacesAndSplChar() {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@J5";
+        String ConfirmPassword = AlphaNumeric + "@J5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Adelaide", "5377", "Telangana");
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2021");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "d)(*&gdfgf", "fdgdf)(*&566fgf", "dfhg87686(*&hdh", "dffd)(*&76fd", "frdr)(**65rd");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerifyYourAccountText), "Verify Your Account");
+    }
+
+    @Test
+    public void VerifyUserCanAddUptoFiveImagesInUploadImagesField() {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@J5";
+        String ConfirmPassword = AlphaNumeric + "@J5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Adelaide", "5377", "Telangana");
+        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/1995", personalInfoPage.DOBInputField);
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
+                "asfa", "2658787656", "2020", "01/02/2021");
+        VerifyYourAccountPage verifyYourAccountPage= practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsAndUploadFiveFiles("Naturopathy", "jhgjhghj", "jhgj", "hjghjgj", "jhgjjhg", "jhjhk");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerifyYourAccountText), "Verify Your Account");
+
     }
 
     @Test

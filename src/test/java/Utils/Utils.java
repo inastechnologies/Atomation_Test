@@ -1,5 +1,6 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -55,11 +56,31 @@ public class Utils
         }
     }
 
+    public static boolean isElementNotPresent(WebDriver driver, WebElement element) {
+        try {
+            WaitForAnElementToExist(driver,element);
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+
     public static boolean ElementsDisplayed(WebDriver driver, List<WebElement> element)
     {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOfAllElements(element));
             return true;
+    }
+
+    public static boolean AlertIsPresent(WebDriver driver)
+    {
+        try{
+            WebDriverWait wait = new WebDriverWait(driver,20);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Your notification here')]")));
+        }catch(Throwable e){
+            System.err.println("Error while waiting for the notification to appear: "+ e.getMessage());
+        }
+        return true;
     }
 
     public static boolean isElementSelected(WebDriver driver, WebElement element)
@@ -82,7 +103,7 @@ public class Utils
     public static void SelectFromDropDownUsingVisibleText(WebElement element, String Text)
     {
         Select select = new Select(element);
-        select.selectByValue(Text);
+        select.selectByVisibleText(Text);
     }
 
     public static void MouseHoverToAnElement(WebDriver driver, WebElement element)

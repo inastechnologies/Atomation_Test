@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 public class VerificationOfYourAccountTests extends BaseTest
 {
     @Test
-    public void VerifyIfUserCanNavigateToVerifyYourAccountPageAfterCompletionOfPracticeServiceDescriptionPage()
-    {
+    public void VerifyIfUserCanNavigateToVerifyYourAccountPageAfterCompletionOfPracticeServiceDescriptionPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -36,7 +35,8 @@ public class VerificationOfYourAccountTests extends BaseTest
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verifyYourAccountPage.VerifyYourAccountText), "Verify Your Account");
     }
@@ -70,7 +70,7 @@ public class VerificationOfYourAccountTests extends BaseTest
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "dgdfgf", "fdgdffgf", "dfhghdh", "dffdfd", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField);
         verifyYourAccountPage.PhoneEmailInputField.click();
@@ -107,7 +107,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.GetVerificationCodeButton);
         verifyYourAccountPage.GetVerificationCodeButton.click();
@@ -145,7 +145,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "hsdfbdsf", "zxzc", "zczx", "zvvz", "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.PhoneEmailInputField.sendKeys(PhoneNo);
@@ -182,7 +182,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy","hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.PhoneEmailInputField.sendKeys(Email);
@@ -219,7 +219,7 @@ public class VerificationOfYourAccountTests extends BaseTest
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("test", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "hsdfbdsf", "zxzc", "zczx", "zvvz",  "frdrdrd");
 
         Utils.WaitForAnElementToExist(driver, verifyYourAccountPage.PhoneEmailInputField );
         verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("7653235890");

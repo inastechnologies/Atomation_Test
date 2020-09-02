@@ -56,6 +56,12 @@ public class LoginPage extends BasePage
     @FindBy(css = "span.image-circle")
     public List<WebElement> LoginPageIcons;
 
+    @FindBy(css = "button.image-circle.loginBtn.loginBtn--google")
+    public WebElement GoogleIcon;
+
+    @FindBy(css = "button.image-circle.loginBtn.loginBtn--facebook")
+    public WebElement FBIcon;
+
     public PractitionerManageAppointmentsPage EnterMobileNumberOrEmailEnterPasswordAndClickLogin(String MobileOrEmail, String Password)
     {
         Utils.WaitForAnElementToExist(driver, MobileEmailInputField);

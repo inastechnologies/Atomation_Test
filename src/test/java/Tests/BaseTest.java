@@ -16,7 +16,7 @@ public class BaseTest
     @BeforeMethod
     public void LaunchWebSite()
     {
-       System.setProperty("webdriver.chrome.driver", "C:/Users/chromedriver.exe");
+       System.setProperty("webdriver.chrome.driver", "C:/Selenium/chromedriver.exe");
        driver = new ChromeDriver();
        //System.setProperty("webdriver.gecko.driver", "C:/Selenium/geckodriver.exe");
        //driver = new FirefoxDriver();

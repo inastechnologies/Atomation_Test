@@ -16,7 +16,6 @@ public class SignUpPage extends BasePage
         super(driver);
     }
 
-
     @FindBy(css = "span.image-circle.hand-pointer")
     public List<WebElement> HeaderIcons;
 

@@ -109,4 +109,27 @@ public class PracticeServiceDescriptionPage extends BasePage
         SkipButton.click();
         return new VerifyYourAccountPage(driver);
     }
-}
+
+    public VerifyYourAccountPage EnterDataIntoAllTheFieldsAndUploadFiveFiles(String VisibleText, String DescribeYourself, String DescribePractice, String DescribeInterests, String Qualification, String AdditionalInfo )
+    {
+        Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
+        Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
+        DescribeYourselfInputField.sendKeys(DescribeYourself);
+        DescribePracticeInputField.sendKeys(DescribePractice);
+        DescribeInterestsInputField.sendKeys(DescribeInterests);
+        DescribeQualificationAndRegistrationInputField.sendKeys(Qualification);
+        //Utils.WaitForAnElementToExist(driver, ChooseFile);
+        ChooseFile.sendKeys("D:\\Flower.jpg");
+        ChooseFile.sendKeys("D:\\Flower.jpg");
+        ChooseFile.sendKeys("D:\\Flower.jpg");
+
+        ChooseFile.sendKeys("D:\\Flower.jpg");
+        ChooseFile.sendKeys("D:\\Flower.jpg");
+        AddButton.click();
+        AdditionalInfoInputField.sendKeys(AdditionalInfo);
+        Utils.WaitForAnElementToExist(driver, SubmitButton);
+        SubmitButton.click();
+        return new VerifyYourAccountPage(driver);
+    }
+    }
+
