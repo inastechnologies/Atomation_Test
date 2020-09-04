@@ -142,6 +142,9 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
 
+    @FindBy(xpath = "//button[text()='OK']")
+    public WebElement OkButton;
+
 
     public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
 

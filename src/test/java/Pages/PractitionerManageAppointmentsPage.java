@@ -206,7 +206,8 @@ public class PractitionerManageAppointmentsPage extends BasePage
 
     public EditAppointmentPage ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage()
     {
-        Utils.MouseHoverToAnElement(driver, ManageAppointments);
+        Utils.WaitForAnElementToExist(driver, ManageAppointments);
+        ManageAppointments.click();
         View_EditAvailability.click();
 
         return new EditAppointmentPage(driver);

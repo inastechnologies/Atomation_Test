@@ -41,6 +41,9 @@ public class PracticeServiceDescriptionPage extends BasePage
     @FindBy(xpath = "//span[text()='Additional Information :'] ")
     public WebElement AdditionalInfoText;
 
+    @FindBy(css = "div.angular-editor-textarea")
+    public List<WebElement> TextInputField;
+
     @FindBy(xpath = "//textarea[@formcontrolname='describe_about_yourself']")
     public WebElement DescribeYourselfInputField;
 
@@ -80,10 +83,10 @@ public class PracticeServiceDescriptionPage extends BasePage
     {
        Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
        Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
-       DescribeYourselfInputField.sendKeys(DescribeYourself);
-       DescribePracticeInputField.sendKeys(DescribePractice);
-       DescribeInterestsInputField.sendKeys(DescribeInterests);
-       DescribeQualificationAndRegistrationInputField.sendKeys(Qualification);
+       TextInputField.get(0).sendKeys(DescribeYourself);
+       TextInputField.get(1).sendKeys(DescribePractice);
+       TextInputField.get(2).sendKeys(DescribeInterests);
+       TextInputField.get(3).sendKeys(Qualification);
        //Utils.WaitForAnElementToExist(driver, ChooseFile);
        ChooseFile.sendKeys("D:\\Flower.jpg");
        AddButton.click();
@@ -114,10 +117,10 @@ public class PracticeServiceDescriptionPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
         Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
-        DescribeYourselfInputField.sendKeys(DescribeYourself);
-        DescribePracticeInputField.sendKeys(DescribePractice);
-        DescribeInterestsInputField.sendKeys(DescribeInterests);
-        DescribeQualificationAndRegistrationInputField.sendKeys(Qualification);
+        TextInputField.get(0).sendKeys(DescribeYourself);
+        TextInputField.get(1).sendKeys(DescribePractice);
+        TextInputField.get(2).sendKeys(DescribeInterests);
+        TextInputField.get(3).sendKeys(Qualification);
         //Utils.WaitForAnElementToExist(driver, ChooseFile);
         ChooseFile.sendKeys("D:\\Flower.jpg");
         ChooseFile.sendKeys("D:\\Flower.jpg");

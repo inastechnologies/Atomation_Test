@@ -16,14 +16,17 @@ public class EditAppointmentPage extends BasePage
 
 
 
-    @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
-    public WebElement CreateAppointmentSessionTypeHeading;
+    @FindBy(xpath = "//button[text()=' Edit ']")
+    public List<WebElement> EditPageHeadings;
 
-    @FindBy(xpath = "//button[text()=' Confirmations & Reminders '] ")
+    @FindBy(xpath = "//button[text()=' Confirmations & Reminders ']")
     public WebElement EditConfirmationRemindersHeading;
 
-    @FindBy(xpath = "//button[text()=' Payments & Integrations '] ")
-    public WebElement PaymentsIntegrationsHeading;
+    @FindBy(xpath = "//button[text()=' Cancellation or Reschedule Policy ']")
+    public WebElement EditCancellationRescheduleHeading;
+
+    @FindBy(xpath = "//span[text()=' Note : Please Select Location and Modality To Edit Particular Event Type or Service Type ']")
+    public WebElement Note;
 
     @FindBy(css = "div.title")
     public List<WebElement> LocationModalityFieldsText;
@@ -138,6 +141,9 @@ public class EditAppointmentPage extends BasePage
 
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
+
+    @FindBy(xpath = "//button[text()='OK']")
+    public WebElement OkButton;
 
 
     public void SelectLocationAndModalityInEditAppointmentPage(String Location, String Modality) {
