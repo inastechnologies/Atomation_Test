@@ -62,17 +62,17 @@ public class DemoTests extends BaseTest
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "35", "100");
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "hjghgjh");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "20", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "35", "00", "00", "hjghgjh");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.CreateEventForRecurringWithInDateRangeSessionType(Location,"Naturopathy", "09/09/2020", "10/10/2020", "Tuesday", "8:00AM", "11:00AM");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "20", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "35", "00", "00", "hjghgjh");
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+
+        createAppointmentPage.CreateEventForRecurringWithInDateRangeSessionType(Location,"Naturopathy", "10/10/2020", "11/11/2020", "Tuesday", "8:00AM", "11:00AM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.SelectDayInput, "Thursday");
         createAppointmentPage.TimeInput.get(0).sendKeys("09:00AM");
@@ -80,15 +80,15 @@ public class DemoTests extends BaseTest
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "35", "100");
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "This is to test");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short", "00", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "15", "00", "00", "This is to test");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
         createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short", "01", "10", "50");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "15", "00", "00", "This is to test");
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.CreateEventForDateSpecificSessionType(Location, "Naturopathy", "10/10/2020", "2:00PM", "5:00PM");
 
@@ -98,15 +98,19 @@ public class DemoTests extends BaseTest
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "35", "100");
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "This is to test");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "20", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "20", "50");
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "25", "00", "00", "This is to test");
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
+        Thread.sleep(2000);
         createAppointmentPage.SaveAndContinue.click();
+
+        Thread.sleep(2000);
+        createAppointmentPage.OkButton.click();
 
         Thread.sleep(3000);
         createAppointmentPage.SetConfirmationRemindersHeading.click();
@@ -114,7 +118,7 @@ public class DemoTests extends BaseTest
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = new SetConfirmationsRemindersPage(driver);
 
         Thread.sleep(3000);
-        CancelletionAndReschedulePage cancelletionAndReschedulePage = setConfirmationsRemindersPage.EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage("fdgdf@gmail.com");
+        CancelletionAndReschedulePage cancelletionAndReschedulePage = setConfirmationsRemindersPage.EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage("");
 
         Thread.sleep(3000);
         createAppointmentPage.CancellationRescheduleHeading.click();
@@ -498,7 +502,7 @@ public class DemoTests extends BaseTest
 
         Thread.sleep(3000);
         SignUpPage signUpPage = homePage.NavigateToSignUpPage();
-        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("Suny", "Thannidi", "Suny@gmail.com", "9999993939", "Sydney", "Suny@270116", "Suny@270116");
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage("Harsh", "Thannidi", "Harsh@gmail.com", "9999113939", "Sydney", "Harsh@270116", "Harsh@270116");
         SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
         Thread.sleep(3000);
@@ -517,7 +521,7 @@ public class DemoTests extends BaseTest
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
-        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9999993959");
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode("9999113939");
 
         Thread.sleep(2000);
         PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");

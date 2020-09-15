@@ -79,7 +79,7 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(css = "span.slot")
     public List<WebElement> Slots;
 
-    @FindBy(xpath = "//span[text()='X']")
+    @FindBy(css = "span.ml-2.cursor")
     public List<WebElement> CancelSlot;
 
     @FindBy(css = "button.swal2-confirm.swal2-styled")

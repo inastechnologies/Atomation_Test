@@ -20,7 +20,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -40,7 +40,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -54,13 +54,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         Assert.assertEquals(createAppointmentPage.LocationInput.getAttribute("value"), "Sydney");
     }
@@ -70,7 +70,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -84,15 +84,15 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
-        Assert.assertEquals(createAppointmentPage.ModalityInput.getAttribute("value"), "Naturopathy");
+        Assert.assertEquals(createAppointmentPage.ModalityInput.getAttribute("value"), "Physiotherapy");
     }
 
     @Test
@@ -100,13 +100,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(0)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.ToolTipIcons.get(1)));
@@ -135,13 +135,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.SessionTypeRadioButtons.get(0)));
         Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.SessionTypeRadioButtons.get(1)));
@@ -153,13 +153,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SessionTypeRadioButtons.get(0).click();
         Assert.assertTrue(Utils.isElementSelected(driver, createAppointmentPage.SessionTypeRadioButtons.get(0)));
@@ -174,13 +174,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SessionTypeRadioButtons.get(1).click();
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.FromDateField));
@@ -192,7 +192,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -206,7 +206,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -239,7 +239,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -256,7 +256,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -274,7 +274,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -291,7 +291,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -307,7 +307,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -323,7 +323,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -339,7 +339,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -355,7 +355,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -373,7 +373,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -390,7 +390,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
@@ -400,6 +400,7 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
+        Thread.sleep(2000);
         Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='10:00']")))));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='12:00']")))));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='Monday']")))));
@@ -410,7 +411,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
@@ -420,9 +421,10 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("10/10/2020", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
+        Thread.sleep(2000);
         Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='10:00']")))));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='12:00']")))));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='2020-10-10']")))));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, (driver.findElement(By.xpath("//span[text()='10/10/2020']")))));
     }
 
     @Test
@@ -430,7 +432,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
@@ -453,7 +455,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -473,7 +475,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -496,7 +498,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -516,11 +518,11 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatWhenCLickedOn_OkButton_ChipIsNotDeleted() {
+    public void VerifyThatWhenCLickedOn_OkButton_ChipIsNotDeleted() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -529,6 +531,10 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "01:00PM", "03:00PM");
+        createAppointmentPage.AddButton.click();
+
+        Thread.sleep(2000);
         createAppointmentPage.CancelSlot.get(0).click();
         createAppointmentPage.CancelButton.click();
 
@@ -540,13 +546,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -562,20 +568,20 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "1", "10", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "10", "50");
 
         Assert.assertFalse(Utils.IsElementDisplayed(driver, createAppointmentPage.NameError));
     }
@@ -585,20 +591,20 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("786#%$^", "1", "10", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("786#%$^", "01", "10", "50");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Special characters are not acceptable");
     }
@@ -608,13 +614,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -627,26 +633,26 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo60MinutesInDuration_UnderAppointment_ServiceType() {
+    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo59MinutesInDuration_UnderAppointment_ServiceType() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "59", "50");
 
-        Assert.assertEquals(createAppointmentPage.DurationMinsInput.getAttribute("value"), "60");
+        Assert.assertEquals(createAppointmentPage.DurationMinsInput.getAttribute("value"), "59");
     }
 
     @Test
@@ -654,22 +660,22 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//span[text()='$']"))), "$");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//span[text()='Fee $']"))), "Fee $");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "59", "50");
 
         Assert.assertEquals(createAppointmentPage.FeesInput.getAttribute("value"), "50");
     }
@@ -679,20 +685,20 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "uykhj");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "59", "uykhj");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
 
@@ -704,20 +710,20 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "uykhj");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "59", "uykhj");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
 
@@ -740,13 +746,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -760,27 +766,28 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo60Minutes_EventStartsEveryField() {
+    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo59Minutes_EventStartsEveryField() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "59", "50");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventHoursInput, "04");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "59");
 
-        Assert.assertEquals(createAppointmentPage.EventMinsInput.getAttribute("value"), "60");
+        Assert.assertEquals(createAppointmentPage.EventMinsInput.getAttribute("value"), "59");
     }
 
     @Test
@@ -788,13 +795,13 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -804,40 +811,40 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "10", "50");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventHoursInput, "24");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventHoursInput, "03");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "59");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffHours, "24");
 
         Assert.assertEquals(createAppointmentPage.CutOffHours.getAttribute("value"), "24");
     }
 
     @Test
-    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo60Minutes_CutOffTimeField() {
+    public void VerifyThatMinutesDropDownIsClickableAnd_UserCanSelectUpTo59Minutes_CutOffTimeField() {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "59", "50");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventHoursInput, "24");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "59");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffHours, "24");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffMins, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffMins, "59");
 
-        Assert.assertEquals(createAppointmentPage.CutOffMins.getAttribute("value"), "60");
+        Assert.assertEquals(createAppointmentPage.CutOffMins.getAttribute("value"), "59");
     }
 
     @Test
@@ -845,26 +852,26 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "365");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "0", "60", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "59", "50");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.ConsultationTypeInput, "Online");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventHoursInput, "24");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.EventMinsInput, "59");
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffHours, "24");
-        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffMins, "60");
+        Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.CutOffMins, "59");
         createAppointmentPage.Description.sendKeys("This is to test@!#$#@");
 
         Assert.assertEquals(createAppointmentPage.Description.getAttribute("value"), "This is to test@!#$#@");
@@ -875,7 +882,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -896,40 +903,40 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(1)));
 
-        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "01:00PM", "03:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
 
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(1)));
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
     }
 
     @Test
@@ -937,21 +944,21 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
@@ -969,27 +976,105 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "03", "45", "80");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "03", "50","00", "00", "This is to test");
+
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(1)));
+        createAppointmentPage.CreateEvenButtons.get(1).click();
+    }
+
+    @Test
+    public void VerifyThatWhenClickedOnCreateAnotherEventTypeWithEmptyAppointmentTypeFields_ErrorMessagesShouldDisplay() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Name is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Number of hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "Number of Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(3)), "Fee is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Consultation type is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Event Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Event Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(7)), "Cut of Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(8)), "Cut of Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(9)), "Description is required");
+    }
+
+    @Test
+    public void VerifyThatUserIsAbleToCreateDifferentAppointmentTypesForSameOpeningHours() throws InterruptedException {
+        LandingPage homePage = new LandingPage(driver);
+        LoginPage loginPage = homePage.NavigateToLogInPage();
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+
+        Thread.sleep(3000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+
+        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "45","00", "00", "This is to test");
+
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "45", "80");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "45", "80");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "03", "50","00", "00", "This is to test");
+
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short Appointment", "01", "45", "80");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "03", "50","00", "00", "This is to test");
 
@@ -998,108 +1083,29 @@ public class CreateAppointmentsTests extends BaseTest {
     }
 
     @Test
-    public void VerifyThatWhenClickedOnCreateAnotherEventTypeWithEmptyAppointmentTypeFields_ErrorMessagesShouldDisplay() throws InterruptedException {
-        LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
-
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
-
-        Thread.sleep(3000);
-        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
-
-        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
-
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
-
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
-        createAppointmentPage.AddButton.click();
-
-        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
-
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Name is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Number of hours is required");
-
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "Number of Minutes is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Number of consultation_type is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Number of Event Hours is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Number of Event Minutes is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(7)), "Cannot be less than Duration time");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(8)), "Number of cutHours is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(9)), "Number of cutMinutes is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(10)), "Number of description is required");
-    }
-
-    @Test
-    public void VerifyThatUserIsAbleToCreateDifferentAppointmentTypesForSameOpeningHours() throws InterruptedException {
-        LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
-
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
-
-        Thread.sleep(3000);
-        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
-
-        CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
-
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
-
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
-        createAppointmentPage.AddButton.click();
-
-        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "01", "45","00", "00", "This is to test");
-
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "45", "80");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "03", "50","00", "00", "This is to test");
-
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(1)));
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short Appointment", "00", "45", "80");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "03", "50","00", "00", "This is to test");
-
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(1)));
-        createAppointmentPage.CreateEvenButtons.get(1).click();
-    }
-
-    @Test
     public void VerifyThatAfterFillingAllTheFieldsWhenClickedCreateAnotherEventTypeButtonChipShouldAppearInChip() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(0)));
     }
@@ -1109,25 +1115,25 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Utils.WaitForAnElementToExist(driver, createAppointmentPage.CancelSlot.get(1));
         createAppointmentPage.CancelSlot.get(1).click();
@@ -1142,25 +1148,25 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Utils.WaitForAnElementToExist(driver, createAppointmentPage.CancelSlot.get(1));
         createAppointmentPage.CancelSlot.get(1).click();
@@ -1176,32 +1182,33 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
 
+        Thread.sleep(2000);
         Utils.WaitForAnElementToExist(driver, createAppointmentPage.CancelSlot.get(1));
         createAppointmentPage.CancelSlot.get(1).click();
 
@@ -1209,7 +1216,7 @@ public class CreateAppointmentsTests extends BaseTest {
         createAppointmentPage.DeleteItButton.click();
 
         Thread.sleep(2000);
-        Assert.assertTrue(Utils.isElementNotPresent(driver, createAppointmentPage.Slots.get(2)));
+        Assert.assertTrue(Utils.isElementNotPresent(driver, createAppointmentPage.Slots.get(1)));
     }
 
     @Test
@@ -1217,40 +1224,40 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
-
-        createAppointmentPage.CreateEvenButtons.get(0).click();
-
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
-
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
-        createAppointmentPage.AddButton.click();
-
-        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.CreateEvenButtons.get(0)));
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
+
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.AddButton.click();
+
+        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
+
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
+
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
+
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(1)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(2)));
     }
@@ -1260,25 +1267,25 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(1).click();
 
         Assert.assertTrue(createAppointmentPage.LocationInput.isEnabled());
         Assert.assertTrue(createAppointmentPage.ModalityInput.isEnabled());
@@ -1290,7 +1297,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
@@ -1307,34 +1314,34 @@ public class CreateAppointmentsTests extends BaseTest {
             LandingPage homePage = new LandingPage(driver);
             LoginPage loginPage = homePage.NavigateToLogInPage();
 
-            PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+            PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
             Thread.sleep(3000);
             SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
             CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
             createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
             createAppointmentPage.AddButton.click();
 
             createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
             createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
             createAppointmentPage.CreateEvenButtons.get(1).click();
 
-            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+            createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
             createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
             createAppointmentPage.AddButton.click();
 
             createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+            createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
 
             createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
 
@@ -1349,7 +1356,7 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
@@ -1361,7 +1368,7 @@ public class CreateAppointmentsTests extends BaseTest {
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
 
@@ -1370,12 +1377,12 @@ public class CreateAppointmentsTests extends BaseTest {
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Location is required");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Modality Type is required");
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
@@ -1396,14 +1403,14 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -1422,14 +1429,14 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -1440,15 +1447,18 @@ public class CreateAppointmentsTests extends BaseTest {
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(1).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(0).click();
+
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Name is required");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(1)), "Number of hours is required");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(2)), "Number of Minutes is required");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(3)), "Fee is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Event Hours is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Event Minutes is required");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Event Time Cannot be less than Duration time");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(4)), "Consultation type is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(5)), "Event Hours is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(6)), "Event Minutes is required");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(7)), "Cut of Hours is required");
     }
 
     @Test
@@ -1456,14 +1466,14 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -1487,14 +1497,14 @@ public class CreateAppointmentsTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SessionTypeRadioButtons.get(1).click();
 

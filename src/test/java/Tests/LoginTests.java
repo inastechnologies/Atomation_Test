@@ -75,7 +75,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9999993959");
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9866000000");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, verificationCodePage.VerificationCodeText), "Verification Code");
     }
@@ -88,7 +88,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9999993959");
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9866000000");
         ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, resetPasswordPage.ResetPasswordMessage), "Reset Password");
@@ -102,7 +102,7 @@ public class LoginTests extends BaseTest
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9999993959");
+        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9866000000");
         ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
         resetPasswordPage.EnterPasswordConfirmPasswordAndClickConfirm();
 

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class EditConfirmationsRemindersPage extends BasePage
 {
     public EditConfirmationsRemindersPage(WebDriver driver)
@@ -12,6 +14,11 @@ public class EditConfirmationsRemindersPage extends BasePage
         super(driver);
     }
 
+    @FindBy(css = "span.title")
+    public List<WebElement> RequiredFields;
+
+    @FindBy(xpath = "//input[@disabled='false']")
+    public List<WebElement> DisabledFields;
 
     @FindBy(xpath = "//input[@formcontrolname='pract_email_id']")
     public WebElement PractitionerEmail;
@@ -25,10 +32,10 @@ public class EditConfirmationsRemindersPage extends BasePage
     @FindBy(xpath = "//input[@formcontrolname='cancellation_sms']")
     public WebElement CancellationSms;
 
-    @FindBy(xpath = "//input[@formcontrolname='first']")
+    @FindBy(xpath = "//input[@formcontrolname='third']")
     public WebElement FirstReminder;
 
-    @FindBy(xpath = "//select[@formcontrolname='first_remainder']")
+    @FindBy(xpath = "//select[@formcontrolname='third_remainder']")
     public WebElement FirstReminderDays;
 
     @FindBy(xpath = "//input[@formcontrolname='second']")
@@ -37,10 +44,10 @@ public class EditConfirmationsRemindersPage extends BasePage
     @FindBy(xpath = "//select[@formcontrolname='second_remainder']")
     public WebElement SecondReminderHours;
 
-    @FindBy(xpath = "//input[@formcontrolname='third']")
+    @FindBy(xpath = "//input[@formcontrolname='first']")
     public WebElement ThirdReminder;
 
-    @FindBy(xpath = "//select[@formcontrolname='third_remainder']")
+    @FindBy(xpath = "//select[@formcontrolname='first_remainder']")
     public WebElement ThirdReminderMins;
 
     @FindBy(css = "i.fa.fa-pencil")

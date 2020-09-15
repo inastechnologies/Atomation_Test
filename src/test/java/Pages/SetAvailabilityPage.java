@@ -25,7 +25,7 @@ public class SetAvailabilityPage extends BasePage
     @FindBy(css = "input.radio")
     public List<WebElement> SessionTypeRadioButtons;
 
-    @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
+    @FindBy(xpath = "//button[text()=' Create Appointment or Event '] ")
     public WebElement CreateAppointmentSessionTypeHeading;
 
     @FindBy(xpath = "//button[text()=' Set Confirmations & Reminders '] ")

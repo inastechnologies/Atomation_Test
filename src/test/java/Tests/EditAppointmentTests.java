@@ -14,7 +14,7 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
@@ -35,7 +35,7 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
@@ -51,7 +51,7 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
@@ -69,14 +69,14 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Assert.assertEquals(editAppointmentPage.LocationInput.getAttribute("value"), "Sydney");
-        Assert.assertEquals(editAppointmentPage.ModalityInput.getAttribute("value"), "Naturopathy");
+        Assert.assertEquals(editAppointmentPage.ModalityInput.getAttribute("value"), "Physiotherapy");
     }
 
     @Test
@@ -84,14 +84,14 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -104,7 +104,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -124,7 +124,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Thread.sleep(2000);
         Assert.assertTrue(Utils.IsElementDisplayed(driver, editAppointmentPage.Slots.get(0)));
@@ -135,7 +135,7 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
@@ -149,14 +149,14 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -169,7 +169,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -189,7 +189,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Thread.sleep(2000);
         Assert.assertTrue(Utils.isClickable(driver, editAppointmentPage.Slots.get(0)));
@@ -200,14 +200,14 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -228,7 +228,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(1).click();
@@ -271,7 +271,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -284,7 +284,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Naturopathy", "Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Physiotherapy", "Monday", "10:00AM", "12:00PM");
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
@@ -302,7 +302,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();
@@ -343,7 +343,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -356,7 +356,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Naturopathy", "Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Physiotherapy", "Monday", "10:00AM", "12:00PM");
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
@@ -374,7 +374,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();
@@ -418,7 +418,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -431,7 +431,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Naturopathy", "Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.CreateEventForRecurringSessionType(Location, "Physiotherapy", "Monday", "10:00AM", "12:00PM");
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
@@ -449,7 +449,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();
@@ -499,7 +499,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -512,7 +512,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.CreateEventForRecurringWithInDateRangeSessionType(Location,"Naturopathy", "09/09/2020", "12/12/2020", "Tuesday", "8:00AM", "11:00AM");
+        createAppointmentPage.CreateEventForRecurringWithInDateRangeSessionType(Location,"Physiotherapy", "09/09/2020", "12/12/2020", "Tuesday", "8:00AM", "11:00AM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
@@ -526,7 +526,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();
@@ -545,14 +545,14 @@ public class EditAppointmentTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         Thread.sleep(3000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -573,7 +573,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(1).click();
@@ -616,7 +616,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -629,7 +629,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -650,7 +650,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();
@@ -702,7 +702,7 @@ public class EditAppointmentTests extends BaseTest {
                 "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
 
         Thread.sleep(3000);
-        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
         Thread.sleep(2000);
         VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
@@ -715,7 +715,7 @@ public class EditAppointmentTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -736,7 +736,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
-        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Naturopathy");
+        editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
         editAppointmentPage.Slots.get(0).click();

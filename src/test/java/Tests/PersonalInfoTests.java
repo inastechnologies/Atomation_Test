@@ -198,6 +198,38 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
+    public void VerifyProfilePicCanUploadedAndDeleted()
+    {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Brisbane";
+        String Password = AlphaNumeric + "@Jk5";
+        String ConfirmPassword = AlphaNumeric + "@Jk5";
+        LandingPage homePage = new LandingPage(driver);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
+        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
+                "87523586390", "Nizampet Main Road", "India", "Brisbane", "5377", "Telangana");
+
+        personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("", personalInfoPage.DOBInputField);
+
+        personalInfoPage.DeleteButton.click();
+
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, personalInfoPage.DOBFieldError));
+}
+
+    @Test
     public void VerifyDOBFieldIsAcceptingValidData()
     {
         String Characters = Utils.printRandomString(6);

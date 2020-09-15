@@ -142,7 +142,7 @@ public class EducationalInfoTests extends BaseTest
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.EduDetailsText), "Education Details * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.AssociationText), "Association * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegNoText), "Registration Number * :");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegNoText), "Registration Number *");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegYearText), "Year Of Registration * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegRenewalText), "Registration Renewal Date * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.UploadDocsText), "Upload Registration Documents :");

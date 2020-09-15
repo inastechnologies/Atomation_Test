@@ -223,7 +223,7 @@ public class Set_EditAvailabilityTests extends BaseTest
         setAvailabilityPage.SetAvailability.click();
         setAvailabilityPage.SessionTypeRadioButtons.get(1).click();
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, setAvailabilityPage.CreateAppointmentSessionTypeHeading), "Create Appointment or Event Type");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, setAvailabilityPage.CreateAppointmentSessionTypeHeading), "Create Appointment or Event");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, setAvailabilityPage.SetConfirmationRemindersHeading), "Set Confirmations & Reminders");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, setAvailabilityPage.CancellationRescheduleHeading), "Cancellation or Reschedule Policy");
         //Assert.assertEquals(Utils.GetTextFromAnElement(driver, setAvailabilityPage.PaymentsIntegrationsHeading), "Payments & Integrations");

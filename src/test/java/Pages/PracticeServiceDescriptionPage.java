@@ -100,10 +100,10 @@ public class PracticeServiceDescriptionPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
         ServiceTypeInput.click();
-        DescribeYourselfInputField.click();
-        DescribePracticeInputField.click();
-        DescribeInterestsInputField.click();
-        DescribeQualificationAndRegistrationInputField.click();
+        TextInputField.get(0).click();
+        TextInputField.get(1).click();
+        TextInputField.get(2).click();
+        TextInputField.get(3).click();
     }
 
     public VerifyYourAccountPage ClickSkipAndNavigateToNextPage()

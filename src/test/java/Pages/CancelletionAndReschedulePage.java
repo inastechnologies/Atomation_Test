@@ -94,7 +94,7 @@ public class CancelletionAndReschedulePage extends BasePage
     public WebElement PolicyDescriptionError2;
 
 
-    public void FillAlTheFieldsInCancellationAndReschedulingPage()
+    public EditCancelletionAndReschedulePage FillAlTheFieldsInCancellationAndReschedulingPage()
     {
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "24");
         RefundPrice1.sendKeys("50");
@@ -119,6 +119,8 @@ public class CancelletionAndReschedulePage extends BasePage
         PolicyDescriptionTextArea2.sendKeys("ghfhgfh");
         CustomerCancellationReason2.get(2).click();
         SaveAndContinue.click();
+
+        return new EditCancelletionAndReschedulePage(driver);
     }
 
     public void SelectHoursAndEnterTextUnder_CustomersCanCancelOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2) {

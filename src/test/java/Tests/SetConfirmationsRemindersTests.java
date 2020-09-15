@@ -13,13 +13,13 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Naturopathy");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
         createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
@@ -33,7 +33,9 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         createAppointmentPage.CreateEvenButtons.get(1).click();
         createAppointmentPage.SaveAndContinue.click();
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        createAppointmentPage.OkButton.click();
+        Thread.sleep(2000);
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, setConfirmationsRemindersPage.RequiredFields.get(0)), "Please enter your email id*                       :");
@@ -44,7 +46,7 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -75,14 +77,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghgj6762@gmail.com");
 
         Assert.assertFalse(Utils.IsElementDisplayed(driver, setConfirmationsRemindersPage.EmailError));
@@ -93,15 +95,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
-        setConfirmationsRemindersPage.PractitionerEmail.sendKeys("");
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, setConfirmationsRemindersPage.EmailError), "Email is required");
@@ -112,14 +113,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg j6762gmailcom");
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
@@ -127,35 +128,40 @@ public class SetConfirmationsRemindersTests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfAllTheThreeSMSCheckBoxesCanBeCheckedAndUnchecked()  {
+    public void VerifyIfAllTheThreeSMSCheckBoxesCanBeCheckedAndUnchecked() throws InterruptedException {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         setConfirmationsRemindersPage.ConfirmationSms.click();
         Assert.assertTrue(Utils.isElementSelected(driver,setConfirmationsRemindersPage.ConfirmationSms));
 
+        Thread.sleep(5000);
         setConfirmationsRemindersPage.ConfirmationSms.click();
         Assert.assertFalse(Utils.isElementSelected(driver,setConfirmationsRemindersPage.ConfirmationSms));
 
+        Thread.sleep(5000);
         setConfirmationsRemindersPage.ReminderSms.click();
         Assert.assertTrue(Utils.isElementSelected(driver,setConfirmationsRemindersPage.ReminderSms));
 
+        Thread.sleep(5000);
         setConfirmationsRemindersPage.ReminderSms.click();
         Assert.assertFalse(Utils.isElementSelected(driver,setConfirmationsRemindersPage.ReminderSms));
 
+        Thread.sleep(5000);
         setConfirmationsRemindersPage.CancellationSms.click();
         Assert.assertTrue(Utils.isElementSelected(driver,setConfirmationsRemindersPage.CancellationSms));
 
+        Thread.sleep(5000);
         setConfirmationsRemindersPage.CancellationSms.click();
         Assert.assertFalse(Utils.isElementSelected(driver,setConfirmationsRemindersPage.CancellationSms));
     }
@@ -165,14 +171,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         Assert.assertTrue(Utils.isElementSelected(driver,setConfirmationsRemindersPage.CheckBoxes.get(0)));
@@ -185,7 +191,7 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
@@ -212,14 +218,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
@@ -232,14 +238,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         setConfirmationsRemindersPage.FirstReminder.click();
@@ -266,14 +272,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         setConfirmationsRemindersPage.FirstReminder.click();
@@ -286,14 +292,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         setConfirmationsRemindersPage.FirstReminder.click();
@@ -310,14 +316,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
 
         setConfirmationsRemindersPage.FirstReminder.click();
@@ -337,14 +343,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
@@ -357,14 +363,14 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         LandingPage homePage = new LandingPage(driver);
         LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Luckky@gmail.com", "Luckky@270116");
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
 
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
-
+        setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
         setConfirmationsRemindersPage.SaveAndContinue.click();
 

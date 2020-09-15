@@ -1,6 +1,7 @@
 package Pages;
 
 import Utils.Utils;
+import jdk.jshell.execution.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -220,5 +221,21 @@ public class EditAppointmentPage extends BasePage
         Description.sendKeys(Text);
 
         return new SetConfirmationsRemindersPage(driver);
+    }
+
+    public EditConfirmationsRemindersPage ClickAndNavigateToEditConfirmationsPage() {
+
+        Utils.WaitForAnElementToExist(driver, EditConfirmationRemindersHeading);
+        EditConfirmationRemindersHeading.click();
+
+        return new EditConfirmationsRemindersPage(driver);
+    }
+
+    public EditCancelletionAndReschedulePage ClickAndNavigateToEditCancellationPage() {
+
+        Utils.WaitForAnElementToExist(driver, EditCancellationRescheduleHeading);
+        EditCancellationRescheduleHeading.click();
+
+        return new EditCancelletionAndReschedulePage(driver);
     }
 }

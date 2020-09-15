@@ -229,18 +229,17 @@ public class PracticeServiceDescriptionTests extends BaseTest {
             actualDropDownItems.add(value.getText());
         }
 
-// Verify Drop-down contains ONLY 7 values
-        if (options.size() == 143)
+        // Verify Drop-down contains ONLY 143 values
+        if (options.size() == 144)
 
             Assert.assertTrue(true);
         else
             Assert.assertTrue(false);
 
-// Compare expected and actual list
+        // Compare expected and actual list
            /* for (int i = 0; i < actualDropDownItems.size(); i++) {
                 if (exp.equals(actualDropDownItems.get(i)))
                     Assert.assertTrue(true);*/
-
         }
 
 
