@@ -445,12 +445,15 @@ public class CancellationsAndRescheduleTests extends BaseTest {
         cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "%of the price", "2", "10", "%of the price");
 
         cancelletionAndReschedulePage.PolicyDescription1.get(1).click();
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea1));
-        cancelletionAndReschedulePage.PolicyDescriptionTextArea1.sendKeys("jhkhiufhghg jghg");
+        //Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea1));
+        //cancelletionAndReschedulePage.PolicyDescriptionTextArea1.sendKeys("jhkhiufhghg jghg");
 
         cancelletionAndReschedulePage.PolicyDescription2.get(1).click();
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea2));
-        cancelletionAndReschedulePage.PolicyDescriptionTextArea2.sendKeys("jhkhiufhghg jghg");
+        //Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea2));
+        //cancelletionAndReschedulePage.PolicyDescriptionTextArea2.sendKeys("jhkhiufhghg jghg");
+
+        cancelletionAndReschedulePage.CustomerCancellationReason2.get(2).click();
+        cancelletionAndReschedulePage.SaveAndContinue.click();
     }
 
     @Test

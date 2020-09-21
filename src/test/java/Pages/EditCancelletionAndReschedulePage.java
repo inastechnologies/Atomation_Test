@@ -76,10 +76,13 @@ public class EditCancelletionAndReschedulePage extends BasePage
     public WebElement PolicyDescriptionTextArea2;
 
     @FindBy(name = "reschedule_reason")
-    public List<WebElement> CustomerCancellationReason2;
+    public List<WebElement> CustomerRescheduleReason2;
 
     @FindBy(css = "i.fa.fa-pencil")
     public WebElement EditPencil;
+
+    @FindBy(css = "div.text-error")
+    public List<WebElement> ErrorMessages;
 
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
@@ -89,6 +92,8 @@ public class EditCancelletionAndReschedulePage extends BasePage
         Utils.WaitForAnElementToExist(driver, EditPencil);
         EditPencil.click();
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "23");
+        RefundPrice1.clear();
+        RefundPrice1.sendKeys("30");
         Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "AUD $ value");
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, "5");
         Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, "AUD $ value");
@@ -99,6 +104,8 @@ public class EditCancelletionAndReschedulePage extends BasePage
         CustomerCancellationReason1.get(2).click();
 
         Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "20");
+        ReschedulePrice1.clear();
+        ReschedulePrice1.sendKeys( "60");
         Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "AUD $ value");
         Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, "1");
         Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, "AUD $ value");

@@ -198,17 +198,16 @@ public class EditConfirmationsRemaindersTests extends BaseTest {
 
         setConfirmationsRemindersPage.ReminderSms.click();
 
-        Utils.SelectFromDropDownUsingVisibleText(setConfirmationsRemindersPage.FirstReminderDays, "30Minutes");
+        Utils.SelectFromDropDownUsingVisibleText(setConfirmationsRemindersPage.FirstReminderDays, "10Day");
 
         Utils.SelectFromDropDownUsingVisibleText(setConfirmationsRemindersPage.SecondReminderHours, "12Hours");
 
-        Utils.SelectFromDropDownUsingVisibleText(setConfirmationsRemindersPage.ThirdReminderMins, "10Day");
+        Utils.SelectFromDropDownUsingVisibleText(setConfirmationsRemindersPage.ThirdReminderMins, "30Minutes");
 
         Assert.assertTrue(Utils.isClickable(driver, editConfirmationsRemindersPage.SaveAndContinue));
 
         editConfirmationsRemindersPage.SaveAndContinue.click();
-
-        Thread.sleep(1000);
+        
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Successful')]"))), "Successful");
     }
 }

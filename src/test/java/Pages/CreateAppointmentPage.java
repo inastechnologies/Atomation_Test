@@ -145,6 +145,12 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//button[text()='OK']")
     public WebElement OkButton;
 
+    @FindBy(css = "button.swal2-confirm.swal2-styled")
+    public WebElement SkipButton;
+
+    @FindBy(css = "button.swal2-cancel.swal2-styled")
+    public WebElement Cancel;
+
 
     public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
 
@@ -161,6 +167,14 @@ public class CreateAppointmentPage extends BasePage
         Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
+    }
+
+    public void SelectDayAndEnterOpeningHours(String Day, String FromTime, String ToTime) {
+
+        Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
+        TimeInput.get(0).sendKeys(FromTime);
+        TimeInput.get(1).sendKeys(ToTime);
+        AddButton.click();
     }
 
     public void SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(String FromDate, String ToDate, String Day, String FromTime, String ToTime ) {
@@ -181,6 +195,7 @@ public class CreateAppointmentPage extends BasePage
         DateInput.sendKeys(Date);
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
+        AddButton.click();
     }
 
     public void EnterDataInAllFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees) {

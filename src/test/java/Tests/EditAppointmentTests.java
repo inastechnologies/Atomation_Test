@@ -158,12 +158,12 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "07:00AM", "09:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
@@ -171,12 +171,12 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "05:00PM", "07:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","00", "00", "This is to test");
 
@@ -192,6 +192,10 @@ public class EditAppointmentTests extends BaseTest {
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage("Sydney", "Physiotherapy");
 
         Thread.sleep(2000);
+
+        editAppointmentPage.Slots.get(0).click();
+
+        Utils.SelectFromDropDownUsingVisibleText(editAppointmentPage.DurationHoursInput, "00");
         Assert.assertTrue(Utils.isClickable(driver, editAppointmentPage.Slots.get(0)));
     }
 
@@ -722,7 +726,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 
@@ -744,14 +748,16 @@ public class EditAppointmentTests extends BaseTest {
         editAppointmentPage.NOOfBookingDaysInput.sendKeys("20");
         editAppointmentPage.NameInput.clear();
         editAppointmentPage.NameInput.sendKeys("Initial");
+        Utils.SelectFromDropDownUsingVisibleText(editAppointmentPage.DurationHoursInput, "00");
+
         editAppointmentPage.ConsultationTypeInput.sendKeys("Face To Face");
 
 
         Assert.assertTrue(Utils.isClickable(driver, editAppointmentPage.SaveAndContinue));
         editAppointmentPage.SaveAndContinue.click();
-        editAppointmentPage.OkButton.click();
 
-        //Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Successful')]"))), "Successful");
+        Thread.sleep(1000);
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'updated successfully')]"))), "updated successfully");
     }
 }
 

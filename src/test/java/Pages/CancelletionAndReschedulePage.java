@@ -99,9 +99,7 @@ public class CancelletionAndReschedulePage extends BasePage
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "24");
         RefundPrice1.sendKeys("50");
         Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "%of the price");
-        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, "1");
-        RefundPrice2.sendKeys( "10");
-        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, "%of the price");
+        RefundPrice2.sendKeys("50");
         PolicyDescription1.get(1).click();
         Utils.WaitForAnElementToExist(driver, PolicyDescriptionTextArea1);
 
@@ -111,9 +109,8 @@ public class CancelletionAndReschedulePage extends BasePage
         Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "24");
         ReschedulePrice1.sendKeys( "50");
         Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "%of the price");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, "1");
-        ReschedulePrice2.sendKeys( "10");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, "%of the price");
+
+        ReschedulePrice2.sendKeys( "50");
         PolicyDescription2.get(1).click();
         Utils.WaitForAnElementToExist(driver, PolicyDescriptionTextArea2);
         PolicyDescriptionTextArea2.sendKeys("ghfhgfh");
