@@ -32,6 +32,9 @@ public class PractitionerManageAppointmentsPage extends BasePage
     @FindBy(xpath = "//div[text()='MANAGE ORDERS']")
     public WebElement ManageOrders;
 
+    @FindBy(xpath = "//div[text()=' QUESTIONS & ANSWERS ']")
+    public WebElement QuestionAndAnswers;
+
     @FindBy(css = "div.calender-head")
     public WebElement CalendarHeading;
 
@@ -189,12 +192,6 @@ public class PractitionerManageAppointmentsPage extends BasePage
         SubmitButton.click();
     }
 
-    public void EnterFromTimeAndToTimeToAddSlots(String FromTime, String ToTime)
-    {
-        TimeInput.get(0).sendKeys(FromTime);
-        TimeInput.get(1).sendKeys(ToTime);
-    }
-
     public SetAvailabilityPage ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage()
     {
         Utils.WaitForAnElementToExist(driver, ManageAppointments);
@@ -211,6 +208,15 @@ public class PractitionerManageAppointmentsPage extends BasePage
         View_EditAvailability.click();
 
         return new EditAppointmentPage(driver);
+    }
+
+    public Practitioner_Q_A_Page ClickQuestionAndAnswersAndNavigateToQuestionAndAnswerPage()
+    {
+        Utils.WaitForAnElementToExist(driver, QuestionAndAnswers);
+        QuestionAndAnswers.click();
+
+
+        return new Practitioner_Q_A_Page(driver);
     }
 
 }

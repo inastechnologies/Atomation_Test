@@ -292,7 +292,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","00", "00", "This is to test");
 

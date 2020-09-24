@@ -99,7 +99,7 @@ public class EducationalInfoPage extends BasePage
         EnterDataIntoAfield(RegNo, RegNoInputField);
         EnterDataIntoAfield(RegYear, RegYearInputField);
         EnterDataIntoAfield(RegRenewalDate, RegRenewalInputField);
-        BrowseField.sendKeys("D:\\Flower.jpg");
+        BrowseField.sendKeys("D:\\Doc2.pdf");
         EduIfoNextButton.click();
         return new PracticeServiceDescriptionPage(driver);
     }

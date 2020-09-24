@@ -90,7 +90,7 @@ public class PracticeServiceDescriptionPage extends BasePage
        //Utils.WaitForAnElementToExist(driver, ChooseFile);
        ChooseFile.sendKeys("D:\\Flower.jpg");
        AddButton.click();
-       AdditionalInfoInputField.sendKeys(AdditionalInfo);
+       TextInputField.get(4).sendKeys(AdditionalInfo);
        Utils.WaitForAnElementToExist(driver, SubmitButton);
        SubmitButton.click();
        return new VerifyYourAccountPage(driver);
@@ -129,7 +129,7 @@ public class PracticeServiceDescriptionPage extends BasePage
         ChooseFile.sendKeys("D:\\Flower.jpg");
         ChooseFile.sendKeys("D:\\Flower.jpg");
         AddButton.click();
-        AdditionalInfoInputField.sendKeys(AdditionalInfo);
+        TextInputField.get(4).sendKeys(AdditionalInfo);
         Utils.WaitForAnElementToExist(driver, SubmitButton);
         SubmitButton.click();
         return new VerifyYourAccountPage(driver);
