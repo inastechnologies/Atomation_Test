@@ -61,5 +61,4 @@ public class PersonalInfoPage extends BasePage
         SkipButton.click();
         return new EducationalInfoPage(driver);
     }
-
 }

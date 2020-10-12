@@ -61,15 +61,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -78,15 +78,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -95,15 +95,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();
@@ -166,15 +166,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -188,15 +188,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -210,15 +210,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -234,20 +234,20 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -259,15 +259,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -276,15 +276,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -293,15 +293,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -363,16 +363,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("01/16/2021", "08:00AM", "12:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -386,15 +386,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -408,15 +408,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -432,15 +432,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -452,15 +452,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -468,16 +468,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectDayAndEnterOpeningHours("Friday", "05:00PM", "08:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -485,16 +485,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectDayAndEnterOpeningHours("Wednesday", "07:00PM", "09:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();
@@ -624,16 +624,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("01/16/2021", "08:00AM", "12:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -646,16 +646,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("01/16/2021", "03:00PM", "06:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -669,15 +669,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -693,15 +693,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -713,15 +713,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -729,16 +729,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectDayAndEnterOpeningHours("Friday", "05:00PM", "08:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();
@@ -834,16 +834,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("01/16/2021", "08:00AM", "12:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -856,16 +856,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("01/16/2021", "03:00PM", "06:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -879,15 +879,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -903,15 +903,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -923,15 +923,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -939,16 +939,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectDayAndEnterOpeningHours("Friday", "05:00PM", "08:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();
@@ -1044,16 +1044,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("12/30/2020", "07:00AM", "10:00AM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1084,16 +1084,16 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("12/30/2020", "10:30AM", "01:00PM");
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1125,15 +1125,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1144,39 +1144,39 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();
@@ -1242,15 +1242,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1260,15 +1260,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1278,15 +1278,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1295,15 +1295,15 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
@@ -1318,41 +1318,41 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Face to Face", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "00", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "testing1");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("First consultation", "01", "50", "100");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "80");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing2");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing2");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short consultation", "01", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "00", "00", "Testing3");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         createAppointmentPage.SaveAndContinue.click();

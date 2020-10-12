@@ -28,14 +28,11 @@ public class Practitioner_Q_A_Tests extends BaseTest {
 
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
-        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Sydney", "5377", "Telangana");
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
 
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
 
-        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
 
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
@@ -68,14 +65,12 @@ public class Practitioner_Q_A_Tests extends BaseTest {
 
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
-        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Sydney", "5377", "Telangana");
 
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
 
-        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
 
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 
@@ -108,14 +103,11 @@ public class Practitioner_Q_A_Tests extends BaseTest {
 
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
-        businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
-        PersonalInfoPage personalInfoPage = businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("Rainbow Children",
-                "87523586390", "Nizampet Main Road", "India", "Sydney", "5377", "Telangana");
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
 
-        EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02/02/2000", personalInfoPage.DOBInputField);
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
 
-        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("MSC Chemistry",
-                "Holistic Hospitals", "6587234996", "2020", "01/02/2021");
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
 
         VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Naturopathy", "Practistioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
 

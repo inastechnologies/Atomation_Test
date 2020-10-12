@@ -161,37 +161,6 @@ public class PractitionerManageAppointmentsPage extends BasePage
         driver.findElement(By.xpath("//span[text()='" + Date + "']")).click();
     }
 
-    public void ClickAppointmentsAndEnterDataInSetAvailabilityPage(String Location, String Modality, String ConsultationType, String NoOfDays, String Day, String ToTime, String FromTime, String Name, String NoOfMIns, String Fee, String SessionsIncludeUpto)
-    {
-
-        Utils.MouseHoverToAnElement(driver, ManageAppointments);
-        //Utils.WaitForAnElementToExist(driver, ManageAppointments);
-        //ManageAppointments.click();
-        SetAvailability.click();
-
-
-        Utils.WaitForAnElementToExist(driver, LocationInput);
-        Utils.SelectFromDropDownUsingVisibleText(LocationInput, Location);
-        Utils.SelectFromDropDownUsingVisibleText(ModalityInput, Modality);
-        Utils.SelectFromDropDownUsingVisibleText(ConsultationTypeInput, ConsultationType);
-        Utils.SelectFromDropDownUsingVisibleText(NOOfBookingDaysInput, NoOfDays);
-        Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
-
-        TimeInput.get(0).sendKeys(FromTime);
-        TimeInput.get(1).sendKeys(ToTime);
-
-        AddButtons.get(0).click();
-
-        NameInput.sendKeys(Name);
-        NoOfMinsInput.sendKeys(NoOfMIns);
-        FeesInput.sendKeys(Fee);
-        SessionCanIncludeUpToInput.sendKeys(SessionsIncludeUpto);
-
-        AddButtons.get(1).click();
-
-        SubmitButton.click();
-    }
-
     public SetAvailabilityPage ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage()
     {
         Utils.WaitForAnElementToExist(driver, ManageAppointments);

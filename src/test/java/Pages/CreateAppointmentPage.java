@@ -37,7 +37,7 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(xpath = "//select[@formcontrolname='pract_location']")
     public WebElement LocationInput;
 
-    @FindBy(css = "i.tool-tip__icon")
+    @FindBy(css = "div.tool-tip")
     public List<WebElement> ToolTipIcons;
 
     @FindBy(css = "p.tool-tip__info")
@@ -228,13 +228,12 @@ public class CreateAppointmentPage extends BasePage
         AddButton.click();
     }
 
-    public SetConfirmationsRemindersPage EnterConsultationType_EventStartTime_CutOffTime_Description(String Consultation, String EventHours, String EventMinutes, String CutOffTHours, String CutOffTMins, String Text) {
+    public SetConfirmationsRemindersPage EnterConsultationType_EventStartTime_CutOffTime_Description(String Consultation, String EventHours, String EventMinutes, String CutOffTHours, String Text) {
 
         Utils.SelectFromDropDownUsingVisibleText(ConsultationTypeInput, Consultation);
         Utils.SelectFromDropDownUsingVisibleText(EventHoursInput, EventHours);
         Utils.SelectFromDropDownUsingVisibleText(EventMinsInput, EventMinutes);
         Utils.SelectFromDropDownUsingVisibleText(CutOffHours, CutOffTHours);
-        Utils.SelectFromDropDownUsingVisibleText(CutOffMins, CutOffTMins);
         Description.sendKeys(Text);
 
         return new SetConfirmationsRemindersPage(driver);

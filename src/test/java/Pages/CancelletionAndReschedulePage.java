@@ -81,7 +81,7 @@ public class CancelletionAndReschedulePage extends BasePage
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
 
-    @FindBy(css = "i.tool-tip__icon")
+    @FindBy(css = "div.tool-tip")
     public List<WebElement> ToolTipIcons;
 
     @FindBy(css = "p.tool-tip__info")

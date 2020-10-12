@@ -163,4 +163,34 @@ public class SubscriptionTests extends  BaseTest
         essentialSubscriptionPage.CheckBox.get(0).click();
         Assert.assertFalse(Utils.isElementSelected(driver, essentialSubscriptionPage.CheckBox.get(0)));
     }
+
+    @Test
+    public void VerifyIfUserCanBuyEssentialSubscription() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Sydney";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage homePage = new LandingPage(driver);
+
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        Thread.sleep(3000);
+
+        EssentialSubscriptionPage essentialSubscriptionPage = subscriptionPage.ClickOnBuyButtonAndNavigateToEssentialSubscriptionPage();
+
+        essentialSubscriptionPage.EnterPaymentDetailsAndConfirm("Sailaja", "Mamillapalli", "657565757", "21/09/2022");
+
+        essentialSubscriptionPage.CheckBox.get(1).click();
+        essentialSubscriptionPage.CheckBox.get(2).click();
+    }
 }

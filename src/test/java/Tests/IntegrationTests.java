@@ -484,11 +484,11 @@ public class IntegrationTests extends BaseTest
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "hjghgjh");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "1 hour", "hjghgjh");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "20", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "35", "00", "00", "hjghgjh");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "35", "1 hour", "hjghgjh");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
@@ -502,11 +502,11 @@ public class IntegrationTests extends BaseTest
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "This is to test");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Short", "00", "10", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "15", "00", "00", "This is to test");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "15", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
@@ -520,11 +520,11 @@ public class IntegrationTests extends BaseTest
 
         Utils.SelectFromDropDownUsingVisibleText(createAppointmentPage.NOOfBookingDaysInput, "15");
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "00", "35", "100");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "00", "00", "This is to test");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "00", "20", "50");
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "25", "00", "00", "This is to test");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "25", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
         createAppointmentPage.SaveAndContinue.click();

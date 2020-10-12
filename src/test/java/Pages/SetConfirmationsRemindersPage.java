@@ -39,16 +39,16 @@ public class SetConfirmationsRemindersPage extends BasePage
     @FindBy(xpath = "//input[@formcontrolname='cancellation_sms']")
     public WebElement CancellationSms;
 
-    @FindBy(css = "i.tool-tip__icon")
+    @FindBy(css = "div.tool-tip")
     public List<WebElement> ToolTipIcons;
 
     @FindBy(css = "p.tool-tip__info")
     public List<WebElement> ToolTipInfo;
 
-    @FindBy(xpath = "//input[@formcontrolname='third']")
+    @FindBy(xpath = "//input[@formcontrolname='first']")
     public WebElement FirstReminder;
 
-    @FindBy(xpath = "//select[@formcontrolname='third_remainder']")
+    @FindBy(xpath = "//select[@formcontrolname='first_remainder']")
     public WebElement FirstReminderDays;
 
     @FindBy(xpath = "//input[@formcontrolname='second']")
@@ -57,10 +57,10 @@ public class SetConfirmationsRemindersPage extends BasePage
     @FindBy(xpath = "//select[@formcontrolname='second_remainder']")
     public WebElement SecondReminderHours;
 
-    @FindBy(xpath = "//input[@formcontrolname='first']")
+    @FindBy(xpath = "//input[@formcontrolname='third']")
     public WebElement ThirdReminder;
 
-    @FindBy(xpath = "//select[@formcontrolname='first_remainder']")
+    @FindBy(xpath = "//select[@formcontrolname='third_remainder']")
     public WebElement ThirdReminderMins;
 
     @FindBy(css = "button.q-button.view-button")
