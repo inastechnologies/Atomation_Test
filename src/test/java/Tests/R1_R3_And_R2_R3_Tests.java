@@ -2,10 +2,12 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class R1_R3_And_R2_R3_Tests extends BaseTest {
+public class R1_R3_And_R2_R3_Tests extends BaseTest
+{
 
     @Test
     public void VerifyCreating_R2_EventAndAddDateSpecificOnTheSameDayButDifferentTimeSlots_CreateDateSpecific_AnyDay_BeforeAndAfterDateRange() throws InterruptedException {
@@ -52,33 +54,25 @@ public class R1_R3_And_R2_R3_Tests extends BaseTest {
 
         createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Physiotherapy");
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate("02-02-2021", "05-05-2021", "Wednesday", "11:00AM", "2:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
         createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","1 hour", "This is to test");
+        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45", "1 hour", "This is to test");
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
+        createAppointmentPage.AddDateSpecificToCreatedEvent("03-03-2021", "03:00PM", "05:00PM");
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, driver.findElement(By.xpath("//span[text()='15:00 - 17:00']"))));
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
-        createAppointmentPage.AddButton.click();
+        createAppointmentPage.AddDateSpecificToCreatedEvent("01-01-2021", "03:00PM", "05:00PM");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Please Select Date B/W 02/02/2021 and 05/05/2021')]"))), "Please Select Date B/W 02/02/2021 and 05/05/2021");
 
-        createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
-
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
-
-        createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","1 hour", "This is to test");
-
-        createAppointmentPage.CreateEvenButtons.get(0).click();
-
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(1)));
-        Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(2)));
+        createAppointmentPage.AddDateSpecificToCreatedEvent("06-06-2021", "03:00PM", "05:00PM");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Please Select Date B/W 02/02/2021 and 05/05/2021')]"))), "Please Select Date B/W 02/02/2021 and 05/05/2021");
     }
 
     @Test
@@ -125,7 +119,7 @@ public class R1_R3_And_R2_R3_Tests extends BaseTest {
 
         createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Physiotherapy");
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        createAppointmentPage.CreateEventForDateSpecificSessionType(Location, "Physiotherapy", "12-12-2020",  "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
@@ -136,20 +130,23 @@ public class R1_R3_And_R2_R3_Tests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage("Sydney", "Physiotherapy");
+        createAppointmentPage.CreateEventForDateSpecificSessionType(Location, "Physiotherapy", "12-12-2020",  "10:00AM", "12:00PM");
 
-        createAppointmentPage.SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage("Monday", "10:00AM", "12:00PM");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Slot Not Available on 12/12/2020')]"))), "Slot Not Available on 12/12/2020");
+
+        Thread.sleep(2000);
+        createAppointmentPage.SessionTypeRadioButtons.get(0).click();
+        createAppointmentPage.SelectDayAndEnterOpeningHours("Monday",  "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         createAppointmentPage.NOOfBookingDaysInput.sendKeys("15");
 
-        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Initial", "01", "30", "50");
+        createAppointmentPage.EnterDataInAllFieldsOfAppointmentType("Follow UP", "01", "30", "50");
 
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "45","1 hour", "This is to test");
 
-        createAppointmentPage.CreateEvenButtons.get(0).click();
+        createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.CreateEvenButtons.get(0)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(1)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(2)));
     }
@@ -227,7 +224,6 @@ public class R1_R3_And_R2_R3_Tests extends BaseTest {
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(1)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, createAppointmentPage.Slots.get(2)));
     }
-
 
     @Test
     public void VerifyWhenUserIsNotAbleToSelect_R2_WhenUserAlreadySelects_R1() throws InterruptedException {

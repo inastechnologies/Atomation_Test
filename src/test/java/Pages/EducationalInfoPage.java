@@ -119,5 +119,4 @@ public class EducationalInfoPage extends BasePage
         SkipButton.click();
         return new PracticeServiceDescriptionPage(driver);
     }
-
 }

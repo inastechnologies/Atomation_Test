@@ -10,16 +10,48 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifyThatIfUserCanClickOnTabAndNavigateToEditCancellationsAndReschedulePageAndPageHasAllTheRequiredFields() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
 
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, editCancelletionAndReschedulePage.MandatoryFields.get(0)), "Cancellation Policy :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, editCancelletionAndReschedulePage.MandatoryFields.get(1)), "Customers can cancel online:");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, editCancelletionAndReschedulePage.MandatoryFields.get(2)), "Policy description ( visible to the customer ) :");
@@ -32,11 +64,43 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifyThatTheDataEnteredInCancellationsAndReschedulePageIsMatchingWithTheDataAutoFilledInEditCancellationPage() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -48,6 +112,8 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
+
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditPencil.click();
         Assert.assertEquals(editCancelletionAndReschedulePage.CustomerCancelHours1.getAttribute("value"), "24");
         Assert.assertEquals(editCancelletionAndReschedulePage.RefundPrice1.getAttribute("value"), "50");
@@ -55,16 +121,48 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         Assert.assertEquals(editCancelletionAndReschedulePage.RescheduleHours1.getAttribute("value"), "24");
         Assert.assertEquals(editCancelletionAndReschedulePage.ReschedulePrice1.getAttribute("value"), "50");
-        Assert.assertEquals(editCancelletionAndReschedulePage.RescheduleTypeOfPrice1.getAttribute("value"), "%of the price");
+        Assert.assertEquals(editCancelletionAndReschedulePage.RescheduleTypeOfPrice1.getAttribute("value"), "% of price");
     }
 
     @Test
     public void VerifyUserCanNotClickAndEditCancellationAndReSchedulingPolicyInRed() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -76,19 +174,52 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
-        editCancelletionAndReschedulePage.EditPencil.click();
 
+        Thread.sleep(2000);
+        editCancelletionAndReschedulePage.EditPencil.click();
 
         Assert.assertNull(cancelletionAndReschedulePage.CancellationReschedulingPolicyInRed.get(0).getAttribute("readonly"));
     }
 
     @Test
     public void VerifyPencilIconIsClickableAndAllTheFieldsAreEnabledAndCanBeEdited_EditDataIsReflected() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -101,6 +232,7 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditTheFieldsInCancellationAndReschedulingPage();
 
 
@@ -115,11 +247,43 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifyIfUserCanChangeTheSelectionOfRadioButtons() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -132,6 +296,7 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditPencil.click();
         editCancelletionAndReschedulePage.PolicyDescription1.get(0).click();
         Assert.assertTrue(Utils.isElementSelected(driver, editCancelletionAndReschedulePage.PolicyDescription1.get(0)));
@@ -189,11 +354,43 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifyIfUserCanEditTheTextInThePolicyDescriptionIfUserSelectsCustomText() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -206,6 +403,7 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditPencil.click();
         editCancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         editCancelletionAndReschedulePage.PolicyDescriptionTextArea1.clear();
@@ -220,11 +418,43 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifyIfUserSelectsCustomTextTextAreaShouldNotBeEmptyBeforeUpdating() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -237,6 +467,7 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditPencil.click();
         editCancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         editCancelletionAndReschedulePage.PolicyDescriptionTextArea1.clear();
@@ -253,11 +484,43 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
     @Test
     public void VerifySaveButtonIsClickableAfterUpdatingThePageAndSuccessfulMessageIsAppearing() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
-        LoginPage loginPage = homePage.NavigateToLogInPage();
 
-        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = loginPage.EnterMobileNumberOrEmailEnterPasswordAndClickLogin("Harsh@gmail.com", "Harsh@270116");
+        Thread.sleep(3000);
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
+        Thread.sleep(3000);
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        Thread.sleep(2000);
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        Thread.sleep(2000);
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
         SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
@@ -270,6 +533,7 @@ public class EditCancellationsAndRescheduleTests extends BaseTest {
 
         EditCancelletionAndReschedulePage editCancelletionAndReschedulePage = editAppointmentPage.ClickAndNavigateToEditCancellationPage();
 
+        Thread.sleep(2000);
         editCancelletionAndReschedulePage.EditTheFieldsInCancellationAndReschedulingPage();
 
         Thread.sleep(1000);

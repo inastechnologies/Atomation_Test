@@ -56,6 +56,10 @@ public class EditConfirmationsRemindersPage extends BasePage
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
 
+    @FindBy(css = "div.mat-tab-label")
+    public List<WebElement> Group_OneOnOne;
+
+
     public CancelletionAndReschedulePage EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage(String Email)
     {
         PractitionerEmail.sendKeys(Email);
@@ -69,8 +73,6 @@ public class EditConfirmationsRemindersPage extends BasePage
         ThirdReminder.click();
         Utils.SelectFromDropDownUsingVisibleText(ThirdReminderMins, "1Minutes");
         SaveAndContinue.click();
-
         return new CancelletionAndReschedulePage(driver);
-
     }
 }

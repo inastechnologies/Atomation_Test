@@ -43,7 +43,4 @@ public class EssentialSubscriptionPage extends BasePage
         CheckBox.get(0).click();
         ConfirmButton.click();
     }
-
-
-
 }

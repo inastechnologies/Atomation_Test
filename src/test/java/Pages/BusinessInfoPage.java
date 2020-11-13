@@ -1,15 +1,19 @@
 package Pages;
 
 import Utils.Utils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BusinessInfoPage extends BasePage
 {
     public BusinessInfoPage(WebDriver driver)
+
     {
         super(driver);
     }
@@ -98,6 +102,8 @@ public class BusinessInfoPage extends BasePage
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
 
+    public By OkButton = By.cssSelector("button.swal2-confirm.swal2-styled");
+
     public void EnterDataIntoAfield(String Text, WebElement element)
     {
         Utils.WaitForAnElementToExist(driver, element);
@@ -135,7 +141,6 @@ public class BusinessInfoPage extends BasePage
         SkipButton.click();
         return new PersonalInfoPage(driver);
     }
-
 }
 
 

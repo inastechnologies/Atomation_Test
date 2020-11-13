@@ -46,11 +46,11 @@ public class VerificationCodePage extends BasePage
 
     public ResetPasswordPage EnterOTPAndClickSubmitForResetPassword(String One, String Two, String Three, String Four)
     {
-        Utils.WaitForElementsToExist(driver, OTPInputField);
+        /*Utils.WaitForElementsToExist(driver, OTPInputField);
         OTPInputField.get(0).sendKeys(One);
         OTPInputField.get(1).sendKeys(Two);
         OTPInputField.get(2).sendKeys(Three);
-        OTPInputField.get(3).sendKeys(Four);
+        OTPInputField.get(3).sendKeys(Four);*/
         Utils.WaitForAnElementToExist(driver, VerifyButton);
         VerifyButton.click();
         return new ResetPasswordPage(driver);

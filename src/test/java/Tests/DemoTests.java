@@ -107,7 +107,7 @@ public class DemoTests extends BaseTest
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
         Thread.sleep(2000);
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();

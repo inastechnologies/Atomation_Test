@@ -276,7 +276,7 @@ public class Set_EditAvailabilityTests extends BaseTest
     }
 
     @Test
-    public void VerifyThatWhenUserLandsOnSetAvailabilityScreenFourHeadingAreClickable() throws InterruptedException {
+    public void VerifyThatWhenUserLandsOnSetAvailability_OneOnOne_ScreenFourHeadingAreDisplayed() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -316,10 +316,55 @@ public class Set_EditAvailabilityTests extends BaseTest
         setAvailabilityPage.SetAvailability.click();
         setAvailabilityPage.SessionTypeRadioButtons.get(1).click();
 
-        //Assert.assertTrue(Utils.isClickable(driver, setAvailabilityPage.CreateAppointmentSessionTypeHeading));
-        Assert.assertTrue(Utils.isClickable(driver, setAvailabilityPage.SetConfirmationRemindersHeading));
-        Assert.assertTrue(Utils.isClickable(driver, setAvailabilityPage.CancellationRescheduleHeading));
-        //Assert.assertFalse(Utils.isClickable(driver, setAvailabilityPage.PaymentsIntegrationsHeading));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.CreateAppointmentSessionTypeHeading));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.SetConfirmationRemindersHeading));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.CancellationRescheduleHeading));
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, setAvailabilityPage.PaymentsIntegrationsHeading));
+    }
+
+    @Test
+    public void VerifyThatWhenUserLandsOnSetAvailability_Group_ScreenFourHeadingAreDisplayed() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Sydney";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
+        LandingPage homePage = new LandingPage(driver);
+
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        Thread.sleep(3000);
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        Thread.sleep(2000);
+        SetAvailabilityPage setAvailabilityPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToSetAvailabilityPage();
+        setAvailabilityPage.SetAvailability.click();
+        setAvailabilityPage.ClickOnGroupSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
+
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.CreateAppointmentSessionTypeHeading));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.SetConfirmationRemindersHeading));
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, setAvailabilityPage.CancellationRescheduleHeading));
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, setAvailabilityPage.PaymentsIntegrationsHeading));
     }
 
     @Test

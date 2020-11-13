@@ -299,8 +299,7 @@ public class IntegrationTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage()
-    {
+    public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -329,8 +328,7 @@ public class IntegrationTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage()
-    {
+    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -359,7 +357,7 @@ public class IntegrationTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToPracticeServiceDescriptionPageAfterCompletionOfEducationalInfoPage() {
+    public void VerifyIfUserCanNavigateToPracticeServiceDescriptionPageAfterCompletionOfEducationalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -390,7 +388,7 @@ public class IntegrationTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfTheUseIsAbleToLandOntoPractitionerHomePageAfterSuccessfulVerification() {
+    public void VerifyIfTheUseIsAbleToLandOntoPractitionerHomePageAfterSuccessfulVerification() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -527,7 +525,7 @@ public class IntegrationTests extends BaseTest
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "03", "25", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(3000);
         createAppointmentPage.SetConfirmationRemindersHeading.click();

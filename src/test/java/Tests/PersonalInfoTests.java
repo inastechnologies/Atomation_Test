@@ -9,8 +9,7 @@ public class PersonalInfoTests extends BaseTest
 {
 
     @Test
-    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInPersonalInfoPage()
-    {
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInPersonalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -40,12 +39,10 @@ public class PersonalInfoTests extends BaseTest
         Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(1)));
         Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(2)));
         Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(3)));
-        Assert.assertTrue(Utils.isClickable(driver, personalInfoPage.HeaderIcons.get(4)));
     }
 
     @Test
-    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
-    {
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -76,8 +73,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage()
-    {
+    public void VerifyIfUserCanNavigateToPersonalInfoPageAfterSuccessfulCompletionOfBusinessInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -106,8 +102,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfPersonalInfoPageHasAllTheRequiredFields()
-    {
+    public void VerifyIfPersonalInfoPageHasAllTheRequiredFields() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -135,7 +130,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test //Need to assert
-    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInPersonalInfoPage() {
+    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInPersonalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -168,8 +163,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPersonalInfoPage()
-    {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPersonalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -198,8 +192,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyProfilePicCanUploadedAndDeleted()
-    {
+    public void VerifyProfilePicCanUploadedAndDeleted() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -224,14 +217,16 @@ public class PersonalInfoTests extends BaseTest
 
         personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("", personalInfoPage.DOBInputField);
 
-        personalInfoPage.DeleteButton.click();
+        Utils.WaitForAnElementToExist(driver, personalInfoPage.DeleteIcon);
 
-        Assert.assertFalse(Utils.IsElementDisplayed(driver, personalInfoPage.DOBFieldError));
+        personalInfoPage.DeleteIcon.click();
+
+        Utils.WaitForAnElementToExist(driver, personalInfoPage.Filename);
+        Assert.assertTrue(Utils.IsElementDisplayed(driver, personalInfoPage.Filename));
 }
 
     @Test
-    public void VerifyDOBFieldIsAcceptingValidData()
-    {
+    public void VerifyDOBFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -260,8 +255,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyDOBFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyDOBFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -290,8 +284,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfPersonalInfoPageHasGenderRadioButtonsAndSelectedOneAtaTime()
-    {
+    public void VerifyIfPersonalInfoPageHasGenderRadioButtonsAndSelectedOneAtaTime() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -323,8 +316,7 @@ public class PersonalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
-    {
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

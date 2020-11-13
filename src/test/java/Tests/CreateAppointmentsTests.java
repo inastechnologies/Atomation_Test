@@ -2,17 +2,13 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.ThreadFactory;
 
 public class CreateAppointmentsTests extends BaseTest {
 
@@ -39,6 +35,7 @@ public class CreateAppointmentsTests extends BaseTest {
         Thread.sleep(3000);
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
+        Thread.sleep(3000);
         PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
@@ -723,10 +720,10 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate("10-10-2020", "11-11-2020", "Monday", "11:00AM", "2:00PM");
+        createAppointmentPage.SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate("11-11-2020", "12-12-2020", "Monday", "11:00AM", "2:00PM");
 
-        Assert.assertEquals(createAppointmentPage.FromDateField.getAttribute("value"), "2020-10-10");
-        Assert.assertEquals(createAppointmentPage.ToDateField.getAttribute("value"), "2020-11-11");
+        Assert.assertEquals(createAppointmentPage.FromDateField.getAttribute("value"), "2020-11-11");
+        Assert.assertEquals(createAppointmentPage.ToDateField.getAttribute("value"), "2020-12-12");
     }
 
     @Test
@@ -820,9 +817,9 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("10-10-2020", "10:00AM", "12:00PM");
+        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("12-12-2020", "10:00AM", "12:00PM");
 
-        Assert.assertEquals(createAppointmentPage.DateInput.getAttribute("value"), "2020-10-10");
+        Assert.assertEquals(createAppointmentPage.DateInput.getAttribute("value"), "2020-12-12");
     }
 
     @Test
@@ -868,9 +865,11 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate("07-07-2020", "07-17-2020", "Monday", "11:00AM", "2:00PM");
+        createAppointmentPage.SelectLocationAndModalityInCreateAppointmentPage(Location, "Physiotherapy");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.DateErrorMessage), "Past Dates or Same Date Not Acceptable");
+        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("07-07-2020", "11:00AM", "2:00PM");
+
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, createAppointmentPage.ErrorMessages.get(0)), "Past Dates are Not Acceptable");
     }
 
     @Test
@@ -1117,7 +1116,7 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("10/10/2020", "10:00AM", "12:00PM");
+        createAppointmentPage.SelectRecurringWithDateSpecificSessionTypeAndEnterDate("12/12/2020", "10:00AM", "12:00PM");
         createAppointmentPage.AddButton.click();
 
         Thread.sleep(2000);
@@ -2850,6 +2849,7 @@ public class CreateAppointmentsTests extends BaseTest {
         Thread.sleep(3000);
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
+        Thread.sleep(2000);
         PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
@@ -2931,7 +2931,7 @@ public class CreateAppointmentsTests extends BaseTest {
 
         CreateAppointmentPage createAppointmentPage = setAvailabilityPage.ClickOnOneOnOneSessionTypeAndNavigateToCreateAppointmentAndEventTypePage();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'No Events Added')]"))), "No Events Added");
     }
@@ -3005,8 +3005,8 @@ public class CreateAppointmentsTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.SaveAndContinue));
-        createAppointmentPage.SaveAndContinue.click();
+        Assert.assertTrue(Utils.isClickable(driver, createAppointmentPage.Save));
+        createAppointmentPage.Save.click();
     }
 
     @Test

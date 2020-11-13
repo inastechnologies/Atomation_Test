@@ -10,11 +10,10 @@ import java.util.List;
 public class CreateAppointmentPage extends BasePage
 {
     public CreateAppointmentPage(WebDriver driver)
+
     {
         super(driver);
     }
-
-
 
     @FindBy(xpath = "//button[text()=' Create Appointment or Event Type '] ")
     public WebElement CreateAppointmentSessionTypeHeading;
@@ -140,7 +139,7 @@ public class CreateAppointmentPage extends BasePage
     public WebElement NameError;
 
     @FindBy(css = "button.q-button.view-button")
-    public WebElement SaveAndContinue;
+    public WebElement Save;
 
     @FindBy(xpath = "//button[text()='OK']")
     public WebElement OkButton;
@@ -148,19 +147,19 @@ public class CreateAppointmentPage extends BasePage
     @FindBy(css = "button.swal2-confirm.swal2-styled")
     public WebElement SkipButton;
 
-    @FindBy(css = "button.swal2-cancel.swal2-styled")
-    public WebElement Cancel;
+    @FindBy(css = "button.btn.btn-sm")
+    public WebElement DateSpecificButton;
 
 
-    public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality) {
-
+    public void SelectLocationAndModalityInCreateAppointmentPage(String Location, String Modality)
+    {
         Utils.WaitForAnElementToExist(driver, LocationInput);
         Utils.SelectFromDropDownUsingVisibleText(LocationInput, Location);
         Utils.SelectFromDropDownUsingVisibleText(ModalityInput, Modality);
     }
 
-    public void SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(String Day, String FromTime, String ToTime) {
-
+    public void SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(String Day, String FromTime, String ToTime)
+    {
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(0).click();
 
@@ -169,16 +168,16 @@ public class CreateAppointmentPage extends BasePage
         TimeInput.get(1).sendKeys(ToTime);
     }
 
-    public void SelectDayAndEnterOpeningHours(String Day, String FromTime, String ToTime) {
-
+    public void SelectDayAndEnterOpeningHours(String Day, String FromTime, String ToTime)
+    {
         Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
         AddButton.click();
     }
 
-    public void SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(String FromDate, String ToDate, String Day, String FromTime, String ToTime ) {
-
+    public void SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(String FromDate, String ToDate, String Day, String FromTime, String ToTime)
+    {
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(1).click();
         FromDateField.sendKeys(FromDate);
@@ -188,8 +187,8 @@ public class CreateAppointmentPage extends BasePage
         TimeInput.get(1).sendKeys(ToTime);
     }
 
-    public void SelectRecurringWithDateSpecificSessionTypeAndEnterDate(String Date, String FromTime, String ToTime) {
-
+    public void SelectRecurringWithDateSpecificSessionTypeAndEnterDate(String Date, String FromTime, String ToTime)
+    {
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
         SessionTypeRadioButtons.get(2).click();
         DateInput.sendKeys(Date);
@@ -198,8 +197,8 @@ public class CreateAppointmentPage extends BasePage
         AddButton.click();
     }
 
-    public void EnterDataInAllFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees) {
-
+    public void EnterDataInAllFieldsOfAppointmentType(String Name, String Hours, String Minutes, String Fees)
+    {
         Utils.WaitForAnElementToExist(driver, NameInput);
         NameInput.sendKeys(Name);
         DurationHoursInput.sendKeys(Hours);
@@ -207,51 +206,58 @@ public class CreateAppointmentPage extends BasePage
         FeesInput.sendKeys(Fees);
     }
 
-    public void CreateEventForRecurringSessionType(String Location, String Modality, String Day, String FromTime, String ToTime) {
-
+    public void CreateEventForRecurringSessionType(String Location, String Modality, String Day, String FromTime, String ToTime)
+    {
        SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
        SelectRecurringSessionType_SelectDayAndOpeningHoursInCreateAppointmentPage(Day, FromTime, ToTime);
        AddButton.click();
     }
 
-    public void CreateEventForRecurringWithInDateRangeSessionType(String Location, String Modality, String FromDate, String ToDate, String Day, String FromTime, String ToTime) {
-
+    public void CreateEventForRecurringWithInDateRangeSessionType(String Location, String Modality, String FromDate, String ToDate, String Day, String FromTime, String ToTime)
+    {
         SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
         SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(FromDate, ToDate, Day, FromTime, ToTime);
         AddButton.click();
     }
 
-    public void CreateEventForDateSpecificSessionType(String Location, String Modality, String Date, String FromTime, String ToTime) {
-
+    public void CreateEventForDateSpecificSessionType(String Location, String Modality, String Date, String FromTime, String ToTime)
+    {
         SelectLocationAndModalityInCreateAppointmentPage(Location, Modality);
         SelectRecurringWithDateSpecificSessionTypeAndEnterDate(Date, FromTime, ToTime);
-        AddButton.click();
+        //AddButton.click();
     }
 
-    public SetConfirmationsRemindersPage EnterConsultationType_EventStartTime_CutOffTime_Description(String Consultation, String EventHours, String EventMinutes, String CutOffTHours, String Text) {
-
+    public SetConfirmationsRemindersPage EnterConsultationType_EventStartTime_CutOffTime_Description(String Consultation, String EventHours, String EventMinutes, String CutOffTHours, String Text)
+    {
         Utils.SelectFromDropDownUsingVisibleText(ConsultationTypeInput, Consultation);
         Utils.SelectFromDropDownUsingVisibleText(EventHoursInput, EventHours);
         Utils.SelectFromDropDownUsingVisibleText(EventMinsInput, EventMinutes);
         Utils.SelectFromDropDownUsingVisibleText(CutOffHours, CutOffTHours);
         Description.sendKeys(Text);
-
         return new SetConfirmationsRemindersPage(driver);
     }
 
-    public SetConfirmationsRemindersPage ClickAndNavigateToSetConfirmationsAndRemindersPage() {
-
+    public SetConfirmationsRemindersPage ClickAndNavigateToSetConfirmationsAndRemindersPage()
+    {
         Utils.WaitForAnElementToExist(driver, SetConfirmationRemindersHeading);
         SetConfirmationRemindersHeading.click();
-
         return new SetConfirmationsRemindersPage(driver);
     }
 
-    public CancelletionAndReschedulePage ClickAndNavigateToSetCancellationAndReschedulingPage() {
-
+    public CancelletionAndReschedulePage ClickAndNavigateToSetCancellationAndReschedulingPage()
+    {
         Utils.WaitForAnElementToExist(driver, CancellationRescheduleHeading);
         CancellationRescheduleHeading.click();
-
         return new CancelletionAndReschedulePage(driver);
+    }
+
+    public void AddDateSpecificToCreatedEvent(String Date, String FromTime, String ToTime)
+    {
+        DateSpecificButton.click();
+        DateInput.sendKeys(Date);
+        //TimeInput.get(0).sendKeys(FromTime);
+        //TimeInput.get(1).sendKeys(ToTime);
+        //AddButton.click();
+        //Save.click();
     }
 }

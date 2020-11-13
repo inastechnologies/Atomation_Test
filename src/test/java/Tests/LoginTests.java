@@ -81,14 +81,46 @@ public class LoginTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToResetPasswordPageAfterEnteringOTP()
-    {
+    public void VerifyIfUserCanNavigateToResetPasswordPageAfterEnteringOTP() throws InterruptedException {
+        String Characters = Utils.printRandomString(6);
+        String FirstName = "Sailaja" + Characters;
+        String LastName = "Mamillapllai" + Characters;
+        String AlphaNumeric = Utils.getAlphaNumericString(6);
+        String Email = AlphaNumeric + "@gmail.com";
+        int PhoneNumber = Utils.RandomGenerator();
+        String PhoneNum = Integer.toString(PhoneNumber);
+        String PhoneNo = "9" + PhoneNum;
+        String Location = "Adelaide";
+        String Password = AlphaNumeric + "@Sai4";
+        String ConfirmPassword = AlphaNumeric + "@Sai4";
         LandingPage homePage = new LandingPage(driver);
+
+        SignUpPage signUpPage = homePage.NavigateToSignUpPage();
+        signUpPage.EnterDataIntoAllTheFieldsInSignUpPage(FirstName, LastName, Email, PhoneNo, Location, Password, ConfirmPassword);
+        SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
+
+        BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
+
+        PersonalInfoPage personalInfoPage = businessInfoPage.ClickSkipAndNavigateToNextPage();
+
+        EducationalInfoPage educationalInfoPage = personalInfoPage.ClickSkipAndNavigateToNextPage();
+
+        PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.ClickSkipAndNavigateToNextPage();
+
+
+        VerifyYourAccountPage verifyYourAccountPage = practiceServiceDescriptionPage.EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext("Physiotherapy", "Practitioner", "fytftfytjf", "fggfgfgfhfh", "trytrgffhf", "hgjg");
+
+        VerificationCodePage verificationCodePage = verifyYourAccountPage.EnterPhoneOrEmailAndClickGetVerificationCode(PhoneNo);
+
+
+        PractitionerManageAppointmentsPage practitionerManageAppointmentsPage = verificationCodePage.EnterCodeAndClickSubmit("1", "2", "3", "4");
+
+        practitionerManageAppointmentsPage.ClickLogoutToGoOutOfThePage();
         LoginPage loginPage = homePage.NavigateToLogInPage();
         Utils.WaitForAnElementToExist(driver, loginPage.ForGotPassword);
         Assert.assertTrue(Utils.isClickable(driver, loginPage.ForGotPassword));
         ForgotPasswordPage forgotPasswordPage = loginPage.ClickAndNavigateToForgetPasswordPage();
-        VerificationCodePage verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode("9866000000");
+        verificationCodePage = forgotPasswordPage.EnterPhoneEmailAndClickGetVerificationCode(PhoneNo);
         ResetPasswordPage resetPasswordPage = verificationCodePage.EnterOTPAndClickSubmitForResetPassword("1", "2", "3", "4");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, resetPasswordPage.ResetPasswordMessage), "Reset Password");

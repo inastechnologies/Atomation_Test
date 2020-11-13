@@ -178,7 +178,6 @@ public class SignUpPage extends BasePage
     @FindBy(xpath = "//div[text()='Please agree']")
     public WebElement TermsAndConditionsErrorMessage;
 
-
     public void EnterDataIntoAfield(String Text, WebElement element)
     {
         Utils.WaitForAnElementToExist(driver, element);
@@ -204,7 +203,6 @@ public class SignUpPage extends BasePage
 
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        //actions.sendKeys(Keys.PAGE_UP).build().perform();
         Utils.WaitForAnElementToExist(driver, AcceptTermsCheckBox);
         AcceptTermsCheckBox.click();
         Utils.WaitForAnElementToExist(driver, SignUpButton);

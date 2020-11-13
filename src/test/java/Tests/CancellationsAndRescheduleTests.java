@@ -320,12 +320,12 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "22", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "22", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.CustomerCancelHours1.getAttribute("value"), "22");
         Assert.assertEquals(cancelletionAndReschedulePage.CustomerCancelHours2.getAttribute("value"), "22");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "20", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "20", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.RescheduleHours1.getAttribute("value"), "20");
         Assert.assertEquals(cancelletionAndReschedulePage.RescheduleHours2.getAttribute("value"), "20");
@@ -474,12 +474,12 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.RefundPrice1.getAttribute("value"), "50");
         Assert.assertEquals(cancelletionAndReschedulePage.RefundPrice2.getAttribute("value"), "10");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.ReschedulePrice1.getAttribute("value"), "50");
         Assert.assertEquals(cancelletionAndReschedulePage.ReschedulePrice2.getAttribute("value"), "10");
@@ -530,9 +530,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "jh%#@ &^&^ghj", "% of fee", "2", "j^%^%^ &^%hg", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "jh%#@ &^&^ghj", "% of fee", "2", "j^%^%^ &^%hg", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "jh^%^ gj", "% of fee", "2", "^%&^%^%hjgj ^&%", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "jh^%^ gj", "% of fee", "2", "^%&^%^%hjgj ^&%", "% of fee");
 
         cancelletionAndReschedulePage.SaveAndContinue.click();
 
@@ -637,12 +637,12 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.TypeOfPrice1.getAttribute("value"), "% of price");
         Assert.assertEquals(cancelletionAndReschedulePage.TypeOfPrice2.getAttribute("value"), "% of price");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         Assert.assertEquals(cancelletionAndReschedulePage.RescheduleTypeOfPrice1.getAttribute("value"), "% of the price");
         Assert.assertEquals(cancelletionAndReschedulePage.RescheduleTypeOfPrice2.getAttribute("value"), "% of the price");
@@ -791,9 +791,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "jh%#@ &^&^ghj", "% of fee", "2", "j^%^%^ &^%hg", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "jh%#@ &^&^ghj", "% of fee", "2", "j^%^%^ &^%hg", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "jh^%^ gj", "% of fee", "2", "^%&^%^%hjgj ^&%", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "jh^%^ gj", "% of fee", "2", "^%&^%^%hjgj ^&%", "% of fee");
 
         Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescription1.get(0)));
         Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescription1.get(1)));
@@ -846,9 +846,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         Utils.WaitForAnElementToExist(driver, cancelletionAndReschedulePage.PolicyDescription1.get(0));
         cancelletionAndReschedulePage.PolicyDescription1.get(0).click();
@@ -907,9 +907,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         cancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         //Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea1));
@@ -968,9 +968,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         cancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         cancelletionAndReschedulePage.PolicyDescriptionTextArea1.sendKeys("jhkhiufhg@^76675hg jghg");
@@ -1029,9 +1029,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         cancelletionAndReschedulePage.PolicyDescription1.get(0).click();
         Assert.assertTrue(Utils.IsElementDisplayed(driver, cancelletionAndReschedulePage.PolicyDescriptionTextArea1));
@@ -1085,9 +1085,9 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
 
         cancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         cancelletionAndReschedulePage.PolicyDescriptionTextArea1.sendKeys("jhkhiufhg@^76675hg jghg");
@@ -1150,13 +1150,13 @@ public class CancellationsAndRescheduleTests extends BaseTest {
 
         CancelletionAndReschedulePage cancelletionAndReschedulePage = createAppointmentPage.ClickAndNavigateToSetCancellationAndReschedulingPage();
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanCancelOnline("22 hours", "50", "% of fee", "2", "10", "% of fee");
         cancelletionAndReschedulePage.PolicyDescription1.get(1).click();
         cancelletionAndReschedulePage.PolicyDescriptionTextArea1.sendKeys("jhkhiufhg@^76675hg jghg");
         cancelletionAndReschedulePage.CustomerCancellationReason1.get(2).click();
 
 
-        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20", "50", "% of fee", "2", "10", "% of fee");
+        cancelletionAndReschedulePage.SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline("20 hours", "50", "% of fee", "2", "10", "% of fee");
         cancelletionAndReschedulePage.PolicyDescription2.get(1).click();
         cancelletionAndReschedulePage.PolicyDescriptionTextArea2.sendKeys("jhkhiufhg@^76675hg jghg");
         cancelletionAndReschedulePage.CustomerCancellationReason2.get(2).click();

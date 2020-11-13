@@ -14,7 +14,6 @@ public class SetConfirmationsRemindersPage extends BasePage
         super(driver);
     }
 
-
     @FindBy(css = "span.title")
     public List<WebElement> RequiredFields;
 
@@ -66,6 +65,9 @@ public class SetConfirmationsRemindersPage extends BasePage
     @FindBy(css = "button.q-button.view-button")
     public WebElement SaveAndContinue;
 
+    @FindBy(css = "button.swal2-confirm ")
+    public WebElement OkButton;
+
     public CancelletionAndReschedulePage EnterEmail_SelectCheckBoxesAndNavigateToCancellationAndReschedulingPage(String Email) throws InterruptedException {
         PractitionerEmail.sendKeys(Email);
         Thread.sleep(5000);
@@ -83,8 +85,6 @@ public class SetConfirmationsRemindersPage extends BasePage
         ThirdReminder.click();
         Utils.SelectFromDropDownUsingVisibleText(ThirdReminderMins, "1Minutes");
         SaveAndContinue.click();
-
         return new CancelletionAndReschedulePage(driver);
-
     }
 }

@@ -14,7 +14,6 @@ public class CancelletionAndReschedulePage extends BasePage
         super(driver);
     }
 
-
     @FindBy(css = "span.title")
     public List<WebElement> MandatoryFields;
 
@@ -96,9 +95,9 @@ public class CancelletionAndReschedulePage extends BasePage
 
     public EditCancelletionAndReschedulePage FillAlTheFieldsInCancellationAndReschedulingPage()
     {
-        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "24");
+        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "24 hours");
         RefundPrice1.sendKeys("50");
-        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "%of the price");
+        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "% of fee");
         RefundPrice2.sendKeys("50");
         PolicyDescription1.get(1).click();
         Utils.WaitForAnElementToExist(driver, PolicyDescriptionTextArea1);
@@ -106,9 +105,9 @@ public class CancelletionAndReschedulePage extends BasePage
         PolicyDescriptionTextArea1.sendKeys("ghfhgfh");
         CustomerCancellationReason1.get(2).click();
 
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "24");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "24 hours");
         ReschedulePrice1.sendKeys( "50");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "%of the price");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "% of fee");
 
         ReschedulePrice2.sendKeys( "50");
         PolicyDescription2.get(1).click();
@@ -116,26 +115,25 @@ public class CancelletionAndReschedulePage extends BasePage
         PolicyDescriptionTextArea2.sendKeys("ghfhgfh");
         CustomerCancellationReason2.get(2).click();
         SaveAndContinue.click();
-
         return new EditCancelletionAndReschedulePage(driver);
     }
 
-    public void SelectHoursAndEnterTextUnder_CustomersCanCancelOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2) {
-
+    public void SelectHoursAndEnterTextUnder_CustomersCanCancelOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2)
+    {
         Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, Hours1);
         RefundPrice1.sendKeys(Price1);
         Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, PriceType1);
-        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, Hours2);
+        //Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, Hours2);
         RefundPrice2.sendKeys( Price2);
         Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, PriceType2);
     }
 
-    public void SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2) {
-
+    public void SelectHoursAndEnterTextUnder_CustomersCanRescheduleOnline(String Hours1, String Price1, String PriceType1, String Hours2, String Price2, String PriceType2)
+    {
         Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, Hours1);
         ReschedulePrice1.sendKeys(Price1);
         Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, PriceType1);
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, Hours2);
+        //Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, Hours2);
         ReschedulePrice2.sendKeys( Price2);
         Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, PriceType2);
     }

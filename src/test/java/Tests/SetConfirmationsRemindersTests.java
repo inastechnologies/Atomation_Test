@@ -452,7 +452,7 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
         Thread.sleep(1000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Success')]"))), "Success");
+        Assert.assertTrue(Utils.isClickable(driver, setConfirmationsRemindersPage.SaveAndContinue));
     }
 
     @Test
@@ -738,11 +738,11 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         setConfirmationsRemindersPage.SaveAndContinue.click();
 
         Thread.sleep(1000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Success')]"))), "Success");
+        Assert.assertTrue(Utils.isClickable(driver, setConfirmationsRemindersPage.SaveAndContinue));
     }
 
     @Test
-    public void VerifyIfSuccessMessageIsDisplayedWhenMandatoryFieldsAreSetAndSaveButtonClicked() throws InterruptedException {
+    public void VerifyIfSaveButtonIsClickableWhenMandatoryFieldsAreFilled() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -787,9 +787,8 @@ public class SetConfirmationsRemindersTests extends BaseTest {
         SetConfirmationsRemindersPage setConfirmationsRemindersPage = createAppointmentPage.ClickAndNavigateToSetConfirmationsAndRemindersPage();
         setConfirmationsRemindersPage.PractitionerEmail.clear();
         setConfirmationsRemindersPage.PractitionerEmail.sendKeys("ghg6762@gmail.com");
-        setConfirmationsRemindersPage.SaveAndContinue.click();
 
         Thread.sleep(1000);
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, driver.findElement(By.xpath("//*[contains(text(),'Success')]"))), "Success");
+        Assert.assertTrue(Utils.isClickable(driver, setConfirmationsRemindersPage.SaveAndContinue));
     }
 }

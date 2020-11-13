@@ -34,8 +34,8 @@ public class VerifyYourAccountPage extends BasePage
 
     public VerificationCodePage EnterPhoneOrEmailAndClickGetVerificationCode(String PhoneEmail)
     {
-        Utils.WaitForAnElementToExist(driver, PhoneEmailInputField);
-        PhoneEmailInputField.sendKeys(PhoneEmail);
+        /*Utils.WaitForAnElementToExist(driver, PhoneEmailInputField);
+        PhoneEmailInputField.sendKeys(PhoneEmail);*/
         GetVerificationCodeButton.click();
         return new VerificationCodePage(driver);
     }

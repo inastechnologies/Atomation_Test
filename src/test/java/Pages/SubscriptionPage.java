@@ -1,6 +1,7 @@
 package Pages;
 
 import Utils.Utils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,10 +33,17 @@ public class SubscriptionPage extends BasePage
     @FindBy(xpath = "//button[text()='Buy']")
     public WebElement BuyButton;
 
+    @FindBy(css = "button.swal2-confirm")
+    public WebElement Confirm;
+
+    @FindBy(css = "button.swal2-confirm.swal2-styled")
+    public WebElement OkButton;
+
     public BusinessInfoPage ClickOnTryButtonAndNavigateToBusinessInfoPage()
     {
         Utils.WaitForAnElementToExist(driver, TryButton);
         TryButton.click();
+        Confirm.click();
         return new BusinessInfoPage(driver);
     }
 

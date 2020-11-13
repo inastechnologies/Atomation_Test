@@ -1,8 +1,8 @@
 package Pages;
 
 import Utils.Utils;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -20,8 +20,14 @@ public class PracticeServiceDescriptionPage extends BasePage
     @FindBy(css = "div.text-style")
     public WebElement HeadingText;
 
-    @FindBy(xpath = "//select[@formcontrolname='service_type']")
-    public WebElement ServiceTypeInput;
+    @FindBy(xpath = "//div[text()='Practice / Service Description']")
+    public WebElement ServicePageTab;
+
+    @FindBy(css = "div.mat-select-arrow")
+    public WebElement ServiceTypeArrow;
+
+    @FindBy(xpath = "div.mat-ripple.mat-option-ripple")
+    public WebElement ServiceTypeList;
 
     @FindBy(xpath = "//span[text()='Describe yourself '] ")
     public WebElement DescribeUrSelfText;
@@ -44,21 +50,6 @@ public class PracticeServiceDescriptionPage extends BasePage
     @FindBy(css = "div.angular-editor-textarea")
     public List<WebElement> TextInputField;
 
-    @FindBy(xpath = "//textarea[@formcontrolname='describe_about_yourself']")
-    public WebElement DescribeYourselfInputField;
-
-    @FindBy(xpath = "//textarea[@formcontrolname='describe_about_practice']")
-    public WebElement DescribePracticeInputField;
-
-    @FindBy(xpath = "//textarea[@formcontrolname='about_your_area_of_special_interest_and_services']")
-    public WebElement DescribeInterestsInputField;
-
-    @FindBy(xpath = "//textarea[@formcontrolname='describe_your_qualifications_and_registrations']")
-    public WebElement DescribeQualificationAndRegistrationInputField;
-
-    @FindBy(xpath = "//textarea[@formcontrolname='info']")
-    public WebElement AdditionalInfoInputField;
-
     @FindBy(id = "cfile")
     public WebElement ChooseFile;
 
@@ -77,29 +68,34 @@ public class PracticeServiceDescriptionPage extends BasePage
     @FindBy(css = "div.text-error")
     public List<WebElement> ErrorMessages;
 
-
-
-    public VerifyYourAccountPage EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext(String VisibleText, String DescribeYourself, String DescribePractice, String DescribeInterests, String Qualification, String AdditionalInfo )
+    public VerifyYourAccountPage EnterDataIntoAllTheFieldsInPracticeServiceDescriptionPageAndClickNext(String Modality, String DescribeYourself, String DescribePractice, String DescribeInterests, String Qualification, String AdditionalInfo )
     {
-       Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
-       Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
+       Utils.WaitForAnElementToExist(driver, ServiceTypeArrow);
+       ServiceTypeArrow.click();
+       driver.findElement(By.xpath("//span[text()='" + Modality + "']")).click();
+
        TextInputField.get(0).sendKeys(DescribeYourself);
        TextInputField.get(1).sendKeys(DescribePractice);
        TextInputField.get(2).sendKeys(DescribeInterests);
        TextInputField.get(3).sendKeys(Qualification);
        //Utils.WaitForAnElementToExist(driver, ChooseFile);
        ChooseFile.sendKeys("D:\\Flower.jpg");
-       AddButton.click();
+
+       JavascriptExecutor jse = (JavascriptExecutor)driver;
+       jse.executeScript("arguments[0].click()", AddButton);
+       //AddButton.click();
        TextInputField.get(4).sendKeys(AdditionalInfo);
-       Utils.WaitForAnElementToExist(driver, SubmitButton);
-       SubmitButton.click();
+
+       JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+       jse1.executeScript("arguments[0].click()", SubmitButton);
+
        return new VerifyYourAccountPage(driver);
     }
 
     public void CLickEveryFieldInPracticeServiceInfoPage()
     {
-        Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
-        ServiceTypeInput.click();
+        Utils.WaitForAnElementToExist(driver, ServiceTypeArrow);
+        ServiceTypeArrow.click();
         TextInputField.get(0).click();
         TextInputField.get(1).click();
         TextInputField.get(2).click();
@@ -115,8 +111,8 @@ public class PracticeServiceDescriptionPage extends BasePage
 
     public VerifyYourAccountPage EnterDataIntoAllTheFieldsAndUploadFiveFiles(String VisibleText, String DescribeYourself, String DescribePractice, String DescribeInterests, String Qualification, String AdditionalInfo )
     {
-        Utils.WaitForAnElementToExist(driver, ServiceTypeInput);
-        Utils.SelectFromDropDownUsingVisibleText(ServiceTypeInput, VisibleText);
+        Utils.WaitForAnElementToExist(driver, ServiceTypeArrow);
+        Utils.SelectFromDropDownUsingVisibleText(ServiceTypeArrow, VisibleText);
         TextInputField.get(0).sendKeys(DescribeYourself);
         TextInputField.get(1).sendKeys(DescribePractice);
         TextInputField.get(2).sendKeys(DescribeInterests);

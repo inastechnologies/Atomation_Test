@@ -22,10 +22,10 @@ public class Utils
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void WaitForAnElementNotToExist(WebDriver driver, WebElement element)
+    public static void WaitForAnElementToBeLocated(WebDriver driver, By element)
     {
         WebDriverWait wait = new WebDriverWait(driver, 35);
-        wait.until(ExpectedConditions.invisibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
     public static void WaitForElementsToExist(WebDriver driver, List<WebElement> elements)

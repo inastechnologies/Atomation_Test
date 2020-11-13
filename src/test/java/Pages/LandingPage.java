@@ -80,7 +80,6 @@ public class LandingPage extends BasePage
     @FindBy(css = "input.sec-9-form-control")
     public WebElement GetTheLinkInputField;
 
-
     public SignUpPage NavigateToSignUpPage()
     {
         Utils.WaitForAnElementToExist(driver, SignUpTab);

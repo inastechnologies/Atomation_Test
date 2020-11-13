@@ -10,8 +10,7 @@ import java.util.List;
 public class BusinessInfoTests extends BaseTest
 {
     @Test
-    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInBusinessInfoPage()
-    {
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInBusinessInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -32,17 +31,14 @@ public class BusinessInfoTests extends BaseTest
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
         Utils.WaitForElementsToExist(driver, businessInfoPage.HeaderIcons);
-
         Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(0)));
         Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(1)));
         Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(2)));
         Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(3)));
-        Assert.assertTrue(Utils.isClickable(driver, businessInfoPage.HeaderIcons.get(4)));
     }
 
     @Test
-    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
-    {
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -61,8 +57,6 @@ public class BusinessInfoTests extends BaseTest
         SubscriptionPage subscriptionPage = signUpPage.ClickPractitionerCategoryClickTermsAndConditionsAndSignUp();
 
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
-
-        Utils.WaitForElementsToExist(driver, businessInfoPage.HeaderIcons);
 
         signUpPage.HeaderIcons.get(3).click();
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, landingPage.BecomeTheNaturallyYouText), "Become The Naturally you");
@@ -95,8 +89,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfBusinessInfoPageHasAllTheRequiredFields()
-    {
+    public void VerifyIfBusinessInfoPageHasAllTheRequiredFields() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -126,8 +119,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInBusinessInfoPage()
-    {
+    public void VerifyUserIsAbleToClickAndEditAllTheFieldsInBusinessInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -174,8 +166,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInBusinessInfoPage()
-    {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInBusinessInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -210,8 +201,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyClinicNameFieldIsAcceptingValidData()
-    {
+    public void VerifyClinicNameFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -237,8 +227,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyClinicNameFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyClinicNameFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -264,8 +253,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAustralianBusinessNoFieldIsAcceptingValidData()
-    {
+    public void VerifyAustralianBusinessNoFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -291,8 +279,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAustralianBusinessNoFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyAustralianBusinessNoFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -318,8 +305,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAddress1FieldIsAcceptingValidData()
-    {
+    public void VerifyAddress1FieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -345,8 +331,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyCityFieldIsAcceptingValidData()
-    {
+    public void VerifyCityFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -372,8 +357,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyCityFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyCityFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -400,8 +384,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAreaCodeFieldIsAcceptingValidData()
-    {
+    public void VerifyAreaCodeFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -420,6 +403,7 @@ public class BusinessInfoTests extends BaseTest
 
         BusinessInfoPage businessInfoPage = subscriptionPage.ClickOnTryButtonAndNavigateToBusinessInfoPage();
 
+        Thread.sleep(3000);
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdf hjg6755d", "87523563990", "fgsdsgf", "fggasfdf", "rtwqe", "6465", "ytre@df");
 
@@ -427,8 +411,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAreaCodeFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyAreaCodeFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -450,12 +433,11 @@ public class BusinessInfoTests extends BaseTest
         businessInfoPage.CLickEveryFieldBeforeEnteringTheDataInBusinessInfoPage();
         businessInfoPage.EnterDataIntoAllTheFieldsInBusinessInfoPageAndClickNext("tdf hjg6755d", "76556787656", "fgsdsgf", "fggasfdf", "rtwqe", "rt2@%%355655yrt", "ytredf");
 
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, businessInfoPage.AreaCodeErrorMessage), "Area Code should be 4 digits");
+        Assert.assertFalse(Utils.IsElementDisplayed(driver, businessInfoPage.AreaCodeErrorMessage));
     }
 
     @Test
-    public void VerifyStateFieldIsAcceptingValidData()
-    {
+    public void VerifyStateFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -481,8 +463,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyStateFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyStateFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -509,8 +490,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyCountryFieldIsAcceptingValidData()
-    {
+    public void VerifyCountryFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -536,8 +516,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyCountryFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyCountryFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -564,7 +543,7 @@ public class BusinessInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage() throws InterruptedException
     {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;

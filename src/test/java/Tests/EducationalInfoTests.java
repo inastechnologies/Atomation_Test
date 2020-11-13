@@ -10,8 +10,7 @@ import java.util.List;
 public class EducationalInfoTests extends BaseTest
 {
     @Test
-    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInEducationalInfoPage()
-    {
+    public void VerifyIfFindAskBookHomeAndProfileIconsAreClickableInEducationalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -43,12 +42,10 @@ public class EducationalInfoTests extends BaseTest
         Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(1)));
         Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(2)));
         Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(3)));
-        Assert.assertTrue(Utils.isClickable(driver, educationalInfoPage.HeaderIcons.get(4)));
     }
 
     @Test
-    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage()
-    {
+    public void VerifyWhenWeClickOnTheHomeIconItNavigatesToHomePage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -81,8 +78,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage()
-    {
+    public void VerifyIfUserCanNavigateToEducationalInfoPageAfterSuccessfulCompletionOfPersonalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -112,8 +108,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyIfEducationalInfoPageHasAllTheRequiredFields()
-    {
+    public void VerifyIfEducationalInfoPageHasAllTheRequiredFields() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -142,15 +137,14 @@ public class EducationalInfoTests extends BaseTest
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.EduDetailsText), "Education Details * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.AssociationText), "Association * :");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegNoText), "Registration Number *");
+        Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegNoText), "Registration Number * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegYearText), "Year Of Registration * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegRenewalText), "Registration Renewal Date * :");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.UploadDocsText), "Upload Registration Documents :");
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInEducationalInfoPage()
-    {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInEducationalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -188,8 +182,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyEducationalDetailsFieldIsAcceptingValidData()
-    {
+    public void VerifyEducationalDetailsFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -220,8 +213,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyEducationalDetailsFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyEducationalDetailsFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -252,8 +244,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyAssociationFieldIsAcceptingValidData()
-    {
+    public void VerifyAssociationFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -284,8 +275,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyRegistrationNumberFieldIsAcceptingValidData()
-    {
+    public void VerifyRegistrationNumberFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -316,8 +306,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyRegistrationNumberFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyRegistrationNumberFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -348,8 +337,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyYearOfRegistrationFieldIsAcceptingValidData()
-    {
+    public void VerifyYearOfRegistrationFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -380,8 +368,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyYearOfRegistrationFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyYearOfRegistrationFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -412,8 +399,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyRegistrationRenewalDateFieldIsAcceptingValidData()
-    {
+    public void VerifyRegistrationRenewalDateFieldIsAcceptingValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -444,8 +430,7 @@ public class EducationalInfoTests extends BaseTest
     }
 
     @Test
-    public void VerifyRegistrationRenewalDateFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyRegistrationRenewalDateFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -470,14 +455,13 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "7687678655", "03/08/8765");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "2019", "03/08/8765");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.RegistrationRenewalDateError), "Registration Renewal Date is Invalid");
     }
 
     @Test
-    public void VerifyRegistrationDocumentsFieldIsUploadingMoreThanTwoDocuments()
-    {
+    public void VerifyRegistrationDocumentsFieldIsUploadingMoreThanTwoDocuments() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -502,17 +486,16 @@ public class EducationalInfoTests extends BaseTest
 
         EducationalInfoPage educationalInfoPage = personalInfoPage.EnterDateOfBirthUploadPictureAndClickNext("02-01-1997 ", personalInfoPage.DOBInputField);
 
-        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "7687678655", "");
+        educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("ghfhg ghfhfgh", "hjgjhg hjgj%%", "7676", "2019", "");
 
-        educationalInfoPage.BrowseField.sendKeys("D:\\dahlia.jpeg");
-        educationalInfoPage.BrowseField.sendKeys("D:\\Rose.jpeg");
+        educationalInfoPage.BrowseField.sendKeys("D:\\SampleFile.pdf");
+        educationalInfoPage.BrowseField.sendKeys("D:\\MockPdf.pdf");
 
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, educationalInfoPage.DocDownloadFile), "Flower.jpg");
     }
 
     @Test
-    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage()
-    {
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

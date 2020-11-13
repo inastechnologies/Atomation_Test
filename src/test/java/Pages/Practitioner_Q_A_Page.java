@@ -34,12 +34,5 @@ public class Practitioner_Q_A_Page extends BasePage
 
     @FindBy(xpath = "//div[text()='MANAGE ORDERS']")
     public WebElement ManageOrders;
-
-
-
-
-
-
-
 }
 

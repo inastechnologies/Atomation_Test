@@ -10,10 +10,10 @@ import java.util.List;
 public class EditCancelletionAndReschedulePage extends BasePage
 {
     public EditCancelletionAndReschedulePage(WebDriver driver)
+
     {
         super(driver);
     }
-
 
     @FindBy(css = "span.title")
     public List<WebElement> MandatoryFields;
@@ -91,27 +91,27 @@ public class EditCancelletionAndReschedulePage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, EditPencil);
         EditPencil.click();
-        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "23");
+        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours1, "23 hours");
         RefundPrice1.clear();
         RefundPrice1.sendKeys("30");
-        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "AUD $ value");
-        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, "5");
-        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, "AUD $ value");
+        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice1, "AUD");
+        Utils.SelectFromDropDownUsingVisibleText(CustomerCancelHours2, "5 hours");
+        Utils.SelectFromDropDownUsingVisibleText(TypeOfPrice2, "AUD");
         PolicyDescription1.get(1).click();
         Utils.WaitForAnElementToExist(driver, PolicyDescriptionTextArea1);
         PolicyDescriptionTextArea1.clear();
         PolicyDescriptionTextArea1.sendKeys("hhgytycbv jhjsa ghsgah");
         CustomerCancellationReason1.get(2).click();
 
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "20");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours1, "20 hours");
         ReschedulePrice1.clear();
         ReschedulePrice1.sendKeys( "60");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "AUD $ value");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, "1");
-        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, "AUD $ value");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice1, "AUD");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleHours2, "1 hours");
+        Utils.SelectFromDropDownUsingVisibleText(RescheduleTypeOfPrice2, "AUD");
         Utils.WaitForAnElementToExist(driver, PolicyDescriptionTextArea2);
         PolicyDescriptionTextArea2.clear();
         PolicyDescriptionTextArea2.sendKeys("trrw poppppp uyiuy");
-        SaveAndContinue.click();
+        //SaveAndContinue.click();
     }
 }

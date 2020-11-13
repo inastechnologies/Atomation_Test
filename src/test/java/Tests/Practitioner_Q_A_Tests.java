@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class Practitioner_Q_A_Tests extends BaseTest {
 
     @Test
-    public void VerifyIfTheUseIsAbleToNavigateToQuestionAndAnswerPageOnClickingQuestionAndAnswerInTheSideBar() {
+    public void VerifyIfTheUseIsAbleToNavigateToQuestionAndAnswerPageOnClickingQuestionAndAnswerInTheSideBar() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -45,7 +45,7 @@ public class Practitioner_Q_A_Tests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfTheUserIsAbleToSeeAllQuestionsWhenRedirectedTo_Q_A_Page() {
+    public void VerifyIfTheUserIsAbleToSeeAllQuestionsWhenRedirectedTo_Q_A_Page() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

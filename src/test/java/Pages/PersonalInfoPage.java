@@ -42,8 +42,11 @@ public class PersonalInfoPage extends BasePage
     @FindBy(css = "input.form-check-input")
     public List<WebElement> GenderRadioButtons;
 
-    @FindBy(css = "span.delete-btn")
-    public WebElement DeleteButton;
+    @FindBy(css = "i.fa.fa-times")
+    public WebElement DeleteIcon;
+
+    @FindBy(css = "div.filename-size")
+    public WebElement Filename;
 
     public EducationalInfoPage EnterDateOfBirthUploadPictureAndClickNext(String text, WebElement element)
     {

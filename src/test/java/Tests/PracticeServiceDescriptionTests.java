@@ -87,7 +87,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfUserCanNavigateToPracticeServiceDescriptionPageAfterCompletionOfEducationalInfoPage() {
+    public void VerifyIfUserCanNavigateToPracticeServiceDescriptionPageAfterCompletionOfEducationalInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -118,7 +118,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfServiceTypeFieldIsMandatory() {
+    public void VerifyIfServiceTypeFieldIsMandatory() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -145,7 +145,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
 
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
-        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
+        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeArrow);
         practiceServiceDescriptionPage.CLickEveryFieldInPracticeServiceInfoPage();
 
         // List<String> ActualText = Utils.GetTextForAListOfElements(driver, practiceServiceDescriptionPage.ErrorMessages);
@@ -154,7 +154,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyPracticeServiceDescriptionPagePageHasAllTheRequiredFields() {
+    public void VerifyPracticeServiceDescriptionPagePageHasAllTheRequiredFields() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -191,7 +191,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyIfTheServiceTypeHasTheDropDownListOfRequiredServices() {
+    public void VerifyIfTheServiceTypeHasTheDropDownListOfRequiredServices() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -219,8 +219,8 @@ public class PracticeServiceDescriptionTests extends BaseTest {
         PracticeServiceDescriptionPage practiceServiceDescriptionPage = educationalInfoPage.EnterDataIntoAllTheFieldsInEducationInfoPageAndClickNext("hasg",
                 "asfa", "2658787656", "2020", "01/02/2021");
 
-        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeInput);
-        Select select = new Select(practiceServiceDescriptionPage.ServiceTypeInput);
+        Utils.WaitForAnElementToExist(driver, practiceServiceDescriptionPage.ServiceTypeArrow);
+        Select select = new Select(practiceServiceDescriptionPage.ServiceTypeArrow);
         List<WebElement> options = select.getOptions();
 
         ArrayList actualDropDownItems = new ArrayList();
@@ -240,12 +240,10 @@ public class PracticeServiceDescriptionTests extends BaseTest {
            /* for (int i = 0; i < actualDropDownItems.size(); i++) {
                 if (exp.equals(actualDropDownItems.get(i)))
                     Assert.assertTrue(true);*/
-        }
-
-
+    }
 
     @Test
-    public void VerifyFieldsOOfPracticeServiceDescriptionPageAreAcceptingAlphabetsNumericalSpacesAndSplChar() {
+    public void VerifyFieldsOOfPracticeServiceDescriptionPageAreAcceptingAlphabetsNumericalSpacesAndSplChar() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -277,7 +275,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyUserCanAddUptoFiveImagesInUploadImagesField() {
+    public void VerifyUserCanAddUptoFiveImagesInUploadImagesField() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -310,7 +308,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPracticeServiceDescriptionInfoPage() {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInPracticeServiceDescriptionInfoPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -351,7 +349,7 @@ public class PracticeServiceDescriptionTests extends BaseTest {
     }
 
     @Test
-    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage() {
+    public void VerifyWhenClickingOnSkipButtonItNavigatesToNextPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

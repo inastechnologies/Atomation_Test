@@ -2,7 +2,6 @@ package Tests;
 
 import Pages.*;
 import Utils.Utils;
-import jdk.jshell.execution.Util;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -195,6 +194,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(3000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Assert.assertEquals(editAppointmentPage.LocationInput.getAttribute("value"), Location);
@@ -268,7 +268,7 @@ public class EditAppointmentTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "01", "20","1 hour", "This is to test");
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -276,6 +276,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -322,6 +323,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(3000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         Utils.SelectFromDropDownUsingVisibleText(editAppointmentPage.LocationInput, Location);
 
         Assert.assertTrue(Utils.IsElementDisplayed(driver, editAppointmentPage.Note));
@@ -394,7 +396,7 @@ public class EditAppointmentTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "05", "45","1 hour", "This is to test");
 
         createAppointmentPage.CreateEvenButtons.get(0).click();
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -402,6 +404,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -467,7 +470,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -475,6 +478,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -538,7 +542,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -607,7 +611,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -615,6 +619,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -679,7 +684,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -753,7 +758,7 @@ public class EditAppointmentTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Online", "03", "55", "1 hour", "This is to test");
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
 
@@ -829,7 +834,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -837,6 +842,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -904,7 +910,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -986,7 +992,7 @@ public class EditAppointmentTests extends BaseTest {
 
         createAppointmentPage.CreateEvenButtons.get(1).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();

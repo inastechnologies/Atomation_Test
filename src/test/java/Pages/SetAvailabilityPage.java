@@ -13,7 +13,6 @@ public class SetAvailabilityPage extends BasePage
         super(driver);
     }
 
-
     @FindBy(css = "h4.text-uppercase")
     public WebElement AppointmentsHeading;
 
@@ -46,8 +45,13 @@ public class SetAvailabilityPage extends BasePage
     {
         SessionTypeRadioButtons.get(1).click();
         NextButton.click();
-
         return new CreateAppointmentPage(driver);
     }
 
+    public CreateAppointmentPage_Group ClickOnGroupSessionTypeAndNavigateToCreateAppointmentAndEventTypePage()
+    {
+        SessionTypeRadioButtons.get(0).click();
+        NextButton.click();
+        return new CreateAppointmentPage_Group(driver);
+    }
 }

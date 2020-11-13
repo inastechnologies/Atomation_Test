@@ -134,21 +134,22 @@ public class PractitionerManageAppointmentsPage extends BasePage
     @FindBy(css = "span.image-circle.hand-pointer")
     public List<WebElement> HeaderIcons;
 
-    @FindBy(css = "img.image-size-user")
-    public WebElement ProfileIcon;
+    @FindBy(css = "span.welcome-text")
+    public WebElement ProfileName;
+
+    public By ProfilName = By.cssSelector("span.welcome-text");
 
     @FindBy(css = "div.options-pop")
     public WebElement LogoutButton;
 
     public LoginPage ClickLogoutToGoOutOfThePage()
     {
-        Utils.WaitForAnElementToExist(driver, ProfileIcon);
-        ProfileIcon.click();
+        Utils.WaitForAnElementToBeLocated(driver, ProfilName);
+        driver.findElement(ProfilName).click();
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.PAGE_UP).build().perform();
         Utils.WaitForAnElementToExist(driver, LogoutButton);
         LogoutButton.click();
-
         return new LoginPage(driver);
     }
 
@@ -166,7 +167,6 @@ public class PractitionerManageAppointmentsPage extends BasePage
         Utils.WaitForAnElementToExist(driver, ManageAppointments);
         ManageAppointments.click();
         SetAvailability.click();
-
         return new SetAvailabilityPage(driver);
     }
 
@@ -183,10 +183,7 @@ public class PractitionerManageAppointmentsPage extends BasePage
     {
         Utils.WaitForAnElementToExist(driver, QuestionAndAnswers);
         QuestionAndAnswers.click();
-
-
         return new Practitioner_Q_A_Page(driver);
     }
-
 }
 

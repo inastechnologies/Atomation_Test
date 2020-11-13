@@ -42,8 +42,7 @@ public class VerificationOfYourAccountTests extends BaseTest
     }
 
     @Test
-    public void VerifyYourAccountPageHasTheRequiredField()
-    {
+    public void VerifyYourAccountPageHasTheRequiredField() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -79,7 +78,7 @@ public class VerificationOfYourAccountTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationOfYourAccountPage() {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationOfYourAccountPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -116,8 +115,7 @@ public class VerificationOfYourAccountTests extends BaseTest
     }
 
     @Test
-    public void VerifyPhoneNoOrEmailFieldIsAcceptingValidPhoneNo()
-    {
+    public void VerifyPhoneNoOrEmailFieldIsAcceptingValidPhoneNo() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -153,8 +151,7 @@ public class VerificationOfYourAccountTests extends BaseTest
     }
 
     @Test
-    public void VerifyPhoneNoOREmailFieldIsAcceptingValidEmail()
-    {
+    public void VerifyPhoneNoOREmailFieldIsAcceptingValidEmail() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -190,8 +187,7 @@ public class VerificationOfYourAccountTests extends BaseTest
     }
 
     @Test
-    public void VerifyPhoneNoOREmailFieldIsNotAcceptingInValidData()
-    {
+    public void VerifyPhoneNoOREmailFieldIsNotAcceptingInValidData() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

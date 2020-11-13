@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 public class VerificationCodeTests extends BaseTest
 {
     @Test
-    public void VerifyIfUserCanNotNavigateToVerificationCodePageAfterCompletionOfVerifyYourAccountPage()
-    {
+    public void VerifyIfUserCanNotNavigateToVerificationCodePageAfterCompletionOfVerifyYourAccountPage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -47,8 +46,7 @@ public class VerificationCodeTests extends BaseTest
     }
 
     @Test
-    public void VerificationCodePageHasTheRequiredField()
-    {
+    public void VerificationCodePageHasTheRequiredField() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -86,8 +84,7 @@ public class VerificationCodeTests extends BaseTest
     }
 
     @Test
-    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationCodePage()
-    {
+    public void VerifyUserCanNotNavigateToNextPageWithoutEnteringDataInVerificationCodePage() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -128,8 +125,7 @@ public class VerificationCodeTests extends BaseTest
     }
 
     @Test
-    public void VerifyCodeFieldIsAcceptingValidCode()
-    {
+    public void VerifyCodeFieldIsAcceptingValidCode() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;
@@ -167,8 +163,7 @@ public class VerificationCodeTests extends BaseTest
     }
 
     @Test
-    public void VerifyCodeFieldIsNotAcceptingInValidCode()
-    {
+    public void VerifyCodeFieldIsNotAcceptingInValidCode() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

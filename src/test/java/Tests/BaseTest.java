@@ -18,8 +18,7 @@ public class BaseTest
     {
        System.setProperty("webdriver.chrome.driver", "C:/Selenium/chromedriver.exe");
        driver = new ChromeDriver();
-       //System.setProperty("webdriver.gecko.driver", "C:/Selenium/geckodriver.exe");
-       //driver = new FirefoxDriver();
+
        driver.navigate().to("  http://15.206.71.94/Practitioner_website");
        driver.manage().window().maximize();
     }

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class PractitionerManageAppointmentsTests extends BaseTest {
     @Test
-    public void VerifyIfTheUseIsAbleToLandOntoPractitionerHomePageAfterSuccessfulVerification() {
+    public void VerifyIfTheUseIsAbleToLandOntoPractitionerHomePageAfterSuccessfulVerification() throws InterruptedException {
         String Characters = Utils.printRandomString(6);
         String FirstName = "Sailaja" + Characters;
         String LastName = "Mamillapllai" + Characters;

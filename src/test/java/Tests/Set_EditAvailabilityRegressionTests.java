@@ -106,7 +106,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
         createAppointmentPage.OkButton.click();
     }
 
@@ -497,7 +497,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -741,7 +741,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -951,7 +951,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -1179,7 +1179,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "testing1");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();
@@ -1355,7 +1355,7 @@ public class Set_EditAvailabilityRegressionTests extends BaseTest {
         createAppointmentPage.EnterConsultationType_EventStartTime_CutOffTime_Description("Both", "02", "00", "1 hour", "Testing3");
         createAppointmentPage.CreateEvenButtons.get(0).click();
 
-        createAppointmentPage.SaveAndContinue.click();
+        createAppointmentPage.Save.click();
 
         Thread.sleep(2000);
         createAppointmentPage.OkButton.click();

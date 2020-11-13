@@ -101,7 +101,6 @@ public class LandingPageTests extends BaseTest
         SubscriptionPage subscriptionPage = new SubscriptionPage(driver);
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, subscriptionPage.EssentialSubscription), "ESSENTIAL");
         Assert.assertEquals(Utils.GetTextFromAnElement(driver, subscriptionPage.DynamicSubscription), "DYNAMIC");
-        Assert.assertEquals(Utils.GetTextFromAnElement(driver, subscriptionPage.EnterpriseSubscription), "ENTERPRISE");
     }
 
     @Test
