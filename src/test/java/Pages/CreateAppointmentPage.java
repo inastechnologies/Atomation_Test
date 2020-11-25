@@ -255,9 +255,9 @@ public class CreateAppointmentPage extends BasePage
     {
         DateSpecificButton.click();
         DateInput.sendKeys(Date);
-        //TimeInput.get(0).sendKeys(FromTime);
-        //TimeInput.get(1).sendKeys(ToTime);
-        //AddButton.click();
-        //Save.click();
+        TimeInput.get(0).sendKeys(FromTime);
+        TimeInput.get(1).sendKeys(ToTime);
+        AddButton.click();
+        Save.click();
     }
 }

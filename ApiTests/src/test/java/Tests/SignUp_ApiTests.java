@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class LoginApiTests extends BaseTestApi
+public class SignUp_ApiTests extends BaseTestApi
 {
     @Test
     public void VerifyUserRegisterSuccessfullyApiTest()
@@ -59,7 +59,7 @@ public class LoginApiTests extends BaseTestApi
     }
 
     @Test
-    public void VerifyUserCanRegisterSuccessfully_ApiTest()
+    public void VerifyUserCanSignUpSuccessfully_ApiTest()
     {
         String payLoad = "{\"first_name\":\"rtey\",\"last_name\":\"abcd\",\"mobile_number\":\"9880000661\",\"email_id\":\"sss722788@gmail.com\",\"password\":\"In124@yyy\",\"confirm_password\":\"In124@yyy\",\"location\":\"hyd\",\"gender\":\"female\",\"type\":2,\"google_id\":\"\",\"facebook_id\":\"\"}";
         given()
@@ -115,5 +115,27 @@ public class LoginApiTests extends BaseTestApi
         Assert.assertEquals(registerResponse.result.get(0).mobile_number, "9886685886");
         Assert.assertEquals(registerResponse.result.get(0).email_id, "jhkkkk35@gmail.com");
         Assert.assertEquals(response.statusCode(), 200);
+    }
+
+    @Test
+    public void VerifyUserCanLoginSuccessfully_ApiTest()
+    {
+        String payLoad = "{\"username\":\"7654321098\",\"password\":\"123456\"}";
+        given()
+                .when()
+                .contentType(ContentType.JSON)
+                .body(payLoad)
+                .post(BaseUrl + SignInEndPoint)
+                .then()
+                .log().all()
+                .statusCode(200)
+                .assertThat()
+                .body("message", equalTo("User Sign Up successfully"))
+                .body("result[0].email_id", equalTo("sss722788@gmail.com"))
+                .body("result[0].first_name", equalTo("rtey"))
+                .body("result[0].last_name", equalTo("abcd"))
+                .body("result[0].location", equalTo("hyd"))
+                .body("result[0].password", equalTo("In124@yyy"))
+                .body("result[0].mobile_number", equalTo("9880000661"));
     }
 }

@@ -13,29 +13,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Utils
-{
+public class Utils {
 
-    public static void WaitForAnElementToExist(WebDriver driver, WebElement element)
-    {
+    public static void WaitForAnElementToExist(WebDriver driver, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 35);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void WaitForAnElementToBeLocated(WebDriver driver, By element)
-    {
+    public static void WaitForAnElementToBeLocated(WebDriver driver, By element) {
         WebDriverWait wait = new WebDriverWait(driver, 35);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public static void WaitForElementsToExist(WebDriver driver, List<WebElement> elements)
-    {
+    public static void WaitForElementsToExist(WebDriver driver, List<WebElement> elements) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
-    public static String GetTextFromAnElement(WebDriver driver, WebElement element)
-    {
+    public static String GetTextFromAnElement(WebDriver driver, WebElement element) {
         Utils.WaitForAnElementToExist(driver, element);
         return element.getText();
     }
@@ -45,165 +40,169 @@ public class Utils
         return wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }*/
 
-    public static boolean IsElementDisplayed(WebDriver driver, WebElement element)
-    {
-       try {
+    public static boolean IsElementDisplayed(WebDriver driver, WebElement element) {
+        try {
             WebDriverWait wait = new WebDriverWait(driver, 30);
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception e) {
-           return false;
-        }
-    }
-
-    public static boolean isElementNotPresent(WebDriver driver, WebElement element) {
-        try {
-            WaitForAnElementToExist(driver,element);
-            return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }
     }
 
-    public static boolean ElementsDisplayed(WebDriver driver, List<WebElement> element)
-    {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOfAllElements(element));
-            return true;
-    }
-
-    public static boolean AlertIsPresent(WebDriver driver)
-    {
-        try{
-            WebDriverWait wait = new WebDriverWait(driver,20);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Your notification here')]")));
-        }catch(Throwable e){
-            System.err.println("Error while waiting for the notification to appear: "+ e.getMessage());
-        }
-        return true;
-    }
-
-    public static boolean isElementSelected(WebDriver driver, WebElement element)
-    {
-        boolean isSelected = false;
-        return element.isSelected();
-    }
-
-    public static boolean isClickable(WebDriver driver, WebElement element)
-    {
+    public static boolean isElementDisplayed(WebDriver driver, WebElement element) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.invisibilityOf(element));
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static void SelectFromDropDownUsingVisibleText(WebElement element, String Text)
-    {
-        Select select = new Select(element);
-        select.selectByVisibleText(Text);
-    }
-
-    public static void MouseHoverToAnElement(WebDriver driver, WebElement element)
-    {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).perform();
-    }
-
-    public static int RandomGenerator()
-    {
-        //Random randomGenerator = new Random();
-        //return randomGenerator.nextInt(1000000000);
-
-        Random r = new Random(System.currentTimeMillis());
-        return 100000000 + r.nextInt(200000000);
-    }
-
-    public static String getAlphaNumericString(int n)
-    {
-        // length is bounded by 256 Character
-        byte[] array = new byte[256];
-        new Random().nextBytes(array);
-
-        String randomString = new String(array, Charset.forName("UTF-8"));
-
-        // Create a StringBuffer to store the result
-        StringBuffer r = new StringBuffer();
-
-        // remove all spacial char
-        String AlphaNumericString = randomString.replaceAll("[^A-Za-z0-9]", "");
-
-        // Append first 20 alphanumeric characters
-        // from the generated random String into the result
-        for (int k = 0; k < AlphaNumericString.length(); k++) {
-
-            if (Character.isLetter(AlphaNumericString.charAt(k))
-                    && (n > 0)
-                    || Character.isDigit(AlphaNumericString.charAt(k))
-                    && (n > 0)) {
-
-                r.append(AlphaNumericString.charAt(k));
-                n--;
+    public static boolean isElementNotPresent (WebDriver driver, WebElement element){
+            try {
+                WaitForAnElementToExist(driver, element);
+                return true;
+            } catch (org.openqa.selenium.NoSuchElementException e) {
+                return false;
             }
         }
-        // return the resultant string
-        return r.toString();
-    }
 
-    public static String printRandomString(int n)
-    {
-        int MAX = 26;
-        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g',
-                'h', 'i', 'j', 'k', 'l', 'm', 'n',
-                'o', 'p', 'q', 'r', 's', 't', 'u',
-                'v', 'w', 'x', 'y', 'z'};
-        String res = "";
-        for (int i = 0; i < n; i++)
-            res = res + alphabet[(int) (Math.random() * 10 % MAX)];
-
-        return res;
-    }
-
-    public static List<String> GetTextForAListOfElements(WebDriver driver, List<WebElement> WebElements)
-    {
-        List<String> elementsText = new ArrayList<>();
-
-        for (WebElement element : WebElements)
+    public static boolean ElementsDisplayed (WebDriver driver, List < WebElement > element)
         {
-            elementsText.add(element.getText());
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfAllElements(element));
+            return true;
         }
-        return elementsText;
-    }
 
-    public static int extractMaximum(String str)
-    {
-        int num = 0, res = 0;
-        // Start traversing the given string
-        for (int i = 0; i<str.length(); i++)
+        public static boolean AlertIsPresent (WebDriver driver)
         {
-            // If a numeric value comes, start converting
-            // it into an integer till there are consecutive
-            // numeric digits
-            if (Character.isDigit(str.charAt(i)))
-                num = num * 10 + (str.charAt(i)-'0');
-                // Update maximum value
-            else
-            {
-                res = Math.max(res, num);
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 20);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Your notification here')]")));
+            } catch (Throwable e) {
+                System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+            }
+            return true;
+        }
 
-                // Reset the number
-                num = 0;
+        public static boolean isElementSelected (WebDriver driver, WebElement element)
+        {
+            boolean isSelected = false;
+            return element.isSelected();
+        }
+
+        public static boolean isClickable (WebDriver driver, WebElement element)
+        {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                wait.until(ExpectedConditions.elementToBeClickable(element));
+                return true;
+            } catch (Exception e) {
+                return false;
             }
         }
-        // Return maximum value
-        return Math.max(res, num);
+
+        public static void SelectFromDropDownUsingVisibleText (WebElement element, String Text)
+        {
+            Select select = new Select(element);
+            select.selectByVisibleText(Text);
+        }
+
+        public static void MouseHoverToAnElement (WebDriver driver, WebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).perform();
+        }
+
+        public static int RandomGenerator ()
+        {
+            //Random randomGenerator = new Random();
+            //return randomGenerator.nextInt(1000000000);
+
+            Random r = new Random(System.currentTimeMillis());
+            return 100000000 + r.nextInt(200000000);
+        }
+
+        public static String getAlphaNumericString ( int n)
+        {
+            // length is bounded by 256 Character
+            byte[] array = new byte[256];
+            new Random().nextBytes(array);
+
+            String randomString = new String(array, Charset.forName("UTF-8"));
+
+            // Create a StringBuffer to store the result
+            StringBuffer r = new StringBuffer();
+
+            // remove all spacial char
+            String AlphaNumericString = randomString.replaceAll("[^A-Za-z0-9]", "");
+
+            // Append first 20 alphanumeric characters
+            // from the generated random String into the result
+            for (int k = 0; k < AlphaNumericString.length(); k++) {
+
+                if (Character.isLetter(AlphaNumericString.charAt(k))
+                        && (n > 0)
+                        || Character.isDigit(AlphaNumericString.charAt(k))
+                        && (n > 0)) {
+
+                    r.append(AlphaNumericString.charAt(k));
+                    n--;
+                }
+            }
+            // return the resultant string
+            return r.toString();
+        }
+
+        public static String printRandomString ( int n)
+        {
+            int MAX = 26;
+            char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g',
+                    'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                    'o', 'p', 'q', 'r', 's', 't', 'u',
+                    'v', 'w', 'x', 'y', 'z'};
+            String res = "";
+            for (int i = 0; i < n; i++)
+                res = res + alphabet[(int) (Math.random() * 10 % MAX)];
+
+            return res;
+        }
+
+        public static List<String> GetTextForAListOfElements (WebDriver driver, List < WebElement > WebElements)
+        {
+            List<String> elementsText = new ArrayList<>();
+
+            for (WebElement element : WebElements) {
+                elementsText.add(element.getText());
+            }
+            return elementsText;
+        }
+
+        public static int extractMaximum (String str)
+        {
+            int num = 0, res = 0;
+            // Start traversing the given string
+            for (int i = 0; i < str.length(); i++) {
+                // If a numeric value comes, start converting
+                // it into an integer till there are consecutive
+                // numeric digits
+                if (Character.isDigit(str.charAt(i)))
+                    num = num * 10 + (str.charAt(i) - '0');
+                    // Update maximum value
+                else {
+                    res = Math.max(res, num);
+
+                    // Reset the number
+                    num = 0;
+                }
+            }
+            // Return maximum value
+            return Math.max(res, num);
+        }
     }
 
-
-
-}
 
 
 

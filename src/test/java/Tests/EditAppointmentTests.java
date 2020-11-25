@@ -692,6 +692,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);
@@ -1000,6 +1001,7 @@ public class EditAppointmentTests extends BaseTest {
         Thread.sleep(2000);
         EditAppointmentPage editAppointmentPage = practitionerManageAppointmentsPage.ClickManageAppointmentsTabAndNavigateToEditAvailabilityPage();
 
+        Thread.sleep(2000);
         editAppointmentPage.SelectLocationAndModalityInEditAppointmentPage(Location, "Physiotherapy");
 
         Thread.sleep(2000);

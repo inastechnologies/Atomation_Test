@@ -167,7 +167,7 @@ public class CreateAppointmentPage_Group extends BasePage
     public void SelectRecurringWithDateRangeSessionTypeAndEnterFromDateAndToDate(String FromDate, String ToDate, String Day, String FromTime, String ToTime)
     {
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
-        SessionTypeRadioButtons.get(1).click();
+        SessionTypeRadioButtons.get(0).click();
         FromDateField.sendKeys(FromDate);
         ToDateField.sendKeys(ToDate);
         Utils.SelectFromDropDownUsingVisibleText(SelectDayInput, Day);
@@ -178,7 +178,7 @@ public class CreateAppointmentPage_Group extends BasePage
     public void SelectRecurringWithDateSpecificSessionTypeAndEnterDate(String Date, String FromTime, String ToTime)
     {
         Utils.WaitForElementsToExist(driver, SessionTypeRadioButtons);
-        SessionTypeRadioButtons.get(2).click();
+        SessionTypeRadioButtons.get(1).click();
         DateInput.sendKeys(Date);
         TimeInput.get(0).sendKeys(FromTime);
         TimeInput.get(1).sendKeys(ToTime);
